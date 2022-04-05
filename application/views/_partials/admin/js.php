@@ -38,4 +38,33 @@
 <!-- Volt JS -->
 <script src="<?php echo base_url('assets_admin/js/volt.js');?>"></script>
 
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
 <script src="<?php echo base_url('js/main.js') ?>"></script>
+
+<script>
+  function deleteConfirm(url) {
+    swal({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover this imaginary file!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          swal("Data anda telah berhasil di hapus !", {
+            icon: "success",
+          });
+          window.location.href = url;
+      }
+    });
+  }
+</script>
+
+<script>
+  var base_url = '<?php echo base_url(); ?>';  
+</script>

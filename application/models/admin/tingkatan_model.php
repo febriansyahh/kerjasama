@@ -7,13 +7,12 @@ class tingkatan_model extends CI_Model
 
     public function getAll()
 	{
-		return $this->db->get($this->_table)->result();
+		return $this->db->query("SELECT * FROM tingkatan")->result();
 	}
 
     public function save()
 	{
 		$post = $this->input->post();
-		
         $this->nmTingkatan 	= $post['nmTingkatan'];
 
 		return $this->db->insert($this->_table, $this);

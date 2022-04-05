@@ -10,8 +10,23 @@ class tingkatan extends CI_Controller{
 
     public function index()
     {
-        // $data['tingkatan'] = $this->tingkatan_model->getAll();
-        // $this->load->view("panel/tingkatan", $data);
-        $this->load->view("panel/tingkatan");
+        $data['tingkatan'] = $this->tingkatan_model->getAll();
+        $this->load->view("panel/tingkatan", $data);
+        // $this->load->view("panel/tingkatan");
+    }
+
+    public function add()
+    {
+        $model = $this->tingkatan_model;
+		$validation = $this->form_validation;
+
+        if($validation){
+            $model->save();
+            $this->session->set_flashdata('simpan', 'Berhasil Simpan');
+        }else{
+            $this->session->set_flashdata('gglSimpan', 'Gagal Simpan');
+        }
+
+        redirect('admin/tingkatan');
     }
 }
