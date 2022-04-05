@@ -39,3 +39,5 @@
 
 <!-- Volt CSS -->
 <link type="text/css" href="<?php echo base_url('css/volt.css')?>" rel="stylesheet">
+
+<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>

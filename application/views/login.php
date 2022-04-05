@@ -19,7 +19,7 @@
   <main id="main">
   <section id="login" class="content">
       <br><br><br>
-  <div class="card shadow-lg my-5 mx-auto" style="max-width: 500px;" >
+  <div class="card shadow-lg my-5 mx-auto" style="max-width: 500px;"  >
         <div class="card-body">
           <center>
             <br><img src="<?php echo base_url('assets/img/umk.png')?>" height="150px" width="150px" align="center"><br>
