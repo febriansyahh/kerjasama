@@ -120,7 +120,7 @@
 
       <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
       <li class="nav-item ">
-        <a href="<?php echo site_url('home')?>" class="nav-link">
+        <a href="<?php echo site_url('login')?>" class="nav-link">
           <span class="sidebar-icon">
             <i class="fas fa-sign-out"></i>
           </span>
