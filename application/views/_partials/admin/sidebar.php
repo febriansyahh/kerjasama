@@ -110,7 +110,7 @@
       </li>
 
       <li class="nav-item ">
-        <a href="../../pages/transactions.html" class="nav-link">
+        <a href="<?php echo site_url('admin/user')?>" class="nav-link">
           <span class="sidebar-icon">
           <i class="fas fa-users"></i>
           </span>

@@ -13,9 +13,9 @@ class user extends CI_Controller
     public function index()
     {
         $data["user"] = $this->user_model->getAll();
-        $data["unit"] = $this->unit_model->getData();
+        $data["unit"] = $this->user_model->getData();
 
-        $this->load->view('admin/user', $data);
+        $this->load->view('panel/user', $data);
     }
 
     public function add()
