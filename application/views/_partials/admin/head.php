@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- Primary Meta Tags -->
-<title>Volt - Free Bootstrap 5 Dashboard</title>
+<title>UMK - Kerjasama</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="title" content="Volt - Free Bootstrap 5 Dashboard">
 <meta name="author" content="Themesberg">
@@ -24,7 +24,7 @@
 
 <!-- Favicon -->
 <link rel="apple-touch-icon" sizes="120x120" href="<?php echo base_url('assets_admin/img/favicon/apple-touch-icon.png')?>">
-<link rel="icon" type="image/png" sizes="32x32" href="<?php echo base_url('assets_admin/img/favicon/favicon-32x32.png')?>">
+<link rel="icon" type="image/png" sizes="32x32" href="<?php echo base_url('assets/img/umkicon.png')?>">
 <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets_admin/img/favicon/favicon-16x16.png')?>">
 <link rel="manifest" href="<?php echo base_url('assets_admin/img/favicon/site.webmanifest')?>">
 <link rel="mask-icon" href="<?php echo base_url('assets_admin/img/favicon/safari-pinned-tab.svg')?>" color="#ffffff">

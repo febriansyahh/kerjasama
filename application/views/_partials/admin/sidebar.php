@@ -24,11 +24,11 @@
     </div>
     <ul class="nav flex-column pt-3 pt-md-0">
       <li class="nav-item">
-        <a href="../../index.html" class="nav-link d-flex align-items-center">
+        <a href="<?php echo site_url('admin/overview')?>" class="nav-link d-flex align-items-center">
           <span class="sidebar-icon">
             <!-- <img src="../../assets/img/brand/light.svg" height="20" width="20" alt="Volt Logo"> -->
           </span>
-          <span class="mt-1 ms-1 sidebar-text">Volt Overview</span>
+          <span class="mt-1 ms-1 sidebar-text">Sistem Kerjasama</span>
         </a>
       </li>
       <li class="nav-item  active ">
