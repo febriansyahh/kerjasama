@@ -58,7 +58,7 @@
           role="list" id="submenu-app" aria-expanded="false">
           <ul class="flex-column nav">
             <li class="nav-item ">
-              <li><a class="nav-link" href="../../pages/tables/bootstrap-tables.html">
+              <li><a class="nav-link" href="<?php echo site_url('admin/unit') ?>">
                 <span class="sidebar-text">Data Unit</span>
               </a></li>
             </li>

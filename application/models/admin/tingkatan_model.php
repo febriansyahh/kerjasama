@@ -17,4 +17,18 @@ class tingkatan_model extends CI_Model
 
 		return $this->db->insert($this->_table, $this);
 	}
+
+	public function update()
+	{
+		$post = $this->input->post();
+		$id = $post['id'];
+		$nama = $post['nmTingkatan'];
+
+		$this->db->query("UPDATE tingkatan SET nmTingkatan = '$nama' WHERE idTingkatan = '$id'");
+	}
+
+	public function delete($id)
+    {
+        return $this->db->delete($this->_table, array("idTingkatan" => $id));
+    }
 }

@@ -1,38 +1,39 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class tingkatan extends CI_Controller{
-    public function __construct(){
+class unit extends CI_Controller
+{
+    public function __construct()
+    {
         parent::__construct();
 		$this->load->library('form_validation');
-        $this->load->model("admin/tingkatan_model");
+        $this->load->model("admin/unit_model");
     }
 
     public function index()
     {
-        $data['tingkatan'] = $this->tingkatan_model->getAll();
-        $this->load->view("panel/tingkatan", $data);
-        // $this->load->view("panel/tingkatan");
+        $data['unit'] = $this->unit_model->getAll();
+        $data['tingkatan'] = $this->unit_model->getData();
+        $this->load->view('panel/unit', $data);
     }
 
     public function add()
     {
-        $model = $this->tingkatan_model;
-		$validation = $this->form_validation;
+        $model = $this->unit_model;
+        $validation = $this->form_validation;
 
         if($validation){
             $model->save();
-            $this->session->set_flashdata('simpan', 'Berhasil Simpan');
+            $this->session->set_flashdata('simpan', 'Berhasil Disimpan');
         }else{
-            $this->session->set_flashdata('gglSimpan', 'Gagal Simpan');
+            $this->session->set_flashdata('gglSimpan', 'Gagal Disimpan');
         }
-
-        redirect('admin/tingkatan');
+        redirect('admin/unit');
     }
 
     public function update()
     {
-        $model = $this->tingkatan_model;
+        $model = $this->unit_model;
         $validation = $this->form_validation;
 
         if($validation)
@@ -49,7 +50,7 @@ class tingkatan extends CI_Controller{
     {
         if (!isset($id)) show_404();
 
-		if ($this->tingkatan_model->delete($id)) {
+		if ($this->unit_model->delete($id)) {
 			redirect('admin/unit');
 		}
     }
