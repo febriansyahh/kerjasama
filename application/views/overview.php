@@ -37,7 +37,7 @@
 							</div>
 							<div class="col-12 col-xl-7 px-xl-0">
 								<div class="d-none d-sm-block">
-									<h2 class="h6 text-gray-400 mb-0">Customers</h2>
+									<h2 class="h6 text-gray-400 mb-0">Data MoU</h2>
 									<h3 class="fw-extrabold mb-2">345k</h3>
 								</div>
 								<small class="d-flex align-items-center text-gray-500">
@@ -84,7 +84,7 @@
 							</div>
 							<div class="col-12 col-xl-7 px-xl-0">
 								<div class="d-none d-sm-block">
-									<h2 class="h6 text-gray-400 mb-0">Revenue</h2>
+									<h2 class="h6 text-gray-400 mb-0">Data PKS</h2>
 									<h3 class="fw-extrabold mb-2">$43,594</h3>
 								</div>
 								<small class="d-flex align-items-center text-gray-500">
@@ -131,7 +131,7 @@
 							</div>
 							<div class="col-12 col-xl-7 px-xl-0">
 								<div class="d-none d-sm-block">
-									<h2 class="h6 text-gray-400 mb-0"> Bounce Rate</h2>
+									<h2 class="h6 text-gray-400 mb-0"> Data IA</h2>
 									<h3 class="fw-extrabold mb-2">50.88%</h3>
 								</div>
 								<small class="text-gray-500">
@@ -153,7 +153,12 @@
 		</div>
 		<div class="container" style="padding-top: 25px">
 			<div class="card col-md-12" style="width:100%">
-				<h4>DASHBOARD KERJASAMA</h4>
+				<center>
+				<h5>DASHBOARD SISTEM KERJASAMA</h5>
+				<img src="<?php echo base_url('assets/img/umk.png'); ?>" style="width:200px; height:200px" alt="">
+				<br>
+				<p>Sistem Informasi Kerjasama <br> Universitas Muria Kudus</p>
+				</center>
 			</div>
 		</div>
 	</main>

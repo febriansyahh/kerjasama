@@ -81,44 +81,6 @@
                     </div>
                 </div>
               </a>
-              <a href="#" class="list-group-item list-group-item-action border-bottom">
-                <div class="row align-items-center">
-                    <div class="col-auto">
-                      <!-- Avatar -->
-                      <img alt="Image placeholder" src="<?php echo base_url('assets_admin/img/team/profile-picture-4.jpg')?>" class="avatar-md rounded">
-                    </div>
-                    <div class="col ps-0 ms-2">
-                      <div class="d-flex justify-content-between align-items-center">
-                          <div>
-                            <h4 class="h6 mb-0 text-small">Joseph Garth</h4>
-                          </div>
-                          <div class="text-end">
-                            <small>1 d ago</small>
-                          </div>
-                      </div>
-                      <p class="font-small mt-1 mb-0">New message: "Hey, what's up? All set for the presentation?"</p>
-                    </div>
-                </div>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action border-bottom">
-                <div class="row align-items-center">
-                    <div class="col-auto">
-                      <!-- Avatar -->
-                      <img alt="Image placeholder" src="<?php echo base_url('assets_admin/img/team/profile-picture-5.jpg')?>" class="avatar-md rounded">
-                    </div>
-                    <div class="col ps-0 ms-2">
-                      <div class="d-flex justify-content-between align-items-center">
-                          <div>
-                            <h4 class="h6 mb-0 text-small">Bonnie Green</h4>
-                          </div>
-                          <div class="text-end">
-                            <small>2 hrs ago</small>
-                          </div>
-                      </div>
-                      <p class="font-small mt-1 mb-0">New message: "We need to improve the UI/UX for the landing page."</p>
-                    </div>
-                </div>
-              </a>
               <a href="#" class="dropdown-item text-center fw-bold rounded-bottom py-3">
                 <svg class="icon icon-xxs text-gray-400 me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path></svg>
                 View all
