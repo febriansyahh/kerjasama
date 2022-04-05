@@ -37,3 +37,5 @@
 
 <!-- Volt JS -->
 <script src="<?php echo base_url('assets_admin/js/volt.js');?>"></script>
+
+<script src="<?php echo base_url('js/main.js') ?>"></script>
