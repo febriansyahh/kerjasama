@@ -26,8 +26,8 @@
 									<i class="fas fa-file-signature fa-2xl"></i>
 								</div>
 								<div class="d-sm-none">
-									<h2 class="h5">Customers</h2>
-									<h3 class="fw-extrabold mb-1">345,678</h3>
+									<h2 class="h5">Data MoU</h2>
+									<h3 class="fw-extrabold mb-1">34</h3>
 								</div>
 							</div>
 							<div class="col-12 col-xl-7 px-xl-0">
@@ -68,7 +68,7 @@
 									<i class="fas fa-file-signature fa-2xl"></i>
 								</div>
 								<div class="d-sm-none">
-									<h2 class="fw-extrabold h5">Revenue</h2>
+									<h2 class="fw-extrabold h5">Data Pks</h2>
 									<h3 class="mb-1">43</h3>
 								</div>
 							</div>
@@ -110,7 +110,7 @@
 									<i class="fas fa-file-signature fa-2xl"></i>
 								</div>
 								<div class="d-sm-none">
-									<h2 class="fw-extrabold h5"> Bounce Rate</h2>
+									<h2 class="fw-extrabold h5"> Data IA</h2>
 									<h3 class="mb-1">53</h3>
 								</div>
 							</div>

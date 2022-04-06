@@ -15,7 +15,7 @@
 
 		<?php $this->load->view("_partials/admin/navbar.php") ?>
 		<br>
-		<a data-bs-toggle="modal" data-bs-target="#myUser" class="btn btn-primary btn-sm">Tambah Tingkatan</a>
+		<a data-bs-toggle="modal" data-bs-target="#myTingkat" class="btn btn-primary btn-sm">Tambah Tingkatan</a>
         <?php
                 if($this->session->flashdata('gglSimpan')) echo '<script> swal("Gagal!", "Simpan Gagal !!", "error") </script>';
                 if($this->session->flashdata('simpan')) echo '<script> swal("Berhasil!", "Berhasil Menambah Data Tingkatan !!", "success") </script>';

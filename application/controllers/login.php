@@ -15,10 +15,14 @@ class login extends CI_Controller
         $this->load->view("login");
 	}
 
-	public function login()
+	public function cekLogin()
 	{
 		$username = $this->input->post('username');
 		$password = MD5($this->input->post('password'));
+
+		// var_dump($username);
+		// var_dump($password);
+		// die();
 
 		$cek_user = $this->login_model->userdaftar($username);
 
@@ -39,23 +43,18 @@ class login extends CI_Controller
 
 						if( ($this->session->userdata('levelUser')== '1' || $this->session->userdata('levelUser')== '2' || $this->session->userdata('levelUser')== '3') )
 						{
-							
 							redirect('admin/overview');
 						}else{
-
 							echo "<script>alert(' Maaf anda tdk memiliki akses');document.location='index' </script>";
 						}
 					}else{
-
 						echo "<script>alert(' maaf username belum aktif!');document.location='index' </script>";
 					}
 				}
 			}else{
-
 				echo "<script>alert(' username atau password anda salah !!');document.location='index'; </script>";
 			}
 		}else{
-
 			echo "<script>alert(' username belum terdaftar!!');document.location='index'; </script>";
 		}
 	}

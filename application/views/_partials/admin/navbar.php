@@ -93,7 +93,7 @@
             <div class="media d-flex align-items-center">
               <img class="avatar rounded-circle" alt="Image placeholder" src="<?php echo base_url('assets_admin/img/icon.png')?>">
               <div class="media-body ms-2 text-dark align-items-center d-none d-lg-block">
-                <span class="mb-0 font-small fw-bold text-gray-900">Bayu Sukma</span>
+                <span class="mb-0 font-small fw-bold text-gray-900"><?php echo $this->session->userdata('nmUser');?></span>
               </div>
             </div>
           </a>

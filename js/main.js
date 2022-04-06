@@ -27,7 +27,8 @@ function editableUser(param) {
     $("#editnmUser").val(exp[1]); 
     $("#editUsername").val(exp[2]); 
     $("#editPassword").val(exp[3]); 
-    $("#editidUnit").val(exp[4]); 
-    $("#editlevelUser").val(exp[5]);
+    $("#editnmUnit").val(exp[4]); 
+    $("#editidUnit").val(exp[5]); 
+    $("#editlevelUser").val(exp[6]);
   }
 

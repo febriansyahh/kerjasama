@@ -5,61 +5,54 @@ class user_model extends CI_Model
 {
     private $_table = 'user';
 
-    public $idUser;
-	public $nmUser;
-	public $username;
-	public $password;
-	public $idUnit;
-	public $levelUser;
-	public $status;
+	// public $nmUser;
+	// public $username;
+	// public $password;
+	// public $idUnit;
+	// public $levelUser;
+	// public $status;
 
-	public function rules()
-	{
-		return [
+	// public function rules()
+	// {
+	// 	return [
 
-			[
-				'field' => 'nmUser',
-				'label' => 'nmUser',
-				'rules' => 'required'
-			],
+	// 		[
+	// 			'field' => 'nmUser',
+	// 			'label' => 'nmUser',
+	// 			'rules' => 'required'
+	// 		],
 
-			[
-				'field' => 'username',
-				'label' => 'username',
-				'rules' => 'required'
-			],
+	// 		[
+	// 			'field' => 'username',
+	// 			'label' => 'username',
+	// 			'rules' => 'required'
+	// 		],
 
-			[
-				'field'  => 'password',
-				'label'  => 'password',
-				'rules'  => 'trim|md5|min_length[4]'
-			],
+	// 		[
+	// 			'field'  => 'password',
+	// 			'label'  => 'password',
+	// 			'rules'  => 'trim|md5|min_length[4]'
+	// 		],
             
-            [
-                'field' => 'idUnit',
-                'label' => 'idUnit',
-                'rules' => 'numeric'
-            ],
+    //         [
+    //             'field' => 'idUnit',
+    //             'label' => 'idUnit',
+    //             'rules' => 'numeric'
+    //         ],
 
-			[
-				'field' => 'levelUser',
-				'label' => 'levelUser',
-				'rules' => 'numeric'
-			],
+	// 		[
+	// 			'field' => 'levelUser',
+	// 			'label' => 'levelUser',
+	// 			'rules' => 'numeric'
+	// 		],
 
-
-			[
-				'field' => 'status',
-				'label' => 'status',
-				'rules' => 'numeric'
-			]
-		];
-	}
+	// 	];
+	// }
 
 
     public function getAll()
     {
-        return $this->db->query("SELECT * FROM user ORDER BY nmUser ASC")->result();
+        return $this->db->query("SELECT * FROM user a, mst_unit b WHERE a.idUnit=b.idUnit ORDER BY nmUser ASC")->result();
     }
 
     public function getData()
@@ -71,13 +64,20 @@ class user_model extends CI_Model
     {
         $post = $this->input->post();
 
-        $exp = explode('~', $post['nmUnit']);
+        $exp = explode('~', $post["idUnit"]);
         $idUnit = $exp[0];
         $nama = $exp[1];
+
+        // var_dump($post['username']);
+        // var_dump(MD5($post['password']));
+        // var_dump($post['level']);
+        // var_dump($idUnit);
+        // var_dump($nama);
+        // die();
         
         $this->nmUser 	    = $nama;
         $this->username 	= $post['username'];
-        $this->password     = $post['password'];
+        $this->password     = MD5($post['password']);
         $this->idUnit 	    = $idUnit;
         $this->levelUser     = $post['level'];
         $this->status       = '1';

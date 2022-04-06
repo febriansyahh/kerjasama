@@ -15,13 +15,13 @@
 
 		<?php $this->load->view("_partials/admin/navbar.php") ?>
 		<br>
-		<a data-bs-toggle="modal" data-bs-target="#myUnit" class="btn btn-primary btn-sm">Tambah User</a>
+		<a data-bs-toggle="modal" data-bs-target="#myUser" class="btn btn-primary btn-sm">Tambah User</a>
         <?php
                 if($this->session->flashdata('gglSimpan')) echo '<script> swal("Gagal!", "Simpan Gagal !!", "error") </script>';
-                if($this->session->flashdata('simpan')) echo '<script> swal("Berhasil!", "Berhasil Menambah Data Unit !!", "success") </script>';
-                if($this->session->flashdata('ubah')) echo '<script> swal("Berhasil!", "Berhasil Mengubah Data Unit !!", "success") </script>';
-                if($this->session->flashdata('terhapus')) echo '<script> swal("Berhasil!", "Berhasil Menghapus Data Unit !!", "success") </script>';
-                if($this->session->flashdata('gglUbah')) echo '<script> swal("Gagal!", "Gagal Mengubah Data Unit !!", "error") </script>';
+                if($this->session->flashdata('simpan')) echo '<script> swal("Berhasil!", "Berhasil Menambah Data User Pengguna !!", "success") </script>';
+                if($this->session->flashdata('ubah')) echo '<script> swal("Berhasil!", "Berhasil Mengubah Data User Pengguna !!", "success") </script>';
+                if($this->session->flashdata('terhapus')) echo '<script> swal("Berhasil!", "Berhasil Menghapus Data User Pengguna !!", "success") </script>';
+                if($this->session->flashdata('gglUbah')) echo '<script> swal("Gagal!", "Gagal Mengubah Data User Pengguna !!", "error") </script>';
               ?>
 		<br><br>
 		<!-- <div class="card mb-3">
@@ -63,9 +63,9 @@
                                 </td>
 								
 								<td>
-                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#editUnit"
-                                    onclick="editableUnit(this)"
-                                    data-id="<?php echo $value->idUser . "~" . $value->nmUser . "~" . $value->username . "~" . $value->nmUnit . "~" . $value->idUnit . "~" . $value->levelUser ?>"
+                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#editUser"
+                                    onclick="editableUser(this)"
+                                    data-id="<?php echo $value->idUser . "~" . $value->nmUser . "~" . $value->username .  "~" . $value->password . "~" . $value->nmUnit . "~" . $value->idUnit . "~" . $value->levelUser ?>"
                                     class="btn btn-success btn-sm"><i class="fas fa-edit"></i> Edit</a>
                                 <a onclick="deleteConfirm('<?php echo site_url('admin/user/delete/' . $value->idUser) ?>')"
                                     class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Hapus</a>
@@ -88,7 +88,7 @@
 
 </html>
 
-<div id="editUnit" class="modal fade">
+<div id="editUser" class="modal fade">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">

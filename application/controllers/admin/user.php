@@ -23,10 +23,18 @@ class user extends CI_Controller
         $model = $this->user_model;
         $validation = $this->form_validation;
 
-        $validation->set_rules($model->rules());
+        // $validation->set_rules($model->rules());
         
-        // if($validation)
-		if ($validation->run())
+		// if ($validation->run())
+        // {
+        //     $model->save();
+        //     die();
+        //     $this->session->set_flashdata('simpan', 'Berhasil Simpan');
+        // }else{
+        //     $this->session->set_flashdata('simpan', 'Berhasil Simpan');
+        // }
+
+        if($validation)
         {
             $model->save();
             $this->session->set_flashdata('simpan', 'Berhasil Simpan');
