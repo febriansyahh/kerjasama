@@ -5,6 +5,58 @@ class user_model extends CI_Model
 {
     private $_table = 'user';
 
+    public $idUser;
+	public $nmUser;
+	public $username;
+	public $password;
+	public $idUnit;
+	public $levelUser;
+	public $status;
+
+	public function rules()
+	{
+		return [
+
+			[
+				'field' => 'nmUser',
+				'label' => 'nmUser',
+				'rules' => 'required'
+			],
+
+			[
+				'field' => 'username',
+				'label' => 'username',
+				'rules' => 'required'
+			],
+
+			[
+				'field'  => 'password',
+				'label'  => 'password',
+				'rules'  => 'trim|md5|min_length[4]'
+			],
+            
+            [
+                'field' => 'idUnit',
+                'label' => 'idUnit',
+                'rules' => 'numeric'
+            ],
+
+			[
+				'field' => 'levelUser',
+				'label' => 'levelUser',
+				'rules' => 'numeric'
+			],
+
+
+			[
+				'field' => 'status',
+				'label' => 'status',
+				'rules' => 'numeric'
+			]
+		];
+	}
+
+
     public function getAll()
     {
         return $this->db->query("SELECT * FROM user ORDER BY nmUser ASC")->result();
@@ -53,6 +105,6 @@ class user_model extends CI_Model
 
     public function delete($id)
     {
-        return $this->db->delete($this->_table, array("idUnit" => $id));
+        return $this->db->delete($this->_table, array("idUser" => $id));
     }
 }
