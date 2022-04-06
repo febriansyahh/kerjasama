@@ -32,7 +32,7 @@
         </a>
       </li>
       <li class="nav-item  active ">
-        <a href="../../pages/dashboard/dashboard.html" class="nav-link">
+        <a href="<?php echo site_url('admin/overview')?>" class="nav-link">
          <!-- <i class="fas fa-home"></i> -->
          <span class="sidebar-icon">
          <i class="fas fa-home"></i>

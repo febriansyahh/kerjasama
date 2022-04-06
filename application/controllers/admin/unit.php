@@ -31,7 +31,7 @@ class unit extends CI_Controller
         redirect('admin/unit');
     }
 
-    public function update()
+    public function edit()
     {
         $model = $this->unit_model;
         $validation = $this->form_validation;
@@ -44,5 +44,14 @@ class unit extends CI_Controller
             $this->session->set_flashdata('gglubah', 'gagal ubah');
         }
         redirect('admin/unit');
+    }
+
+    public function delete($id)
+    {
+        if (!isset($id)) show_404();
+
+		if ($this->unit_model->delete($id)) {
+			redirect('admin/unit');
+		}
     }
 }

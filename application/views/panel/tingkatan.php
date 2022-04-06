@@ -52,8 +52,8 @@
 								</td>
 								
 								<td>
-                                <a href="javascript:void(0)" data-toggle="modal" data-target="#editProfile"
-                                    onclick="editProfile(this)"
+                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#editTingkatan"
+                                    onclick="editableTingkatan(this)"
                                     data-id="<?php echo $value->idTingkatan . "~" . $value->nmTingkatan ?>"
                                     class="btn btn-success btn-sm"><i class="fas fa-edit"></i> Edit</a>
                                 <a onclick="deleteConfirm('<?php echo site_url('admin/tingkatan/delete/' . $value->idTingkatan) ?>')"
@@ -76,3 +76,31 @@
 </body>
 
 </html>
+
+<div id="editTingkatan" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="">Ubah Data Unit</h5>
+			</div>
+			<div class="modal-body">
+				<form action="<?php echo site_url('admin/tingkatan/update') ?>" method="post" enctype="multipart/form-data">
+					<div class="form-group">
+						<label for="kode">Nama Tingkatan*</label>
+                        <input type="hidden" class="form-control" id="editID" name="id" readonly>
+						<input class="form-control <?php echo form_error('nmTingkatan') ? 'is-invalid' : '' ?>" type="text" name="nmTingkatan" id="editNm"/>
+						<div class="invalid-feedback">
+							<?php echo form_error('nmTingkatan') ?>
+						</div>
+					</div>
+
+					<br><br>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-bs-dismiss="modal">Batal</button>
+						<input class="btn btn-success" type="submit" name="btn" value="Ubah" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
