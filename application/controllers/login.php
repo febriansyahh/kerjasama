@@ -35,6 +35,7 @@ class login extends CI_Controller
 				{
 					if($value)
 					{
+						$this->session->set_userdata('idUser', $value->idUser);
 						$this->session->set_userdata('idUnit', $value->idUnit);
 						$this->session->set_userdata('nmUser', $value->nmUser);
 						$this->session->set_userdata('username', $value->username);
