@@ -45,13 +45,4 @@ class unit extends CI_Controller
         }
         redirect('admin/unit');
     }
-
-    public function delete($id)
-    {
-        if (!isset($id)) show_404();
-
-		if ($this->unit_model->delete($id)) {
-			redirect('admin/unit');
-		}
-    }
 }
