@@ -154,6 +154,7 @@
 		<div class="container" style="padding-top: 25px">
 			<div class="card col-md-12" style="width:100%">
 				<center>
+				<br>
 				<h5>DASHBOARD SISTEM KERJASAMA</h5>
 				<img src="<?php echo base_url('assets/img/umk.png'); ?>" style="width:200px; height:200px" alt="">
 				<br>
