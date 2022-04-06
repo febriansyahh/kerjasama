@@ -6,6 +6,7 @@ class overview extends CI_Controller
     public function _construct()
     {
         parent::__construct();
+        $this->ceksession->user();
     }
 
     public function index()

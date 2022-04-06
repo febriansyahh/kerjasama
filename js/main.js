@@ -32,3 +32,18 @@ function editableUser(param) {
     $("#editlevelUser").val(exp[6]);
   }
 
+function editableStatus(param) {
+  let data = $(param).data("id");
+  let exp = data.split("~");
+  console.log(data);
+  $("#editID").val(exp[0]); 
+  $("#editNm").val(exp[1]); 
+}
+
+function editableMastermou(param) {
+  let data = $(param).data("id");
+  let exp = data.split("~");
+  console.log(data);
+  $("#editID").val(exp[0]); 
+  $("#editNm").val(exp[1]); 
+}

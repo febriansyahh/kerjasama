@@ -140,3 +140,55 @@
 		</div>
 	</div>
 </div>
+
+<div id="myStatus" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Status MoU</h5>
+			</div>
+			<div class="modal-body">
+				<form action="<?php echo site_url('admin/status_ajuan/add') ?>" method="post" enctype="multipart/form-data">
+					<div class="form-group">
+						<label for="kode">Nama Status*</label>
+						<input class="form-control <?php echo form_error('nama_status') ? 'is-invalid' : '' ?>" type="text" name="nama_status" min="0" placeholder="Status Pengajuan MoU" />
+						<div class="invalid-feedback">
+							<?php echo form_error('nama_status') ?>
+						</div>
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-bs-dismiss="modal">Batal</button>
+						<input class="btn btn-success" type="submit" name="btn" value="Save" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="myMOU" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Master Jenis MoU</h5>
+			</div>
+			<div class="modal-body">
+				<form action="<?php echo site_url('admin/mou/add') ?>" method="post" enctype="multipart/form-data">
+					<div class="form-group">
+						<label for="kode">Nama MoU*</label>
+						<input class="form-control <?php echo form_error('nama_mou') ? 'is-invalid' : '' ?>" type="text" name="nama_mou" min="0" placeholder="MoA, RKS/IA, AR" />
+						<div class="invalid-feedback">
+							<?php echo form_error('nama_mou') ?>
+						</div>
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-bs-dismiss="modal">Batal</button>
+						<input class="btn btn-success" type="submit" name="btn" value="Save" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

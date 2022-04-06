@@ -59,4 +59,9 @@ class login extends CI_Controller
 			echo "<script>alert(' username belum terdaftar!!');document.location='index'; </script>";
 		}
 	}
+
+	function logout(){
+		$this->session->sess_destroy();
+		redirect(base_url('login'));
+	}
 }

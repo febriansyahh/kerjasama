@@ -50,11 +50,13 @@
          <span class="sidebar-text"> Dashboard</span>
         </a>
       </li>
+
       <?php
       $level = $this->session->userdata('levelUser'); 
       switch ($level) {
         case 1:
           ?>
+
       <li class="nav-item">
         <span
           class="nav-link  collapsed  d-flex justify-content-between align-items-center"
@@ -77,19 +79,19 @@
                 <span class="sidebar-text">Unit</span>
               </a></li>
             </li>
-            <li class="nav-item ">
-              <li><a class="nav-link" href="../../pages/tables/bootstrap-tables.html">
+            <!-- <li class="nav-item ">
+              <li><a class="nav-link" href="#">
                 <span class="sidebar-text">Jenis Unit</span>
               </a></li>
-            </li>
+            </li> -->
             <li class="nav-item ">
-              <li><a class="nav-link" href="../../pages/tables/bootstrap-tables.html">
+              <li><a class="nav-link" href="<?php echo site_url('admin/status_ajuan') ?>">
                 <span class="sidebar-text">Status Ajuan</span>
               </a></li>
             </li>
             <li class="nav-item ">
-              <li><a class="nav-link" href="../../pages/tables/bootstrap-tables.html">
-                <span class="sidebar-text">Jenis MoU</span>
+              <li><a class="nav-link" href="<?php echo site_url('admin/mou') ?>">
+                <span class="sidebar-text">Master MoU</span>
               </a></li>
             </li>
           </ul>
@@ -144,7 +146,7 @@
 
       <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
       <li class="nav-item ">
-        <a href="<?php echo site_url('login')?>" class="nav-link">
+        <a href="<?php echo site_url('login/logout')?>" class="nav-link">
           <span class="sidebar-icon">
             <i class="fas fa-sign-out"></i>
           </span>
@@ -204,7 +206,7 @@
       <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
       
       <li class="nav-item ">
-        <a href="<?php echo site_url('login')?>" class="nav-link">
+        <a href="<?php echo site_url('login/logout')?>" class="nav-link">
           <span class="sidebar-icon">
             <i class="fas fa-sign-out"></i>
           </span>
@@ -254,7 +256,7 @@
 
       <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
       <li class="nav-item ">
-        <a href="<?php echo site_url('login')?>" class="nav-link">
+        <a href="<?php echo site_url('login/logout')?>" class="nav-link">
           <span class="sidebar-icon">
             <i class="fas fa-sign-out"></i>
           </span>
