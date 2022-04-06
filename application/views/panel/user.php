@@ -38,6 +38,8 @@
 								<th>Nama User</th>
 								<th>Username</th>
 								<th>Unit</th>
+								<th>Akses View</th>
+								<th>Akses Unduh</th>
 								<th>Pilihan</th>
 							</tr>
 						</thead>
@@ -61,11 +63,35 @@
                                 <td>
                                     <?php echo $value->nmUnit ?>
                                 </td>
+                                <td>
+                                    <?php
+									if($value->is_view == '1'){
+									?>
+										Diberikan
+									<?php
+									}else{
+									?> Tidak Diberikan
+									<?php
+										}
+									?>
+                                </td>
+                                <td>
+                                    <?php
+									if($value->is_download == '1'){
+									?>
+										Diberikan
+									<?php
+									}else{
+									?> Tidak Diberikan
+									<?php
+										}
+									?>
+                                </td>
 								
 								<td>
                                 <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#editUser"
                                     onclick="editableUser(this)"
-                                    data-id="<?php echo $value->idUser . "~" . $value->nmUser . "~" . $value->username .  "~" . $value->password . "~" . $value->nmUnit . "~" . $value->idUnit . "~" . $value->levelUser ?>"
+                                    data-id="<?php echo $value->idUser . "~" . $value->nmUser . "~" . $value->username .  "~" . $value->password . "~" . $value->nmUnit . "~" . $value->idUnit . "~" . $value->levelUser . "~" . $value->is_view . "~" . $value->is_download  ?>"
                                     class="btn btn-success btn-sm"><i class="fas fa-edit"></i> Edit</a>
                                 <a onclick="deleteConfirm('<?php echo site_url('admin/user/delete/' . $value->idUser) ?>')"
                                     class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Hapus</a>
@@ -89,36 +115,115 @@
 </html>
 
 <div id="editUser" class="modal fade">
-	<div class="modal-dialog">
+	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="">Ubah Data User</h5>
 			</div>
 			<div class="modal-body">
-				<form action="<?php echo site_url('admin/unit/edit') ?>" method="post" enctype="multipart/form-data">
-					<div class="form-group">
-						<label for="kode">Nama Unit*</label>
-                        <input type="hidden" class="form-control" id="editID" name="id" readonly>
-						<input class="form-control <?php echo form_error('nmUnit') ? 'is-invalid' : '' ?>" type="text" name="nmUnit" id="editNm"/>
-						<div class="invalid-feedback">
-							<?php echo form_error('nmUnit') ?>
+				<form action="<?php echo site_url('admin/user/edit') ?>" method="post" enctype="multipart/form-data">
+				<!-- <div class="form-group">
+							<label for="kode">Nama User Pengguna</label>
+							<input class="form-control <?php echo form_error('nama_user') ? 'is-invalid' : '' ?>" type="text" name="nama_user" min="0" id="editnmUser" />
+							<div class="invalid-feedback">
+								<?php echo form_error('nama_user') ?>
+							</div>
+						</div> -->
+				<div class="row">
+					<div class="col-6">
+						<div class="form-group">
+							<label for="kode">Username</label>
+							<input type="hidden" name="id" id="editID" required>
+							<input class="form-control <?php echo form_error('username') ? 'is-invalid' : '' ?>" type="text" name="username" min="0" id="editUsername" />
+							<div class="invalid-feedback">
+								<?php echo form_error('username') ?>
+							</div>
+						</div>
+					</div>
+					<div class="col-6">
+						<div class="form-group">
+							<label for="kode">Nama User Pengguna</label>
+							<input class="form-control <?php echo form_error('nama_user') ? 'is-invalid' : '' ?>" type="text" name="nama_user" min="0" id="editnmUser" />
+							<div class="invalid-feedback">
+								<?php echo form_error('nama_user') ?>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<!-- <div class="col-6">
+						<div class="form-group">
+							<label for="kode">Unit Terkait</label>
+							<select name="idUnit" id="editidUnit" class="form-control">
+								<option value="">- Pilih -</option>
+								<?php
+									foreach($unit as $row){
+										echo "<option value='" . $row->idUnit . "~" . $row->nmUnit . "'>" . $row->nmUnit ."</option>";
+									}
+								?>
+							</select>
+							<div class="invalid-feedback">
+								<?php echo form_error('idTingkatan') ?>
+							</div>
+						</div>
+					</div> -->
+					<div class="col-6">
+						<div class="form-group">
+							<label for="kode">Password</label>
+							<input class="form-control <?php echo form_error('password') ? 'is-invalid' : '' ?>" type="password" name="password" min="0" id="editPassword" />
+							<div class="invalid-feedback">
+								<?php echo form_error('password') ?>
+							</div>
 						</div>
 					</div>
 
-					<div class="form-group">
-						<label for="kode">Tingkatan Unit*</label>
-						<select name="idTingkatan" id="editIdTingkat" class="form-control">
-							<option value="">- Pilih -</option>
-							<?php
-								foreach($tingkatan as $row){
-									echo "<option value='" . $row->idTingkatan . "'>" . $row->nmTingkatan ."</option>";
-								}
-							?>
-						</select>
-						<div class="invalid-feedback">
-							<?php echo form_error('idTingkatan') ?>
+					<div class="col-6">
+						<div class="form-group">
+							<label for="kode">Level Pengguna</label>
+							<select name="level" id="editlevelUser" class="form-control">
+								<option value="">- Pilih -</option>
+								<option value="1">Admin</option>
+								<option value="2">Operator / PIC</option>
+								<option value="3">Unit</option>
+							</select>
+							<div class="invalid-feedback">
+								<?php echo form_error('level') ?>
+							</div>
 						</div>
 					</div>
+
+				</div>
+				<div class="row">
+					<div class="col-6">
+						<div class="form-group">
+							<label for="kode">Akses View</label>
+							<select name="is_view" id="editIsView" class="form-control">
+								<option value="">- Pilih -</option>
+								<option value="1">Ya</option>
+								<option value="0">Tidak</option>
+							</select>
+							<div class="invalid-feedback">
+								<?php echo form_error('is_view') ?>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-6">
+						<div class="form-group">
+							<label for="kode">Akses Unduh</label>
+							<select name="is_download" id="editIsDownload" class="form-control">
+								<option value="">- Pilih -</option>
+								<option value="1">Ya</option>
+								<option value="0">Tidak</option>
+							</select>
+							<div class="invalid-feedback">
+								<?php echo form_error('is_view') ?>
+							</div>
+						</div>
+					</div>
+				</div>
+
 					<br><br>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-bs-dismiss="modal">Batal</button>

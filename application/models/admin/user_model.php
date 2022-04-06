@@ -80,6 +80,8 @@ class user_model extends CI_Model
         $this->password     = MD5($post['password']);
         $this->idUnit 	    = $idUnit;
         $this->levelUser     = $post['level'];
+        $this->is_view     = $post['is_view'];
+        $this->is_download     = $post['is_download'];
         $this->status       = '1';
 
 		return $this->db->insert($this->_table, $this);
@@ -88,17 +90,23 @@ class user_model extends CI_Model
     public function update()
     {
         $post = $this->input->post();
+
         
         $id = $post['id'];
         $level = $post['level'];
         $username = $post['username'];
         $password = $post['password'];
+        $passwordEncrypt = MD5($post['password']);
+        $is_view     = $post['is_view'];
+        $is_download     = $post['is_download'];
 
-        if($password != '')
+        $cekpass = $this->db->query("SELECT `password` FROM `user` WHERE `idUser` = '$id' ")->row();
+
+        if($password != $cekpass->password)
         {
-            $this->db->query("UPDATE user SET `username` = '$username', `password` = '$password', `level` = '$level WHERE `idUser` ='$id' '");
+            $this->db->query("UPDATE user SET `username` = '$username', `password` = '$passwordEncrypt', `level` = '$level', `is_view` = '$is_view', `is_download` = '$is_download' WHERE `idUser` ='$id' '");
         }else{
-            $this->db->query("UPDATE user SET `username` = '$username', `level` = '$level WHERE `idUser` ='$id' '");
+            $this->db->query("UPDATE user SET `username` = '$username', `password` = '$password', `level` = '$level', `is_view` = '$is_view', `is_download` = '$is_download' WHERE `idUser` ='$id' '");
         }
 
     }

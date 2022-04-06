@@ -128,6 +128,35 @@
 					</div>
 
 				</div>
+				<div class="row">
+					<div class="col-6">
+						<div class="form-group">
+							<label for="kode">Akses View</label>
+							<select name="is_view" id="" class="form-control">
+								<option value="">- Pilih -</option>
+								<option value="1">Ya</option>
+								<option value="0">Tidak</option>
+							</select>
+							<div class="invalid-feedback">
+								<?php echo form_error('is_view') ?>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-6">
+						<div class="form-group">
+							<label for="kode">Akses Unduh</label>
+							<select name="is_download" id="" class="form-control">
+								<option value="">- Pilih -</option>
+								<option value="1">Ya</option>
+								<option value="0">Tidak</option>
+							</select>
+							<div class="invalid-feedback">
+								<?php echo form_error('is_view') ?>
+							</div>
+						</div>
+					</div>
+				</div>
 
 					
 					<br><br>

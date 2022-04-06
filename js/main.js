@@ -30,6 +30,8 @@ function editableUser(param) {
     $("#editnmUnit").val(exp[4]); 
     $("#editidUnit").val(exp[5]); 
     $("#editlevelUser").val(exp[6]);
+    $("#editIsView").val(exp[7]);
+    $("#editIsDownload").val(exp[8]);
   }
 
 function editableStatus(param) {
