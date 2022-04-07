@@ -56,7 +56,7 @@
 									<?php echo $value->nama_mou ?>
 								</td>
 								<td>
-									<?php echo $value->jenis_mou ?>
+									<?php echo $value->nama_mou ?>
 								</td>
 								<td>
 									<?php echo $value->nmUnit ?>
