@@ -254,7 +254,7 @@
         </div>
       </li> -->
       <li class="nav-item ">
-        <a href="<?php echo site_url('')?>" class="nav-link">
+      <li><a class="nav-link" href="<?php echo site_url('admin/kerjasama_PUD') ?>">
           <span class="sidebar-icon">
           <i class="fas fa-database"></i>
           </span>
