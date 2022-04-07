@@ -142,9 +142,9 @@ class ajuan_model extends CI_Model
         $ajuan = str_replace('.', '_', $aj);
         $unit = str_replace(' ', '_', $b);
         $c = 'Ajuan_' . $ajuan . '_' . $unit; 
-        // var_dump($c);
-        // die();
-		$config['upload_path']          = './upload/ajuan/';
+        // $c = 'Ajuan_' . $ajuan; 
+        
+        $config['upload_path']          = './upload/ajuan/';
 		$config['allowed_types']        = 'pdf|jpg|png';
 		$config['file_name']            = $c;
 		$config['overwrite']			= true;

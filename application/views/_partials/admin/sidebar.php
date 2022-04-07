@@ -100,7 +100,7 @@
       <li class="nav-item ">
         <a href="<?php echo site_url('admin/ajuan') ?>" class="nav-link">
           <span class="sidebar-icon">
-             <i class="fas fa-file"></i>
+             <i class="fas fa-file-upload"></i>
           </span>
           <span class="sidebar-text">Ajuan Kerjasama</span>
         </a>
@@ -118,7 +118,7 @@
       <li class="nav-item ">
         <a href="../../pages/transactions.html" class="nav-link">
           <span class="sidebar-icon">
-             <i class="fas fa-file"></i>
+             <i class="fas fa-history"></i>
           </span>
           <span class="sidebar-text">Data History</span>
         </a>
