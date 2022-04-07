@@ -79,6 +79,12 @@ class ajuan_model extends CI_Model
         return $this->db->query("SELECT * FROM jenis_mou")->result();
     }
 
+    public function getID($id)
+    {
+        return $this->db->query("SELECT a.*, b.nama_mou, c.nmUnit, d.id_status, d.nama_status FROM 
+        tr_ajuan a, jenis_mou b, mst_unit c, status_mou d WHERE a.id_mou=b.id_mou AND a.id_unit=c.idUnit AND a.id_status=d.id_status AND a.id_ajuan ='$id' ")->row();
+    }
+
     public function save()
     {
         $post = $this->input->post();
@@ -143,7 +149,7 @@ class ajuan_model extends CI_Model
         $unit = str_replace(' ', '_', $b);
         $c = 'Ajuan_' . $ajuan . '_' . $unit; 
         // $c = 'Ajuan_' . $ajuan; 
-        
+
         $config['upload_path']          = './upload/ajuan/';
 		$config['allowed_types']        = 'pdf|jpg|png';
 		$config['file_name']            = $c;
@@ -157,6 +163,21 @@ class ajuan_model extends CI_Model
 			return $this->upload->data("file_name");
 		}
 	}
+
+    public function update()
+    {
+        $post = $this->input->post();
+
+        $id = $post['id'];
+        $nm_ajuan = $post['nm_ajuan'];
+        $id_mou = $post['id_mou'];
+        $id_unit = $post['id_unit'];
+        $mitra = $post['mitra'];
+        $tgl_mulai = $post['tgl_mulai'];
+        $tgl_selesai = $post['tgl_selesai'];
+
+        $this->db->query("UPDATE tr_ajuan ");
+    }
     
     public function delete($id)
     {

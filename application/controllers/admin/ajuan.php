@@ -25,6 +25,15 @@ class ajuan extends CI_Controller
         $this->load->view('panel/ajuan/ajuan', $data);
     }
 
+    public function editable($id)
+    {
+        $data["getData"] = $this->ajuan_model->getID($id);
+        $data["unit"] = $this->ajuan_model->getUnit();
+        $data["mou"] = $this->ajuan_model->getMou();
+        
+        $this->load->view('panel/ajuan/edit', $data);
+    }
+
     public function add()
     {
         $model = $this->ajuan_model;

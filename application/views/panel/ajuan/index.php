@@ -76,6 +76,7 @@
                                     onclick="editableMastermou(this)"
                                     data-id="<?php echo $value->id_mou . "~" . $value->nama_mou ?>"
                                     class="btn btn-success btn-sm"><i class="fas fa-edit"></i> Edit</a> -->
+                                <a href="<?php echo site_url('admin/ajuan/editable/' . $value->id_ajuan) ?>" class="btn btn-success btn-sm"><i class="fas fa-edit"></i> Edit</a>
                                 <a onclick="deleteConfirm('<?php echo site_url('admin/ajuan/delete/' . $value->id_ajuan) ?>')"
                                     class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Hapus</a>
                                 </td>
