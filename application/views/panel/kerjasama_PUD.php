@@ -50,7 +50,7 @@
 								</td>
 								
 								<td>
-                                <a class="btn btn-success btn-sm"><i class="fa-solid fa-eye"></i>View</a>
+                                <a href="<?php echo site_url('admin/kerjasama_PUD/detail/'.$value->id_kerjasama) ?>" class="btn btn-success btn-sm"><i class="fa-solid fa-eye"></i>View</a>
                                 </td>
 
 							</tr>
