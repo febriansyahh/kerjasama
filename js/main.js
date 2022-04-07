@@ -49,3 +49,25 @@ function editableMastermou(param) {
   $("#editID").val(exp[0]); 
   $("#editNm").val(exp[1]); 
 }
+
+function readURL(input, type) {
+  const [file] = input.files
+  let fileType = file['type'];
+  let validImageTypes = ['image/jpg', 'image/jpeg', 'image/png'];
+
+  if (file) {
+    // swal({
+    //   title: "INFO !!",
+    //   text: "Jika Sudah, Tekan Tombol Ajukan untuk Menyelesaikan Proses Pengajuan!",
+    //   icon: "info",
+    //   button: "Baik !",
+    // })
+    if (!validImageTypes.includes(fileType)) {
+      $('#showFile').html(`<iframe src="${URL.createObjectURL(file) }" height="520px" width="470px"></iframe>`);
+      document.getElementById(type).value = URL.createObjectURL(file);
+    } else {
+      $('#showFile').html(`<img id="blah" src="${URL.createObjectURL(file)}" width="520px" height="350px" />`);
+      document.getElementById(type).value = URL.createObjectURL(file);
+    }
+  }
+}
