@@ -218,7 +218,7 @@
 
     case 3:
       ?>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <span
           class="nav-link  collapsed  d-flex justify-content-between align-items-center"
           data-bs-toggle="collapse" data-bs-target="#submenu-app">
@@ -252,6 +252,14 @@
             </li>
           </ul>
         </div>
+      </li> -->
+      <li class="nav-item ">
+        <a href="<?php echo site_url('')?>" class="nav-link">
+          <span class="sidebar-icon">
+          <i class="fas fa-database"></i>
+          </span>
+          <span class="sidebar-text">Data Kerjasama</span>
+        </a>
       </li>
 
       <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
