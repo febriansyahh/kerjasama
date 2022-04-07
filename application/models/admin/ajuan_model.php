@@ -85,24 +85,31 @@ class ajuan_model extends CI_Model
 
         $nm_ajuan = $post['nm_ajuan'];
         $id_mou = $post['id_mou'];
-        $id_unit = $post['id_unit'];
+        $id_unit = $post['unit'];
         $mitra = $post['mitra'];
-        $id_status = $post['id_status'];
+        // $id_status = $post['id_status'];
         $tgl_mulai = $post['tgl_mulai'];
         $tgl_selesai = $post['tgl_selesai'];
 
         $sys = date("Y-m-d H:i:s");
-
         $cu = $this->db->query("SELECT * FROM mst_unit WHERE idUnit = '$id_unit'")->row();
+
+        // var_dump($nm_ajuan);
+        // var_dump($id_mou);
+        // var_dump($id_unit);
+        // var_dump($mitra);
+        // var_dump($tgl_mulai);
+        // var_dump($tgl_selesai);
+        // var_dump($file);
+        // die();
 
         $sql = "INSERT INTO `tr_ajuan`(`nm_ajuan`, `id_mou`, `id_unit`, `mitra`, `file`, `id_status`, `tgl_mulai`, `tgl_selesai`, `sysInput`) VALUES(
                  '". $nm_ajuan ."',
                  '". $id_mou ."',
                  '". $id_unit ."',
                  '". $mitra ."',
-                 '". $mitra ."',
                  '" . $this->_uploadFile($nm_ajuan, $cu->nmUnit) . "',
-                 '". $id_status ."',
+                 '1',
                  '". $tgl_mulai ."',
                  '". $tgl_selesai ."',
                  '". $sys ."'
@@ -124,23 +131,24 @@ class ajuan_model extends CI_Model
         
         $idAjuan = $post['id'];
         $sys = date("Y-m-d H:i:s");
-
+        // die();
         $sql = "INSERT INTO `tr_history` (`id_ajuan`, `id_status`, `sysInput`) VALUES ('$idAjuan', '1', '$sys')";
         return $this->db->query($sql);
     }
 
     private function _uploadFile($a, $b)
 	{
-        $ajuan = str_replace(' ', '_', $a);
+        $aj = str_replace(' ', '_', $a);
+        $ajuan = str_replace('.', '_', $aj);
         $unit = str_replace(' ', '_', $b);
         $c = 'Ajuan_' . $ajuan . '_' . $unit; 
-        var_dump($c);
-        die();
+        // var_dump($c);
+        // die();
 		$config['upload_path']          = './upload/ajuan/';
 		$config['allowed_types']        = 'pdf|jpg|png';
 		$config['file_name']            = $c;
 		$config['overwrite']			= true;
-		$config['max_size']             = 1024;
+		$config['max_size']             = 2048;
 
 		$this->load->library('upload', $config);
 		$this->upload->initialize($config);

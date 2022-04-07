@@ -34,8 +34,9 @@
 					<div class="card-body">
 						<h2 class="text-center"><b>Ajuan Kerjasama</b></h2>
 						<hr>
-						<form class="form" action="<?php echo site_url('absen/Absen/addIzinAbsen') ?>" method="post"
+						<form class="form" action="<?php echo site_url('admin/ajuan/add') ?>" method="post"
 							enctype="multipart/form-data">
+                            <input type="hidden" name="id" class="form-control" value="<?php echo $id->id_AI ?>">
 							<div class="form-group">
 								<label class="col-sm-5 control-label pb-2"><b>Nama Ajuan :</b></label>
 								<div class="col-sm-12">
@@ -61,7 +62,7 @@
 							<div class="form-group">
 								<label class="col-sm-5 control-label pb-2"><b>Pengajuan dari unit :</b></label>
 								<div class="col-sm-12">
-									<select name="id_mou" id="" class="form-control" required>
+									<select name="unit" id="" class="form-control" required>
 										<option value="">- Pilih -</option>
 										<?php
                               foreach ($unit as $value) {

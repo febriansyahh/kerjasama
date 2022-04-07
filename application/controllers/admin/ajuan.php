@@ -20,6 +20,7 @@ class ajuan extends CI_Controller
     {
         $data["unit"] = $this->ajuan_model->getUnit();
         $data["mou"] = $this->ajuan_model->getMou();
+        $data["id"] = $this->ajuan_model->getAI();
 
         $this->load->view('panel/ajuan/ajuan', $data);
     }
@@ -32,6 +33,7 @@ class ajuan extends CI_Controller
         if($validation)
         {
             $model->save();
+            $model->saveHistory();
             $this->session->set_flashdata('simpan', 'success');
         }else{
             $this->session->set_flashdata('gglsimpan', 'error');
