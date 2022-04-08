@@ -96,13 +96,13 @@
 												break;
 											case '3':
 											?>
-												<a href="<?php echo site_url('admin/ajuan/status_empat/' . $value->id_ajuan) ?>" data-bs-toggle="tooltip" data-bs-placement="top" title="Update Status Proses Penandatangan" class="btn btn-secondary btn-sm"><i class="fas fa-marker"></i></a>
+												<a href="<?php echo site_url('admin/ajuan/status_empat/' . $value->id_ajuan) ?>" data-bs-toggle="tooltip" data-bs-placement="top" title="Update Status Proses Penandatangan" class="btn btn-secondary btn-sm"><i class="fas fa-signature"></i></a>
 
 											<?php
 												break;
 											case '4':
 											?>
-												<a href="<?php echo site_url('admin/ajuan/status_lima/' . $value->id_ajuan) ?>" data-bs-toggle="tooltip" data-bs-placement="top" title="Update Status Ajuan Selesai di Proses" class="btn btn-secondary btn-sm"><i class="fas fa-marker"></i></a>
+												<a href="<?php echo site_url('admin/ajuan/status_lima/' . $value->id_ajuan) ?>" data-bs-toggle="tooltip" data-bs-placement="top" title="Update Status Ajuan Selesai di Proses" class="btn btn-secondary btn-sm"><i class="fas fa-check-double"></i></a>
 
 												<?php
 												break;

@@ -90,7 +90,7 @@
 							<div class="form-group">
 								<label class="col-sm-5 control-label pb-2"><b>File Ajuan :</b></label>
 								<div class="col-sm-12">
-									<input class="form-control<?php echo form_error('file') ? 'is-invalid' : '' ?>" type="file" name="file" accept="image/jpeg,image/jpg,image/png,application/pdf" onchange="readURLEdit(this, 'fileAjuan')" />
+									<input class="form-control<?php echo form_error('file') ? 'is-invalid' : '' ?>" type="file" name="fileAjuan" accept="image/jpeg,image/jpg,image/png,application/pdf" onchange="readURLEdit(this, 'fileAjuan')" />
 									<input type="hidden" id="fileAjuan" />
 								</div>
 								<p><small><em>*Unggah file untuk mengubah file ajuan lama</em></small></p>

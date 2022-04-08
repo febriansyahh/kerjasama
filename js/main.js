@@ -56,12 +56,12 @@ function readURL(input, type) {
 	let validImageTypes = ['image/jpg', 'image/jpeg', 'image/png'];
 
 	if (file) {
-		// swal({
-		//   title: "INFO !!",
-		//   text: "Jika Sudah, Tekan Tombol Ajukan untuk Menyelesaikan Proses Pengajuan!",
-		//   icon: "info",
-		//   button: "Baik !",
-		// })
+		swal({
+		  title: "INFO !!",
+		  text: "Jika Sudah, Tekan Tombol Ajukan untuk Menyelesaikan Proses Pengajuan!",
+		  icon: "info",
+		  button: "Baik !",
+		})
 		if (!validImageTypes.includes(fileType)) {
 			$('#showFile').html(`<iframe src="${URL.createObjectURL(file) }" height="520px" width="470px"></iframe>`);
 			document.getElementById(type).value = URL.createObjectURL(file);
@@ -87,12 +87,12 @@ function readURLEdit(input, type) {
 	let validImageTypes = ['image/jpg', 'image/jpeg', 'image/png'];
 	
 		if (file) {
-			// swal({
-			//   title: "INFO !!",
-			//   text: "Jika Sudah, Tekan Tombol Ajukan untuk Menyelesaikan Proses Pengajuan!",
-			//   icon: "info",
-			//   button: "Baik !",
-			// })
+			swal({
+			  title: "INFO !!",
+			  text: "Jika Sudah, Tekan Tombol Ajukan untuk Menyelesaikan Proses Pengajuan!",
+			  icon: "info",
+			  button: "Baik !",
+			})
 			if (!validImageTypes.includes(fileType)) {
 				$('#showFile').html(`<iframe src="${URL.createObjectURL(file)}" height="240px" width="470px"></iframe>`);
 				document.getElementById(type).value = URL.createObjectURL(file);

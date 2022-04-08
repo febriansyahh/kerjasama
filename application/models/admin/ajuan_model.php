@@ -178,12 +178,13 @@ class ajuan_model extends CI_Model
         $tgl_mulai = $post['tgl_mulai'];
         $tgl_selesai = $post['tgl_selesai'];
 
-        $f = $this->db->query("SELECT `file` FROM `tr_ajuan` WHERE `id` = '$id'")->row();
+
+        $f = $this->db->query("SELECT `file` FROM `tr_ajuan` WHERE `id_ajuan` = '$id'")->row();
         $cu = $this->db->query("SELECT * FROM mst_unit WHERE idUnit = '$id_unit'")->row();
 
         $file = $this->_uploadFile($nm_ajuan, $cu->nmUnit);
 
-        if($_FILES['file'] != NULL){
+        if($_FILES['fileAjuan']['name'] != ''){
             unlink('./upload/ajuan/' . $f->file);
             $this->db->query("UPDATE tr_ajuan SET `nm_ajuan`= '$nm_ajuan' ,`id_mou`= '$id_mou' ,`id_unit`= '$id_unit' ,`mitra`= '$mitra' ,`file`= '$file' ,`id_status`= '$id_status' ,`tgl_mulai`= '$tgl_mulai' ,`tgl_selesai`= '$tgl_selesai' WHERE `id_ajuan` = '$id' ");
         }else{
