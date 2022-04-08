@@ -168,7 +168,6 @@ class ajuan_model extends CI_Model
     public function update()
     {
         $post = $this->input->post();
-
         
         $id = $post['id'];
         $nm_ajuan = $post['nm_ajuan'];
@@ -192,28 +191,34 @@ class ajuan_model extends CI_Model
         }
     }
 
-    private function _uploadFileEdit($a, $b)
+    public function dua($id)
     {
-        $aj = str_replace(' ', '_', $a);
-        $ajuan = str_replace('.', '_', $aj);
-        $unit = str_replace(' ', '_', $b);
-        $c = 'Ajuan_' . $ajuan . '_' . $unit;
-        // $c = 'Ajuan_' . $ajuan;
-
-        $config['upload_path']          = './upload/ajuan/';
-        $config['allowed_types']        = 'pdf|jpg|png';
-        $config['file_name']            = $c;
-        $config['overwrite']			= true;
-        $config['max_size']             = 2048;
-
-        $this->load->library('upload', $config);
-        $this->upload->initialize($config);
-
-        if ($this->upload->do_upload('file')) {
-            return $this->upload->data("file_name");
-        }
+        $sys = date("Y-m-d H:i:s");
+        $this->db->query("UPDATE `tr_ajuan` SET `id_status` = '2' WHERE `id_ajuan` = '$id' ");
+        $this->db->query("INSERT INTO `tr_history`(`id_ajuan`, `id_status`, `sysInput`) VALUES ('$id', '2', '$sys')");
     }
-    
+
+    public function tiga($id)
+    {
+        $sys = date("Y-m-d H:i:s");
+        $this->db->query("UPDATE `tr_ajuan` SET `id_status` = '3' WHERE `id_ajuan` = '$id' ");
+        $this->db->query("INSERT INTO `tr_history`(`id_ajuan`, `id_status`, `sysInput`) VALUES ('$id', '3', '$sys')");
+    }
+
+    public function empat($id)
+    {
+        $sys = date("Y-m-d H:i:s");
+        $this->db->query("UPDATE `tr_ajuan` SET `id_status` = '4' WHERE `id_ajuan` = '$id' ");
+        $this->db->query("INSERT INTO `tr_history`(`id_ajuan`, `id_status`, `sysInput`) VALUES ('$id', '4', '$sys')");
+    }
+
+    public function lima($id)
+    {
+        $sys = date("Y-m-d H:i:s");
+        $this->db->query("UPDATE `tr_ajuan` SET `id_status` = '5' WHERE `id_ajuan` = '$id' ");
+        $this->db->query("INSERT INTO `tr_history`(`id_ajuan`, `id_status`, `sysInput`) VALUES ('$id', '5', '$sys')");
+    }
+
     public function delete($id)
     {
         return $this->db->delete($this->_table, array("id_ajuan" => $id));

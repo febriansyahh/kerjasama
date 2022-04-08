@@ -74,4 +74,56 @@ class ajuan extends CI_Controller
         redirect('admin/ajuan');
     }
 
+    public function status_dua($id)
+    {
+        $model = $this->ajuan_model;
+        $validation = $this->form_validation;;
+        if($validation){
+            $model->dua($id);
+            $this->session->set_flashdata('dua', 'success');
+        }else{
+            $this->session->set_flashdata('ggldua', 'error');
+        }
+        redirect('admin/ajuan');
+    }
+
+    public function status_tiga($id)
+    {
+        $model = $this->ajuan_model;
+        $validation = $this->form_validation;
+        if ($validation) {
+            $model->tiga($id);
+            $this->session->set_flashdata('tiga', 'success');
+        } else {
+            $this->session->set_flashdata('ggltiga', 'error');
+        }
+        redirect('admin/ajuan');
+    }
+
+    public function status_empat($id)
+    {
+        $model = $this->ajuan_model;
+        $validation = $this->form_validation;
+        if ($validation) {
+            $model->empat($id);
+            $this->session->set_flashdata('empat', 'success');
+        } else {
+            $this->session->set_flashdata('gglempat', 'error');
+        }
+        redirect('admin/ajuan');
+    }
+
+    public function status_lima($id)
+    {
+        $model = $this->ajuan_model;
+        $validation = $this->form_validation;
+        if ($validation) {
+            $model->lima($id);
+            $this->session->set_flashdata('lima', 'success');
+        } else {
+            $this->session->set_flashdata('ggllima', 'error');
+        }
+        redirect('admin/ajuan');
+    }
+
 }

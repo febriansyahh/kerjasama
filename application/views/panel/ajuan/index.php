@@ -22,6 +22,14 @@
 		if ($this->session->flashdata('ubah')) echo '<script> swal("Berhasil!", "Berhasil Mengubah Data Master MoU !!", "success") </script>';
 		if ($this->session->flashdata('terhapus')) echo '<script> swal("Berhasil!", "Berhasil Menghapus Data Master MoU !!", "success") </script>';
 		if ($this->session->flashdata('gglubah')) echo '<script> swal("Gagal!", "Gagal Mengubah Data Master MoU !!", "error") </script>';
+		if ($this->session->flashdata('dua')) echo '<script> swal("Berhasil!", "Berhasil Mengubah Status Pengajuan ke pihak mitra !!", "success") </script>';
+		if ($this->session->flashdata('ggldua')) echo '<script> swal("Gagal!", "Gagal Mengubah Status Pengajuan ke pihak mitra !!", "error") </script>';
+		if ($this->session->flashdata('tiga')) echo '<script> swal("Berhasil!", "Berhasil Mengubah Status ACC, Menunggu Penandatanganan !!", "success") </script>';
+		if ($this->session->flashdata('ggltiga')) echo '<script> swal("Gagal!", "Gagal Mengubah Status ACC, Menunggu Penandatanganan !!", "error") </script>';
+		if ($this->session->flashdata('empat')) echo '<script> swal("Berhasil!", "Berhasil Mengubah Status Proses Penandatanganan !!", "success") </script>';
+		if ($this->session->flashdata('gglempat')) echo '<script> swal("Gagal!", "Gagal Mengubah Status Proses Penandatanganan !!", "error") </script>';
+		if ($this->session->flashdata('lima')) echo '<script> swal("Berhasil!", "Berhasil Mengubah Status Ajuan Selesai !!", "success") </script>';
+		if ($this->session->flashdata('ggllima')) echo '<script> swal("Gagal!", "Gagal Mengubah Status Ajuan Selesai !!", "error") </script>';
 		?>
 		<br><br>
 		<!-- <div class="card mb-3">
@@ -76,29 +84,29 @@
 										switch ($value->id_status) {
 											case '1':
 										?>
-												<a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Update Status Ajuan Ke Mitra" class="btn btn-secondary btn-sm"><i class="fas fa-marker"></i></a>
+												<a href="<?php echo site_url('admin/ajuan/status_dua/' . $value->id_ajuan) ?>" data-bs-toggle="tooltip" data-bs-placement="top" title="Update Status Ajuan Ke Mitra" class="btn btn-secondary btn-sm"><i class="fas fa-angle-double-up"></i></a>
 
 											<?php
 												break;
 											case '2':
 											?>
-												<a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Update Status Menunggu Penandatangan" class="btn btn-secondary btn-sm"><i class="fas fa-marker"></i></a>
+												<a href="<?php echo site_url('admin/ajuan/status_tiga/' . $value->id_ajuan) ?>" data-bs-toggle="tooltip" data-bs-placement="top" title="Update Status Menunggu Penandatangan" class="btn btn-secondary btn-sm"><i class="fas fa-marker"></i></a>
 
 											<?php
 												break;
 											case '3':
 											?>
-												<a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Update Status Proses Penandatangan" class="btn btn-secondary btn-sm"><i class="fas fa-marker"></i></a>
+												<a href="<?php echo site_url('admin/ajuan/status_empat/' . $value->id_ajuan) ?>" data-bs-toggle="tooltip" data-bs-placement="top" title="Update Status Proses Penandatangan" class="btn btn-secondary btn-sm"><i class="fas fa-marker"></i></a>
 
 											<?php
 												break;
 											case '4':
 											?>
-												<a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Update Status Ajuan Selesai di Proses" class="btn btn-secondary btn-sm"><i class="fas fa-marker"></i></a>
+												<a href="<?php echo site_url('admin/ajuan/status_lima/' . $value->id_ajuan) ?>" data-bs-toggle="tooltip" data-bs-placement="top" title="Update Status Ajuan Selesai di Proses" class="btn btn-secondary btn-sm"><i class="fas fa-marker"></i></a>
 
-											<?php
+												<?php
 												break;
-											?>
+												?>
 										<?php
 										}
 										?>
