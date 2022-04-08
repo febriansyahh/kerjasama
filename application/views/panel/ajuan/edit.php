@@ -15,8 +15,6 @@
 
 		<?php $this->load->view("_partials/admin/navbar.php") ?>
 		<br>
-		<a href="<?php echo site_url('admin/ajuan/ajukan') ?>" class="btn btn-primary"><i class="fas fa-plus"></i> Ajuan
-			Kerjasama</a>
 		<?php
 		if ($this->session->flashdata('gglsimpan')) echo '<script> swal("Gagal!", "Simpan Gagal !!", "error") </script>';
 		if ($this->session->flashdata('simpan')) echo '<script> swal("Berhasil!", "Berhasil Menambah Data Master MoU !!", "success") </script>';
@@ -33,11 +31,12 @@
 			<div class="col-6">
 				<div class="card shadow">
 					<div class="card-body">
-						<h2 class="text-center"><b>Ajuan Kerjasama</b></h2>
+						<h4 class="text-center"><b>Perubahan Ajuan Kerjasama</b></h4>
 						<hr>
 						<form class="form" action="<?php echo site_url('admin/ajuan/edit') ?>" method="post" enctype="multipart/form-data">
 							<input type="hidden" name="id" value="<?php echo $getData->id_ajuan ?>">
-						  <div class="form-group">
+							<input type="hidden" name="status" value="<?php echo $getData->id_status ?>">
+							<div class="form-group">
 								<label class="col-sm-5 control-label pb-2"><b>Nama Ajuan :</b></label>
 								<div class="col-sm-12">
 									<input type="text" name="nm_ajuan" class="form-control" value="<?php echo $getData->nm_ajuan ?>" required>
@@ -53,10 +52,11 @@
 											if ($value->id_mou == $getData->id_mou) {
 										?> <option value="<?php echo $value->id_mou ?>" selected><?php echo $value->nama_mou ?></option> <?php
 																																		} else {
-																																			?> <option value="<?php echo $value->id_mou ?>"><?php echo $value->nama_mou ?></option> <?php
-																																																								}
-																																																							}
-																																																									?>
+																																			?> <option value="<?php echo $value->id_mou ?>"><?php echo $value->nama_mou ?>
+												</option> <?php
+																																		}
+																																	}
+															?>
 									</select>
 								</div>
 							</div>
@@ -90,9 +90,10 @@
 							<div class="form-group">
 								<label class="col-sm-5 control-label pb-2"><b>File Ajuan :</b></label>
 								<div class="col-sm-12">
-									<input class="form-control<?php echo form_error('file') ? 'is-invalid' : '' ?>" type="file" name="file" accept="image/jpeg,image/jpg,image/png,application/pdf" onchange="readURL(this, 'fileAjuan')" />
+									<input class="form-control<?php echo form_error('file') ? 'is-invalid' : '' ?>" type="file" name="file" accept="image/jpeg,image/jpg,image/png,application/pdf" onchange="readURLEdit(this, 'fileAjuan')" />
 									<input type="hidden" id="fileAjuan" />
 								</div>
+								<p><small><em>*Unggah file untuk mengubah file ajuan lama</em></small></p>
 							</div>
 							<div class="form-group">
 								<label class="col-sm-5 control-label pb-2"><b>Tanggal Mulai :</b></label>
@@ -108,9 +109,9 @@
 								</div>
 							</div>
 
-							<br>
+							<br><br>
 							<div class="box-footer text-center">
-								<button type="submit" class="btn btn-primary" name="btnSimpan">Ajukan</button>
+								<button type="submit" class="btn btn-primary" name="btnSimpan">Ajukan Perubahan</button>
 							</div>
 						</form>
 					</div>
@@ -120,7 +121,20 @@
 			<div class="col-6">
 				<div class="card shadow">
 					<div class="card-body">
-						<h2 class="text-center"><b>HASIL UPLOAD FILE</b></h2>
+						<h4 class="text-center"><b>Preview Upload File</b></h4>
+						<hr>
+						<div class="col-12">
+							<center>
+								<iframe src="<?php echo base_url('upload/ajuan/' . $getData->file); ?>" frameborder="0" height="230px" width="470px"></iframe>
+							</center>
+							<hr>
+						</div>
+					</div>
+				</div>
+				<br>
+				<div class="card shadow">
+					<div class="card-body">
+						<h4 class="text-center"><b>Preview File Ubahan</b></h4>
 						<hr>
 						<div class="col-12">
 							<center>

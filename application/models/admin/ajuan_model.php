@@ -155,6 +155,7 @@ class ajuan_model extends CI_Model
 		$config['file_name']            = $c;
 		$config['overwrite']			= true;
 		$config['max_size']             = 2048;
+        
 
 		$this->load->library('upload', $config);
 		$this->upload->initialize($config);
@@ -163,20 +164,54 @@ class ajuan_model extends CI_Model
 			return $this->upload->data("file_name");
 		}
 	}
-
+    
     public function update()
     {
         $post = $this->input->post();
 
+        
         $id = $post['id'];
         $nm_ajuan = $post['nm_ajuan'];
         $id_mou = $post['id_mou'];
         $id_unit = $post['id_unit'];
         $mitra = $post['mitra'];
+        $id_status = $post['status'];
         $tgl_mulai = $post['tgl_mulai'];
         $tgl_selesai = $post['tgl_selesai'];
 
-        $this->db->query("UPDATE tr_ajuan ");
+        $f = $this->db->query("SELECT `file` FROM `tr_ajuan` WHERE `id` = '$id'")->row();
+        $cu = $this->db->query("SELECT * FROM mst_unit WHERE idUnit = '$id_unit'")->row();
+
+        $file = $this->_uploadFile($nm_ajuan, $cu->nmUnit);
+
+        if($_FILES['file'] != NULL){
+            unlink('./upload/ajuan/' . $f->file);
+            $this->db->query("UPDATE tr_ajuan SET `nm_ajuan`= '$nm_ajuan' ,`id_mou`= '$id_mou' ,`id_unit`= '$id_unit' ,`mitra`= '$mitra' ,`file`= '$file' ,`id_status`= '$id_status' ,`tgl_mulai`= '$tgl_mulai' ,`tgl_selesai`= '$tgl_selesai' WHERE `id_ajuan` = '$id' ");
+        }else{
+            $this->db->query("UPDATE tr_ajuan SET `nm_ajuan`= '$nm_ajuan' ,`id_mou`= '$id_mou' ,`id_unit`= '$id_unit' ,`mitra`= '$mitra' ,`id_status`= '$id_status' ,`tgl_mulai`= '$tgl_mulai' ,`tgl_selesai`= '$tgl_selesai' WHERE `id_ajuan` = '$id' ");
+        }
+    }
+
+    private function _uploadFileEdit($a, $b)
+    {
+        $aj = str_replace(' ', '_', $a);
+        $ajuan = str_replace('.', '_', $aj);
+        $unit = str_replace(' ', '_', $b);
+        $c = 'Ajuan_' . $ajuan . '_' . $unit;
+        // $c = 'Ajuan_' . $ajuan;
+
+        $config['upload_path']          = './upload/ajuan/';
+        $config['allowed_types']        = 'pdf|jpg|png';
+        $config['file_name']            = $c;
+        $config['overwrite']			= true;
+        $config['max_size']             = 2048;
+
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+
+        if ($this->upload->do_upload('file')) {
+            return $this->upload->data("file_name");
+        }
     }
     
     public function delete($id)

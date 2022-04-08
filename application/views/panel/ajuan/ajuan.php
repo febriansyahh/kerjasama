@@ -119,9 +119,9 @@
 						<hr>
 						<div class="col-12">
                             <center>
-							<div id="showFile">
-								<img id="blah" src="#" alt="" />
-							</div>
+								<div id="showFile">
+									<img id="blah" src="#" alt="" />
+								</div>
                             </center>
 							<hr>
 						</div>
