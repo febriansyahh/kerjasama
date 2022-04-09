@@ -256,7 +256,7 @@
       <li class="nav-item ">
       <li><a class="nav-link" href="<?php echo site_url('admin/kerjasama_PUD') ?>">
           <span class="sidebar-icon">
-          <i class="fas fa-database"></i>
+          <i class="fas fa-file"></i>
           </span>
           <span class="sidebar-text">Data Kerjasama</span>
         </a>
