@@ -15,12 +15,6 @@
 
 		<?php $this->load->view("_partials/admin/navbar.php") ?>
 		<br>
-		<?php
-		// echo 'AAA';
-		var_dump($moa);
-		// var_dump($ar);
-		die();
-		?>
 		<div class="row">
 			<div class="col-4 col-sm-6 col-xl-4 mb-4">
 				<div class="card border-0 shadow">
@@ -32,13 +26,13 @@
 								</div>
 								<div class="d-sm-none">
 									<h2 class="h5">Data MoU</h2>
-									<h3 class="fw-extrabold mb-1"><?php echo $moa->jumlah ?></h3>
+									<h3 class="fw-extrabold mb-1">55</h3>
 								</div>
 							</div>
 							<div class="col-12 col-xl-7 px-xl-0">
 								<div class="d-none d-sm-block">
 									<h2 class="h6 text-gray-400 mb-0">Data MoU</h2>
-									<h3 class="fw-extrabold mb-2"><?php echo $moa->jumlah ?></h3>
+									<h3 class="fw-extrabold mb-2">55</h3>
 								</div>
 								<small class="d-flex align-items-center text-gray-500">
 									Feb 1 - Apr 1,
@@ -67,13 +61,13 @@
 								</div>
 								<div class="d-sm-none">
 									<h2 class="fw-extrabold h5">Data RIKS</h2>
-									<h3 class="mb-1"><?php echo $riks->jumlah ?></h3>
+									<h3 class="mb-1">55</h3>
 								</div>
 							</div>
 							<div class="col-12 col-xl-7 px-xl-0">
 								<div class="d-none d-sm-block">
 									<h2 class="h6 text-gray-400 mb-0">Data RIKS</h2>
-									<h3 class="fw-extrabold mb-2"><?php echo $riks->jumlah ?></h3>
+									<h3 class="fw-extrabold mb-2">55</h3>
 								</div>
 								<small class="d-flex align-items-center text-gray-500">
 									Feb 1 - Apr 1,
@@ -102,13 +96,13 @@
 								</div>
 								<div class="d-sm-none">
 									<h2 class="fw-extrabold h5"> Data AR</h2>
-									<h3 class="mb-1"><?php echo $ar->jumlah ?></h3>
+									<h3 class="mb-1">55</h3>
 								</div>
 							</div>
 							<div class="col-12 col-xl-7 px-xl-0">
 								<div class="d-none d-sm-block">
 									<h2 class="h6 text-gray-400 mb-0"> Data AR</h2>
-									<h3 class="fw-extrabold mb-2"><?php echo $ar->jumlah ?></h3>
+									<h3 class="fw-extrabold mb-2">55</h3>
 								</div>
 								<small class="text-gray-500">
 									Feb 1 - Apr 1
