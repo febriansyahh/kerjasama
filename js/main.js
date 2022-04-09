@@ -50,6 +50,23 @@ function editableMastermou(param) {
 	$("#editNm").val(exp[1]);
 }
 
+function editableFile(param) {
+	let data = $(param).data("id");
+	let exp = data.split("~");
+	let type = exp[1].split(".");
+	console.log(exp);
+	console.log(type);
+	console.log(type[1]);
+	$("editID").val(exp[0]);
+	$("editFile").val(exp[1]);
+	console.log(base_url);
+	if (type[1] != 'pdf') {
+		$('#showFile').html(`<img id="blah" src="${base_url + '/upload/ajuan/' + exp[1]}" width="520px" height="350px" />`);
+	} else {
+		$('#showFile').html(`<iframe src="${base_url + '/upload/ajuan/' + exp[1]}" height="520px" width="470px"></iframe>`);
+	}
+}
+
 function readURL(input, type) {
 	const [file] = input.files
 	let fileType = file['type'];
@@ -72,14 +89,14 @@ function readURL(input, type) {
 	}
 }
 
-function editableAjuan(param) {
-	let data = $(param).data("id");
-	let exp = data.split("~");
-	console.log(exp);
-	$("editID").val(exp[0]);
-	$("editFile").val(exp[1]);
-	console.log(base_url);
-}
+// function editableAjuan(param) {
+// 	let data = $(param).data("id");
+// 	let exp = data.split("~");
+// 	console.log(exp);
+// 	$("editID").val(exp[0]);
+// 	$("editFile").val(exp[1]);
+// 	console.log(base_url);
+// }
 
 function readURLEdit(input, type) {
 	const [file] = input.files
@@ -87,12 +104,12 @@ function readURLEdit(input, type) {
 	let validImageTypes = ['image/jpg', 'image/jpeg', 'image/png'];
 	
 		if (file) {
-			swal({
-			  title: "INFO !!",
-			  text: "Jika Sudah, Tekan Tombol Ajukan untuk Menyelesaikan Proses Pengajuan!",
-			  icon: "info",
-			  button: "Baik !",
-			})
+			// swal({
+			//   title: "INFO !!",
+			//   text: "Jika Sudah, Tekan Tombol Ajukan untuk Menyelesaikan Proses Pengajuan!",
+			//   icon: "info",
+			//   button: "Baik !",
+			// })
 			if (!validImageTypes.includes(fileType)) {
 				$('#showFile').html(`<iframe src="${URL.createObjectURL(file)}" height="240px" width="470px"></iframe>`);
 				document.getElementById(type).value = URL.createObjectURL(file);
