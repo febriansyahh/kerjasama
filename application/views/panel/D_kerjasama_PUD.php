@@ -31,12 +31,11 @@
 						<!-- <td width="170"><b>Jenis MoU </b></td> -->
 						<td with="10"> </td>
 						<td with="170"><?php echo $data->nama_mou ?> </td>
-						<td with="170"> </td>
 
 						</tr>
 						<tr class="gradeX">
 						<!-- <td width="170"><b>Nama Ajuan</b></td> -->
-						<td with="170"> </td>
+						<td with="200"> </td>
 						<td><?php echo $data->nm_ajuan?></td>
 
 						</tr>
@@ -55,6 +54,7 @@
 						</tr>
 						<tr class="gradeX">
 						<!-- <td width="170"><b>Tanggal selesai </b></td> -->
+						<td with="200"> </td>
 						<td><?php echo $data->keterangan ?></td>
 
 						</tr>

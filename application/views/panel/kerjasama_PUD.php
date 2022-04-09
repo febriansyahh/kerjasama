@@ -21,13 +21,14 @@
 		<div class="card">
 			<div class="box-body">
 				<div class="table-responsive py-6">
-					<table id="example" class="display" style="width:100%">
+					<table id="example" class="display" style="width:100%" style="text-align:center;">
 						<thead>
 							<tr>
 								<th>No</th>
-								<th>Jenis MoU</th>
-								<th>Ajuan</th>
-								<th>Nama Kerjasama</th>
+								<th>Tanggal Mou</th>
+								<th>Kerjasama</th>
+								<th>TENTANG/IMPLEMENTASI KEGIATAN</th>
+								<th>Tanggal Berakir Mou</th>
 								<th>Detail</th>
 							</tr>
 						</thead>
@@ -40,16 +41,24 @@
 									<?php echo $no++ ?>
 								</td>
 								<td>
-									<?php echo $value->nama_mou ?>
+									<!-- tanggal mulai -->
+									<?php echo $value->tgl_mulai ?>
 								</td>
 								<td>
-									<?php echo $value->nm_ajuan ?>
-								</td>
-								<td>
+									<!-- kerjasama -->
 									<?php echo $value->nm_kerjasama ?>
+								</td>
+								<td>
+									<!-- tentang -->
+									<?php echo $value->keterangan ?>
+								</td>
+								<td>
+									<!-- tgl berakir -->
+									<?php echo $value->tgl_selesai ?>
 								</td>
 								
 								<td>
+									<!-- view -->
                                 <a href="<?php echo site_url('admin/kerjasama_PUD/detail/'.$value->id_kerjasama) ?>" class="btn btn-success btn-sm"><i class="fa-solid fa-eye"></i>View</a>
                                 </td>
 
