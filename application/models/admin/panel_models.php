@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class panel_model extends CI_Model
+class panel_models extends CI_Model
 {
     public function jumlah_moa()
     {
