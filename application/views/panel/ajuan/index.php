@@ -38,87 +38,89 @@
 		</div> -->
 		<div class="card">
 			<div class="box-body">
-				<div class="table-responsive py-4">
-					<table id="example" class="display" style="width:100%">
-						<thead>
-							<tr>
-								<th>No</th>
-								<th>Nama Ajuan</th>
-								<th>Jenis MoU</th>
-								<th>Unit</th>
-								<th>Mitra</th>
-								<th>Tgl. Mulai</th>
-								<th>Tgl. Selesai</th>
-								<th>Pilihan</th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php
-							$no = 1;
-							foreach ($getAll as $value) : ?>
+				<div class="card-body">
+					<div class="table-responsive py-4">
+						<table id="example" class="display" style="width:100%">
+							<thead>
 								<tr>
-									<td>
-										<?php echo $no++ ?>
-									</td>
-									<td>
-										<?php echo $value->nama_mou ?>
-									</td>
-									<td>
-										<?php echo $value->nama_mou ?>
-									</td>
-									<td>
-										<?php echo $value->nmUnit ?>
-									</td>
-									<td>
-										<?php echo $value->mitra ?>
-									</td>
-									<td>
-										<?php echo date('d-m-Y', strtotime($value->tgl_mulai)) ?>
-									</td>
-									<td>
-										<?php echo date('d-m-Y', strtotime($value->tgl_selesai)) ?>
-									</td>
+									<th>No</th>
+									<th>Nama Ajuan</th>
+									<th>Jenis MoU</th>
+									<th>Unit</th>
+									<th>Mitra</th>
+									<th>Tgl. Mulai</th>
+									<th>Tgl. Selesai</th>
+									<th>Pilihan</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php
+								$no = 1;
+								foreach ($getAll as $value) : ?>
+									<tr>
+										<td>
+											<?php echo $no++ ?>
+										</td>
+										<td>
+											<?php echo $value->nama_mou ?>
+										</td>
+										<td>
+											<?php echo $value->nama_mou ?>
+										</td>
+										<td>
+											<?php echo $value->nmUnit ?>
+										</td>
+										<td>
+											<?php echo $value->mitra ?>
+										</td>
+										<td>
+											<?php echo date('d-m-Y', strtotime($value->tgl_mulai)) ?>
+										</td>
+										<td>
+											<?php echo date('d-m-Y', strtotime($value->tgl_selesai)) ?>
+										</td>
 
-									<td>
-										<?php
-										switch ($value->id_status) {
-											case '1':
-										?>
-												<a href="<?php echo site_url('admin/ajuan/status_dua/' . $value->id_ajuan) ?>" data-bs-toggle="tooltip" data-bs-placement="top" title="Update Status Ajuan Ke Mitra" class="btn btn-secondary btn-sm"><i class="fas fa-angle-double-up"></i></a>
-
+										<td>
 											<?php
-												break;
-											case '2':
+											switch ($value->id_status) {
+												case '1':
 											?>
-												<a href="<?php echo site_url('admin/ajuan/status_tiga/' . $value->id_ajuan) ?>" data-bs-toggle="tooltip" data-bs-placement="top" title="Update Status Menunggu Penandatangan" class="btn btn-secondary btn-sm"><i class="fas fa-marker"></i></a>
-
-											<?php
-												break;
-											case '3':
-											?>
-												<a href="<?php echo site_url('admin/ajuan/status_empat/' . $value->id_ajuan) ?>" data-bs-toggle="tooltip" data-bs-placement="top" title="Update Status Proses Penandatangan" class="btn btn-secondary btn-sm"><i class="fas fa-signature"></i></a>
-
-											<?php
-												break;
-											case '4':
-											?>
-												<a href="<?php echo site_url('admin/ajuan/status_lima/' . $value->id_ajuan) ?>" data-bs-toggle="tooltip" data-bs-placement="top" title="Update Status Ajuan Selesai di Proses" class="btn btn-secondary btn-sm"><i class="fas fa-check-double"></i></a>
+													<a href="<?php echo site_url('admin/ajuan/status_dua/' . $value->id_ajuan) ?>" data-bs-toggle="tooltip" data-bs-placement="top" title="Update Status Ajuan Ke Mitra" class="btn btn-secondary btn-sm"><i class="fas fa-angle-double-up"></i></a>
 
 												<?php
-												break;
+													break;
+												case '2':
 												?>
-										<?php
-										}
-										?>
-										<a href="<?php echo site_url('admin/ajuan/editable/' . $value->id_ajuan) ?>" onclick="editableAjuan(this)" data-id="<?php echo $value->id_ajuan . "~" . $value->file ?>" class="btn btn-success btn-sm"><i class="fas fa-edit"></i> Edit</a>
-										<a onclick="deleteConfirm('<?php echo site_url('admin/ajuan/delete/' . $value->id_ajuan) ?>')" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Hapus</a>
-									</td>
+													<a href="<?php echo site_url('admin/ajuan/status_tiga/' . $value->id_ajuan) ?>" data-bs-toggle="tooltip" data-bs-placement="top" title="Update Status Menunggu Penandatangan" class="btn btn-secondary btn-sm"><i class="fas fa-marker"></i></a>
 
-								</tr>
-							<?php endforeach; ?>
-						</tbody>
+												<?php
+													break;
+												case '3':
+												?>
+													<a href="<?php echo site_url('admin/ajuan/status_empat/' . $value->id_ajuan) ?>" data-bs-toggle="tooltip" data-bs-placement="top" title="Update Status Proses Penandatangan" class="btn btn-secondary btn-sm"><i class="fas fa-signature"></i></a>
 
-					</table>
+												<?php
+													break;
+												case '4':
+												?>
+													<a href="<?php echo site_url('admin/ajuan/status_lima/' . $value->id_ajuan) ?>" data-bs-toggle="tooltip" data-bs-placement="top" title="Update Status Ajuan Selesai di Proses" class="btn btn-secondary btn-sm"><i class="fas fa-check-double"></i></a>
+
+													<?php
+													break;
+													?>
+											<?php
+											}
+											?>
+											<a href="<?php echo site_url('admin/ajuan/editable/' . $value->id_ajuan) ?>" onclick="editableAjuan(this)" data-id="<?php echo $value->id_ajuan . "~" . $value->file ?>" class="btn btn-success btn-sm"><i class="fas fa-edit"></i> Edit</a>
+											<a onclick="deleteConfirm('<?php echo site_url('admin/ajuan/delete/' . $value->id_ajuan) ?>')" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Hapus</a>
+										</td>
+
+									</tr>
+								<?php endforeach; ?>
+							</tbody>
+
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>
