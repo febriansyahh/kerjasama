@@ -30,7 +30,7 @@
             <div class="col-6">
                 <div class="card shadow">
                     <div class="card-body">
-                        <h2 class="text-center"><b>Upload MoA</b></h2>
+                        <h2 class="text-center"><b>Upload MoaA</b></h2>
                         <hr>
                         <form class="form" action="<?php echo site_url('admin/kerjasama/add_moa') ?>" method="post" enctype="multipart/form-data">
 
@@ -51,7 +51,7 @@
                             <div class="form-group">
                                 <label class="col-sm-5 control-label pb-2"><b>Nama Kerjasama :</b></label>
                                 <div class="col-sm-12">
-                                    <input type="text" name="nm_ajuan" class="form-control" placeholder="Nama Kerjasama" required>
+                                    <input type="text" name="nama" class="form-control" placeholder="Nama Kerjasama" required>
                                 </div>
                             </div>
                           
