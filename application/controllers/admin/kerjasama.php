@@ -103,9 +103,30 @@ class kerjasama extends CI_Controller
     {
         $this->kerjasama_model->changeKerjasama();
     }
+    
+    public function changeMoa()
+    {
+        $this->kerjasama_model->changeMoa();
+    }
 
     public function changeRiks()
     {
         $this->kerjasama_model->changeRiks();
+    }
+
+    public function add_riks()
+    {
+        $post = $this->input->post();
+        $model = $this->kerjasama_model;
+        $validation = $this->form_validation;
+
+        if ($validation) {
+            $model->save_kerja();
+            $this->session->set_flashdata('simpan', 'Berhasil');
+        } else {
+            $this->session->set_flashdata('gglsimpan', 'Gagal');
+        }
+
+        redirect('admin/kerjasama/');
     }
 }

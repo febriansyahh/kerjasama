@@ -30,7 +30,7 @@
             <div class="col-6">
                 <div class="card shadow">
                     <div class="card-body">
-                        <h2 class="text-center"><b>Upload RIKS/IA</b></h2>
+                        <h2 class="text-center"><b>Upload Kerjasama</b></h2>
                         <hr>
                         <form class="form" action="<?php echo site_url('admin/kerjasama/add_riks') ?>" method="post" enctype="multipart/form-data">
 

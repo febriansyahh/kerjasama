@@ -164,6 +164,42 @@ class kerjasama_model extends CI_Model
 
         return $this->db->query($sql);
     }
+    public function save_kerja()
+    {
+        $post = $this->input->post();
+        // var_dump($post["id_mou"]);
+        // var_dump($post["unit"]);
+        // die();
+        $exp = explode('~', $post["id_ajuan"]);
+        $id_ajuan = $exp[0];
+        $id_mou = $exp[1];
+        $is_mou = $post['is_mou'];
+        $nama = $post["nama"];
+        $unit = $post["unit"];
+        $tgl_mulai = $post["tgl_mulai"];
+        $tgl_selesai = $post["tgl_selesai"];
+        $ket = $post["ket"];
+        $sys = date("Y-m-d H:i:s");
+
+        $cu = $this->db->query("SELECT nmUnit FROM mst_unit WHERE idUnit = '$unit'")->row();
+
+
+        $sql =  "INSERT INTO `tr_kerjasama`(`id_mou`, `id_ajuan`, `is_mou`, `nm_kerjasama`, `id_unit`, `file`, `tgl_mulai`, `tgl_selesai`, `keterangan`, `status`, `sysInput`) VALUES(
+            '" . $id_mou . "',
+            '" . $id_ajuan . "',
+            '" . $is_mou . "',
+            '" . $nama . "',
+            '" . $unit . "',
+            '" . $this->_uploadKerjasama($nama, $cu->nmUnit) . "',
+            '" . $tgl_mulai . "',
+            '" . $tgl_selesai . "',
+            '" . $ket . "',
+            '1',
+            '" . $sys . "'
+        )";
+
+        return $this->db->query($sql);
+    }
 
     public function changeKerjasama()
     {
@@ -173,7 +209,7 @@ class kerjasama_model extends CI_Model
         $dataUnit = $this->db->query("SELECT * FROM mst_unit WHERE parentUnit = '$unit'")->result();
 
         $data_moa = $this->db->query("SELECT a.*, b.nmUnit FROM tr_kerjasama a, mst_unit b WHERE a.id_unit=b.idUnit AND a.id_mou = '1' ORDER BY a.sysInput DESC ")->result();
-        $data_riks = $this->db->query("SELECT a.*, b.nmUnit FROM tr_kerjasama a, mst_unit b WHERE a.id_unit=b.idUnit AND a.id_mou = '2' ORDER BY a.sysInput DESC ")->result();
+        // $data_riks = $this->db->query("SELECT a.*, b.nmUnit FROM tr_kerjasama a, mst_unit b WHERE a.id_unit=b.idUnit AND a.id_mou = '2' ORDER BY a.sysInput DESC ")->result();
 
         switch ($ts) {
             case '1':
@@ -198,6 +234,7 @@ class kerjasama_model extends CI_Model
             case '2':
             ?>
                 <div class="form-group">
+                    <input type="hidden" name="id_mou" value="2">
                     <label class="col-sm-5 control-label pb-2"><b>Berdasarkan MOA :</b></label>
                     <div class="col-sm-12">
                         <select name="is_mou" id="" class="form-control" required>
@@ -214,7 +251,6 @@ class kerjasama_model extends CI_Model
                 <div class="form-group">
                     <label class="col-sm-5 control-label pb-2"><b>Pengajuan dari unit :</b></label>
                     <div class="col-sm-12">
-                        <!-- <input type="text" class="form-control" placeholder="Unit"> -->
                         <select name="unit" id="" class="form-control" required>
                             <option value="">- Pilih -</option>
                             <?php
@@ -272,9 +308,10 @@ class kerjasama_model extends CI_Model
             case '3':
             ?>
                 <div class="form-group">
+                    <input type="hidden" name="id_mou" value="3">
                     <label class="col-sm-5 control-label pb-2"><b>Berdasarkan MOA :</b></label>
                     <div class="col-sm-12">
-                        <select name="is_mou" id="" class="form-control" required>
+                        <select name="moa_id" id="moa" class="form-control" onchange="moaFunc();" required>
                             <option value="">- Pilih -</option>
                             <?php
                             foreach ($data_moa as $value) {
@@ -285,18 +322,7 @@ class kerjasama_model extends CI_Model
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="col-sm-5 control-label pb-2"><b>Berdasarkan RIKS :</b></label>
-                    <div class="col-sm-12">
-                        <select name="is_mou" id="riks" class="form-control" onchange="riksFunc();" required>
-                            <option value="">- Pilih -</option>
-                            <?php
-                            foreach ($data_riks as $value) {
-                                echo "<option value='" . $value->id_kerjasama . "'>" . $value->nm_kerjasama . " - " . $value->nmUnit .  "</option>";
-                            }
-                            ?>
-                        </select>
-                    </div>
+                <div id="result">
                 </div>
 
                 <div id="riks_kerjasama">
@@ -307,13 +333,49 @@ class kerjasama_model extends CI_Model
         }
     }
 
+    public function changeMoa()
+    {
+        $post = $this->input->post();
+        $ts     = $post['moa'];
+        $data_riks = $this->db->query("SELECT a.*, b.nmUnit FROM tr_kerjasama a, mst_unit b WHERE a.id_unit=b.idUnit AND a.id_mou = '2' AND a.is_mou='$ts' ORDER BY a.sysInput DESC ")->result();
+        ?>
+        <div class="form-group">
+            <label class="col-sm-5 control-label pb-2"><b>Berdasarkan RIKS :</b></label>
+            <div class="col-sm-12" id="result">
+                <select name="is_mou" id="riks" class="form-control" onchange="riksFunc();" required>
+                    <option value="">- Pilih -</option>
+                    <?php
+                    foreach ($data_riks as $value) {
+                        echo "<option value='" . $value->id_kerjasama . "'>" . $value->nm_kerjasama . " - " . $value->nmUnit .  "</option>";
+                    }
+                    ?>
+                </select>
+            </div>
+        </div>
+    <?php
+    }
+
     public function changeRiks()
     {
         $post = $this->input->post();
         $ts     = $post['rks'];
-        $data_ar = $this->db->query("SELECT a.*, b.nmUnit FROM tr_kerjasama a, mst_unit b WHERE a.id_unit=b.idUnit AND a.id_mou = '3' ORDER BY a.sysInput DESC ")->result();
+        $unit = $this->session->userdata('idUnit');
+        $dataUnit = $this->db->query("SELECT * FROM mst_unit WHERE parentUnit = '$unit'")->result();
 
-        ?>
+    ?>
+        <div class="form-group">
+            <label class="col-sm-5 control-label pb-2"><b>Pengajuan dari unit :</b></label>
+            <div class="col-sm-12">
+                <select name="unit" id="" class="form-control" required>
+                    <option value="">- Pilih -</option>
+                    <?php
+                    foreach ($dataUnit as $value) {
+                        echo "<option value='" . $value->idUnit . "'>" . $value->nmUnit .  "</option>";
+                    }
+                    ?>
+                </select>
+            </div>
+        </div>
         <div class="form-group">
             <label class="col-sm-5 control-label pb-2"><b>Nama Kerjasama :</b></label>
             <div class="col-sm-12">

@@ -2,13 +2,24 @@ $(document).ready(function () {
 	$('#example').DataTable();
 });
 
+$("#kerjasama").DataTable({
+    columns: [
+      { width: "5%" }, // No
+      { width: "10%" }, // Unit
+      { width: "20%" }, // Nama Kerjasama
+      { width: "15%" }, // Ajuan
+      { width: "15%" }, // Mitra
+      { width: "20%" }, // Bentuk MOA
+      { width: "15%" }, // Pilihan
+    ],
+  });
+
 function kerjaFunc() {
 	var selectBox = document.getElementById("kerjasama");
 	console.log("AAA");
 	var selectedValue = selectBox.options[selectBox.selectedIndex].value;
 	let exp = selectedValue.split("~"); // untuk exp[0] -> id_ajuan || u/ exp[1] -> id_mou
 	var id_mou = exp[1];
-	console.log(id_mou);
 
 	$.ajax({
       type: "POST",
@@ -20,11 +31,22 @@ function kerjaFunc() {
     });
 }
 
+function moaFunc() {
+	var selectBox = document.getElementById("moa");
+	var moa = selectBox.options[selectBox.selectedIndex].value;
+	$.ajax({
+      type: "POST",
+      url: base_url + "admin/kerjasama/changeMoa",
+      data: { moa },
+      success: function (response) {
+        $("#result").html(response);
+      },
+    });
+}
+
 function riksFunc() {
 	var selectBox = document.getElementById("riks");
 	var rks = selectBox.options[selectBox.selectedIndex].value;
-	console.log("RKS");
-	console.log(rks);
 	$.ajax({
       type: "POST",
       url: base_url + "admin/kerjasama/changeRiks",
