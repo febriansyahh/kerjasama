@@ -27,15 +27,25 @@
 						$no = 1;
 						foreach ($detail as $data) {
 						?>
-						<tr class="gradeX">
-						<!-- <td width="170"><b>Jenis MoU </b></td> -->
-						<td with="10"> </td>
+						<tr>
+						<td style="border-bottom:3px double #000000;padding-left:200px" valign="left" align="center" width="500">
+                            <img src="<?php echo base_url('assets/img/umk.png');?>" >
+                        </td>
+						<td colspan="3" style="border-bottom:3px double #000000; padding-top: 0px; line-height: 20px; text-align: center; padding-right:450px;">
+                            <!-- <center> -->
+							<span class="nama1" style="font-weight: bold;">YAYASAN PEMBINA UNIVERSITAS MURIA KUDUS<br></span>
+                            <span class="nama1" style="font-weight: bold;">Universitas Muria Kudus<br></span>
+                            <span class="nama1" style="font-weight: bold;">Gondangmanis, Bae PO. BOX 53 Telp: 0291 438229 Fax: 0291 437198<br></span>
+                        	<!-- </center> -->
+                        </td>
+						</tr>
+						<tr>
+						<td width="1"><b>Jenis MoU </b></td>
 						<td with="170"><?php echo $data->nama_mou ?> </td>
 
 						</tr>
 						<tr class="gradeX">
-						<!-- <td width="170"><b>Nama Ajuan</b></td> -->
-						<td with="200"> </td>
+						<td width="170"><b>Nama Ajuan</b></td>
 						<td><?php echo $data->nm_ajuan?></td>
 
 						</tr>
@@ -58,6 +68,8 @@
 						<td><?php echo $data->keterangan ?></td>
 
 						</tr>
+
+						
                     <?php
 						}
 					?>
