@@ -95,7 +95,7 @@
                             &nbsp;Upload Kerjasama
                         </button>
                         <div class="dropdown-menu dashboard-dropdown dropdown-menu-start mt-2 py-1">
-                            <a class="dropdown-item d-flex align-items-center" href="#">
+                            <a class="dropdown-item d-flex align-items-center" href="<?php echo site_url('admin/kerjasama/moa') ?>">
                                 <i class="fas fa-upload"></i>&nbsp;
                                 Upload MoA
                             </a>

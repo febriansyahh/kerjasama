@@ -14,9 +14,6 @@
 	<main class="content">
 
 		<?php $this->load->view("_partials/admin/navbar.php") ?>
-		<br>
-		<a href="<?php echo site_url('admin/ajuan/ajukan')?>" class="btn btn-primary"><i class="fas fa-plus"></i> Ajuan
-			Kerjasama</a>
 		<?php
                 if($this->session->flashdata('gglsimpan')) echo '<script> swal("Gagal!", "Simpan Gagal !!", "error") </script>';
                 if($this->session->flashdata('simpan')) echo '<script> swal("Berhasil!", "Berhasil Menambah Data Master MoU !!", "success") </script>';
@@ -24,7 +21,6 @@
                 if($this->session->flashdata('terhapus')) echo '<script> swal("Berhasil!", "Berhasil Menghapus Data Master MoU !!", "success") </script>';
                 if($this->session->flashdata('gglubah')) echo '<script> swal("Gagal!", "Gagal Mengubah Data Master MoU !!", "error") </script>';
               ?>
-		<br><br>
 		<div class="alert alert-success" role="alert">
 			Maksimal Size File 2MB !!
 		</div>

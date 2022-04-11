@@ -63,6 +63,11 @@ class kerjasama extends CI_Controller
         $this->load->view('panel/kerjasama/detail', $data);
     }
 
+    public function moa()
+    {
+        $this->load->view('panel/kerjasama/moa');
+    }
+
     // public function usulan()
     // {
     //     // $data["usulan"] = $this->ajuan_model->getUsulan();
