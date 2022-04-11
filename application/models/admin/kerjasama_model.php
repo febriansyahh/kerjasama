@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class kerjasama_model extends CI_Model{
+class kerjasama_model extends CI_Model
+{
 
     private $_table = "tr_kerjasama";
 
@@ -26,19 +27,19 @@ class kerjasama_model extends CI_Model{
         $idUnit = $this->session->userdata('idUnit');
 
         $cu = $this->db->query("SELECT nmUnit FROM mst_unit WHERE idUnit = '$idUnit'")->row();
-        
+
 
         $sql =  "INSERT INTO `tr_kerjasama`(`id_mou`, `id_ajuan`, `nm_kerjasama`, `id_unit`, `file`, `tgl_mulai`, `tgl_selesai`, `keterangan`, `status`, `sysInput`) VALUES(
-            '". $mou ."',
-            '". $id_ajuan ."',
-            '". $nm_kerjasama ."',
-            '". $id_unit . "',
+            '" . $mou . "',
+            '" . $id_ajuan . "',
+            '" . $nm_kerjasama . "',
+            '" . $id_unit . "',
             '" . $this->_uploadKerjasama($nm_kerjasama, $cu->nmUnit) . "',
-            '". $tgl_mulai ."',
-            '". $tgl_selesai ."',
-            '". $ket ."',
+            '" . $tgl_mulai . "',
+            '" . $tgl_selesai . "',
+            '" . $ket . "',
             '1',
-            '". $sys ."'
+            '" . $sys . "'
         )";
 
         return $this->db->query($sql);
@@ -111,7 +112,7 @@ class kerjasama_model extends CI_Model{
             $this->db->query("UPDATE tr_kerjasama SET `id_mou`= '$id_mou' ,`id_ajuan`= '$id_ajuan' ,`nm_kerjasama`= '$nama' ,`file`= '$file', `tgl_mulai`= '$tgl_mulai' ,`tgl_selesai`= '$tgl_selesai', `keterangan` = '$ket' WHERE `id_kerjasama` = '$id' ");
         } else {
             $this->db->query("UPDATE tr_kerjasama SET `id_mou`= '$id_mou' ,`id_ajuan`= '$id_ajuan' ,`nm_kerjasama`= '$nama' ,`tgl_mulai`= '$tgl_mulai' ,`tgl_selesai`= '$tgl_selesai', `keterangan` = '$ket' WHERE `id_kerjasama` = '$id' ");
-        }   
+        }
     }
 
     public function delete($id)
@@ -129,5 +130,231 @@ class kerjasama_model extends CI_Model{
     {
         $unit = $this->session->userdata('idUnit');
         return $this->db->query("SELECT * FROM mst_unit WHERE parentUnit = '$unit' ")->result();
+    }
+
+    public function save_moa()
+    {
+        $post = $this->input->post();
+
+        $exp = explode('~', $post["id_ajuan"]);
+        $id_ajuan = $exp[0];
+        $id_mou = $exp[1];
+        $nama = $post["nama"];
+        $unit = $post["unit"];
+        $tgl_mulai = $post["tgl_mulai"];
+        $tgl_selesai = $post["tgl_selesai"];
+        $ket = $post["ket"];
+        $sys = date("Y-m-d H:i:s");
+
+        $cu = $this->db->query("SELECT nmUnit FROM mst_unit WHERE idUnit = '$unit'")->row();
+
+
+        $sql =  "INSERT INTO `tr_kerjasama`(`id_mou`, `id_ajuan`, `nm_kerjasama`, `id_unit`, `file`, `tgl_mulai`, `tgl_selesai`, `keterangan`, `status`, `sysInput`) VALUES(
+            '" . $id_mou . "',
+            '" . $id_ajuan . "',
+            '" . $nama . "',
+            '" . $unit . "',
+            '" . $this->_uploadKerjasama($nama, $cu->nmUnit) . "',
+            '" . $tgl_mulai . "',
+            '" . $tgl_selesai . "',
+            '" . $ket . "',
+            '1',
+            '" . $sys . "'
+        )";
+
+        return $this->db->query($sql);
+    }
+
+    public function changeKerjasama()
+    {
+        $post = $this->input->post();
+        $ts     = $post['id_mou'];
+        $unit = $this->session->userdata('idUnit');
+        $dataUnit = $this->db->query("SELECT * FROM mst_unit WHERE parentUnit = '$unit'")->result();
+
+        $data_moa = $this->db->query("SELECT a.*, b.nmUnit FROM tr_kerjasama a, mst_unit b WHERE a.id_unit=b.idUnit AND a.id_mou = '1' ORDER BY a.sysInput DESC ")->result();
+        $data_riks = $this->db->query("SELECT a.*, b.nmUnit FROM tr_kerjasama a, mst_unit b WHERE a.id_unit=b.idUnit AND a.id_mou = '2' ORDER BY a.sysInput DESC ")->result();
+
+        switch ($ts) {
+            case '1':
+?>
+                <div class="form-group">
+                    <label class="col-sm-5 control-label pb-2"><b>Pengajuan dari unit satu:</b></label>
+                    <div class="col-sm-12">
+                        <!-- <input type="text" class="form-control" placeholder="Unit"> -->
+                        <select name="unit" id="" class="form-control" required>
+                            <option value="">- Pilih -</option>
+                            <?php
+                            foreach ($dataUnit as $value) {
+                                echo "<option value='" . $value->idUnit . "'>" . $value->nmUnit .  "</option>";
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </div>
+            <?php
+                break;
+
+            case '2':
+            ?>
+                <div class="form-group">
+                    <label class="col-sm-5 control-label pb-2"><b>Berdasarkan MOA :</b></label>
+                    <div class="col-sm-12">
+                        <select name="is_mou" id="" class="form-control" required>
+                            <option value="">- Pilih -</option>
+                            <?php
+                            foreach ($data_moa as $value) {
+                                echo "<option value='" . $value->id_kerjasama . "'>" . $value->nm_kerjasama . " - " . $value->nmUnit .  "</option>";
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-5 control-label pb-2"><b>Pengajuan dari unit satu:</b></label>
+                    <div class="col-sm-12">
+                        <!-- <input type="text" class="form-control" placeholder="Unit"> -->
+                        <select name="unit" id="" class="form-control" required>
+                            <option value="">- Pilih -</option>
+                            <?php
+                            foreach ($dataUnit as $value) {
+                                echo "<option value='" . $value->idUnit . "'>" . $value->nmUnit .  "</option>";
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-5 control-label pb-2"><b>Nama Kerjasama :</b></label>
+                    <div class="col-sm-12">
+                        <input type="text" name="nama" class="form-control" placeholder="Nama Kerjasama" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-5 control-label pb-2"><b>Tanggal Mulai :</b></label>
+                    <div class="col-sm-12">
+                        <input type="date" name="tgl_mulai" class="form-control" placeholder="" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-5 control-label pb-2"><b>Tanggal Selesai :</b></label>
+                    <div class="col-sm-12">
+                        <input type="date" name="tgl_selesai" class="form-control" placeholder="" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-5 control-label pb-2"><b>File Kerjasama :</b></label>
+                    <div class="col-sm-12">
+                        <input class="form-control<?php echo form_error('file') ? 'is-invalid' : '' ?>" type="file" name="file" accept="image/jpeg,image/jpg,image/png,application/pdf" onchange="readURL(this, 'fileAjuan')" />
+                        <input type="hidden" id="fileAjuan" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-5 control-label pb-2"><b>Keterangan :</b></label>
+                    <div class="col-sm-12">
+                        <textarea name="ket" cols="45" rows="3" class="form-control"></textarea>
+                    </div>
+                </div>
+
+                <br>
+                <div class="box-footer text-center">
+                    <button type="submit" class="btn btn-primary" name="btnSimpan">Upload</button>
+                </div>
+            <?php
+                break;
+
+            case '3':
+            ?>
+                <div class="form-group">
+                    <label class="col-sm-5 control-label pb-2"><b>Berdasarkan MOA :</b></label>
+                    <div class="col-sm-12">
+                        <select name="is_mou" id="" class="form-control" required>
+                            <option value="">- Pilih -</option>
+                            <?php
+                            foreach ($data_moa as $value) {
+                                echo "<option value='" . $value->id_kerjasama . "'>" . $value->nm_kerjasama . " - " . $value->nmUnit .  "</option>";
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-5 control-label pb-2"><b>Berdasarkan RIKS :</b></label>
+                    <div class="col-sm-12">
+                        <select name="is_mou" id="riks" class="form-control" onchange="riksFunc();" required>
+                            <option value="">- Pilih -</option>
+                            <?php
+                            foreach ($data_riks as $value) {
+                                echo "<option value='" . $value->id_kerjasama . "'>" . $value->nm_kerjasama . " - " . $value->nmUnit .  "</option>";
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="riks_kerjasama">
+
+                </div>
+        <?php
+                break;
+        }
+    }
+
+    public function changeRiks()
+    {
+        $post = $this->input->post();
+        $ts     = $post['rks'];
+        $data_ar = $this->db->query("SELECT a.*, b.nmUnit FROM tr_kerjasama a, mst_unit b WHERE a.id_unit=b.idUnit AND a.id_mou = '3' ORDER BY a.sysInput DESC ")->result();
+
+        ?>
+        <div class="form-group">
+            <label class="col-sm-5 control-label pb-2"><b>Nama Kerjasama :</b></label>
+            <div class="col-sm-12">
+                <input type="text" name="nama" class="form-control" placeholder="Nama Kerjasama" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-5 control-label pb-2"><b>Tanggal Mulai :</b></label>
+            <div class="col-sm-12">
+                <input type="date" name="tgl_mulai" class="form-control" placeholder="" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-5 control-label pb-2"><b>Tanggal Selesai :</b></label>
+            <div class="col-sm-12">
+                <input type="date" name="tgl_selesai" class="form-control" placeholder="" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-5 control-label pb-2"><b>File Kerjasama :</b></label>
+            <div class="col-sm-12">
+                <input class="form-control<?php echo form_error('file') ? 'is-invalid' : '' ?>" type="file" name="file" accept="image/jpeg,image/jpg,image/png,application/pdf" onchange="readURL(this, 'fileAjuan')" />
+                <input type="hidden" id="fileAjuan" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-5 control-label pb-2"><b>Keterangan :</b></label>
+            <div class="col-sm-12">
+                <textarea name="ket" cols="45" rows="3" class="form-control"></textarea>
+            </div>
+        </div>
+
+        <br>
+        <div class="box-footer text-center">
+            <button type="submit" class="btn btn-primary" name="btnSimpan">Upload</button>
+        </div>
+
+<?php
     }
 }

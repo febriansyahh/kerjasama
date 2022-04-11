@@ -69,6 +69,28 @@ class kerjasama extends CI_Controller
         $data["unit"] = $this->kerjasama_model->getUnitId();
         $this->load->view('panel/kerjasama/moa', $data);
     }
+    
+    public function add_moa()
+    {
+        $model = $this->kerjasama_model;
+        $validation = $this->form_validation;
+
+        if($validation){
+            $model->save_moa();
+            $this->session->set_flashdata('simpan', 'Berhasil');
+        }else{
+            $this->session->set_flashdata('gglsimpan', 'Gagal');
+        }
+        
+        redirect('admin/kerjasama/');
+    }
+    
+    public function riks()
+    {
+        $data["ajuan"] = $this->kerjasama_model->getAjuanPIC();
+        $data["unit"] = $this->kerjasama_model->getUnitId();
+        $this->load->view('panel/kerjasama/riks', $data);
+    }
 
     // public function usulan()
     // {
@@ -76,4 +98,14 @@ class kerjasama extends CI_Controller
     //     // $this->load->view('panel/kerjasama/usulan', $data);
     //     $this->load->view('panel/kerjasama/usulan');
     // }
+
+    public function changeKerjasama()
+    {
+        $this->kerjasama_model->changeKerjasama();
+    }
+
+    public function changeRiks()
+    {
+        $this->kerjasama_model->changeRiks();
+    }
 }

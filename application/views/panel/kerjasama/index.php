@@ -99,7 +99,7 @@
                                 <i class="fas fa-upload"></i>&nbsp;
                                 Upload MoA
                             </a>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
+                            <a class="dropdown-item d-flex align-items-center" href="<?php echo site_url('admin/kerjasama/riks')?>">
                                 <i class="fas fa-upload"></i>&nbsp;
                                 Upload RIKS / IA
                             </a>
@@ -157,7 +157,7 @@
                                                 </td>
 
                                                 <td>
-                                                    <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#preview" onclick="editableFile(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->file ?>" class="btn btn-success btn-sm"><i class="fas fa-info"></i> File</a>
+                                                    <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#preview" onclick="editableFileKerjasama(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->file ?>" class="btn btn-success btn-sm"><i class="fas fa-info"></i> File</a>
                                                     <a href="<?php echo site_url('admin/kerjasama/detail/' . $value->id_kerjasama) ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i> Detail</a>
                                                 </td>
 

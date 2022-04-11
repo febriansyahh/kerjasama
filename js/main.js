@@ -2,6 +2,39 @@ $(document).ready(function () {
 	$('#example').DataTable();
 });
 
+function kerjaFunc() {
+	var selectBox = document.getElementById("kerjasama");
+	console.log("AAA");
+	var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+	let exp = selectedValue.split("~"); // untuk exp[0] -> id_ajuan || u/ exp[1] -> id_mou
+	var id_mou = exp[1];
+	console.log(id_mou);
+
+	$.ajax({
+      type: "POST",
+      url: base_url + "admin/kerjasama/changeKerjasama",
+      data: { id_mou },
+      success: function (response) {
+        $("#mouKerja").html(response);
+      },
+    });
+}
+
+function riksFunc() {
+	var selectBox = document.getElementById("riks");
+	var rks = selectBox.options[selectBox.selectedIndex].value;
+	console.log("RKS");
+	console.log(rks);
+	$.ajax({
+      type: "POST",
+      url: base_url + "admin/kerjasama/changeRiks",
+      data: { rks },
+      success: function (response) {
+        $("#riks_kerjasama").html(response);
+      },
+    });
+}
+
 function editableUnit(param) {
 	let data = $(param).data("id");
 	let exp = data.split("~");
@@ -68,6 +101,23 @@ function editableFile(param) {
 	}
 }
 
+function editableFileKerjasama(param) {
+	let data = $(param).data("id");
+	let exp = data.split("~");
+	let type = exp[1].split(".");
+	console.log(exp);
+	console.log(type);
+	console.log(type[1]);
+	$("editID").val(exp[0]);
+	$("editFile").val(exp[1]);
+	console.log(base_url);
+	if (type[1] != 'pdf') {
+		$('#showFile').html(`<img id="blah" src="${base_url + '/upload/kerjasama/' + exp[1]}" width="520px" height="350px" />`);
+	} else {
+		$('#showFile').html(`<iframe src="${base_url + '/upload/kerjasama/' + exp[1]}" height="520px" width="470px"></iframe>`);
+	}
+}
+
 function readURL(input, type) {
 	const [file] = input.files
 	let fileType = file['type'];
@@ -119,4 +169,6 @@ function readURLEdit(input, type) {
 				document.getElementById(type).value = URL.createObjectURL(file);
 			}
 	}
+
 }
+
