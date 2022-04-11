@@ -36,38 +36,37 @@
 							<span class="nama1" style="font-weight: bold;">YAYASAN PEMBINA UNIVERSITAS MURIA KUDUS<br></span>
                             <span class="nama1" style="font-weight: bold;">Universitas Muria Kudus<br></span>
                             <span class="nama1" style="font-weight: bold;">Gondangmanis, Bae PO. BOX 53 Telp: 0291 438229 Fax: 0291 437198<br></span>
+                            <span class="nama1" style="font-weight: bold;">E-Mail: muria@umk.ac.id  Situs: http://umk.ac.id<br>KUDUS 59352<br></span>
                         	<!-- </center> -->
                         </td>
 						</tr>
-						<tr>
-						<td width="1"><b>Jenis MoU </b></td>
-						<td with="170"><?php echo $data->nama_mou ?> </td>
+						<tr class="gradeX">
+							<td with="170"> <b>Jenis MoU</b><br><?php echo $data->nama_mou ?> </td>
+							<td></td>
+							<td></td>
+							<td></td>
 
 						</tr>
 						<tr class="gradeX">
-						<td width="170"><b>Nama Ajuan</b></td>
-						<td><?php echo $data->nm_ajuan?></td>
+						<td></td>
+						<td><b>Nama Ajuan</b> <br><?php echo $data->nm_ajuan?></td>
+						<td></td>
+						<td></td>
 
 						</tr>
 						<tr class="gradeX">
-						<!-- <td width="170"><b>Nama Kerjasama </b></td> -->
-						<td><?php echo $data->nm_kerjasama; ?></td>
-
+						<td></td>
+						<td><b>Nama Kerjasama </b><br><?php echo $data->nm_kerjasama; ?></td>
+						<td> <b>Mitra </b><br><?php echo $data->mitra; ?></td>
+						<td width="10" align="right"><b>Tanggal mulai :</b> <?php echo $data->tgl_mulai ?><br><b>Tanggal selesai : </b><?php echo $data->tgl_selesai ?></td>
 						</tr>
-						</tr>
-						<tr class="gradeX">
-						<!-- <td width="170"><b>Tanggal mulai </b></td> -->
-						<td width="10">Tanggal mulai : <?php echo $data->tgl_mulai ?></td>
-						<td>Tanggal selesai : <?php echo $data->tgl_selesai ?></td>
-
-						</tr>
-						</tr>
-						<tr class="gradeX">
-						<!-- <td width="170"><b>Tanggal selesai </b></td> -->
-						<td with="200"> </td>
-						<td><?php echo $data->keterangan ?></td>
-
-						</tr>
+						
+						<!-- <tr class="gradeX">
+						<td> </td>
+						<td  align="center"><b> Keterangan Perjanjian </b><br><?php echo $data->keterangan ?></td>
+						<td> </td>
+						<td> </td>
+						</tr> -->
 
 						
                     <?php
