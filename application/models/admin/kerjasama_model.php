@@ -212,7 +212,7 @@ class kerjasama_model extends CI_Model
                 </div>
 
                 <div class="form-group">
-                    <label class="col-sm-5 control-label pb-2"><b>Pengajuan dari unit satu:</b></label>
+                    <label class="col-sm-5 control-label pb-2"><b>Pengajuan dari unit :</b></label>
                     <div class="col-sm-12">
                         <!-- <input type="text" class="form-control" placeholder="Unit"> -->
                         <select name="unit" id="" class="form-control" required>
