@@ -76,6 +76,11 @@ class kerjasama_model extends CI_Model{
         return $this->db->query("SELECT * FROM tr_ajuan ORDER BY id_ajuan ASC")->result();
     }
 
+    public function getAjuanPIC()
+    {
+        return $this->db->query("SELECT a.*, b.nama_mou FROM tr_ajuan a, jenis_mou b, mst_unit c WHERE a.id_mou = b.id_mou AND a.id_unit=c.idUnit AND c.parentUnit='1' AND a.id_status='5' ORDER BY id_ajuan ASC ")->result();
+    }
+
     public function getMou()
     {
         return $this->db->query("SELECT * FROM jenis_mou")->result();
@@ -118,5 +123,11 @@ class kerjasama_model extends CI_Model{
     {
         $unit = $this->session->userdata('idUnit');
         return $this->db->query("SELECT * FROM kerjasama a, mst_unit b WHERE a.id_unit=b.idUnit AND (b.id_unit ='$unit' OR b.parentUnit ='$unit') ")->result();
+    }
+
+    public function getUnitId()
+    {
+        $unit = $this->session->userdata('idUnit');
+        return $this->db->query("SELECT * FROM mst_unit WHERE parentUnit = '$unit' ")->result();
     }
 }

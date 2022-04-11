@@ -32,55 +32,40 @@
                     <div class="card-body">
                         <h2 class="text-center"><b>Upload MoA</b></h2>
                         <hr>
-                        <form class="form" action="<?php echo site_url('admin/ajuan/add') ?>" method="post" enctype="multipart/form-data">
-                            <input type="hidden" name="id" class="form-control" value="">
-                            <div class="form-group">
-                                <label class="col-sm-5 control-label pb-2"><b>Nama Kerjasama :</b></label>
-                                <div class="col-sm-12">
-                                    <input type="text" name="nm_ajuan" class="form-control" placeholder="Ajuan kerjasama" required>
-                                </div>
-                            </div>
+                        <form class="form" action="<?php echo site_url('admin/kerjasama/add_moa') ?>" method="post" enctype="multipart/form-data">
 
                             <div class="form-group">
-                                <label class="col-sm-5 control-label pb-2"><b>Jenis MoU :</b></label>
+                                <label class="col-sm-5 control-label pb-2"><b>Ajuan :</b></label>
                                 <div class="col-sm-12">
-                                    <select name="id_mou" id="" class="form-control" required>
-                                        <!-- <option value="">- Pilih -</option>
+                                    <select name="id_ajuan" id="" class="form-control" required>
+                                        <option value="">- Pilih -</option>
                                         <?php
-                                        foreach ($mou as $value) {
-                                            echo "<option value='" . $value->id_mou . "'>" . $value->nama_mou . "</option>";
+                                        foreach ($ajuan as $value) {
+                                            echo "<option value='" . $value->id_ajuan . "~" . $value->id_mou . "'>" . $value->nama_mou . " - " . $value->nm_ajuan . "</option>";
                                         }
-                                        ?> -->
+                                        ?>
                                     </select>
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label pb-2"><b>Nama Kerjasama :</b></label>
+                                <div class="col-sm-12">
+                                    <input type="text" name="nm_ajuan" class="form-control" placeholder="Nama Kerjasama" required>
+                                </div>
+                            </div>
+                          
                             <div class="form-group">
                                 <label class="col-sm-5 control-label pb-2"><b>Pengajuan dari unit :</b></label>
                                 <div class="col-sm-12">
                                     <select name="unit" id="" class="form-control" required>
-                                        <!-- <option value="">- Pilih -</option>
+                                        <option value="">- Pilih -</option>
                                         <?php
                                         foreach ($unit as $value) {
-                                            echo "<option value='" . $value->idUnit . "'>" . $value->nmUnit . "</option>";
+                                            echo "<option value='" . $value->idUnit . "'>". $value->nmUnit .  "</option>";
                                         }
-                                        ?> -->
+                                        ?>
                                     </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-5 control-label pb-2"><b>Mitra Kerjasama :</b></label>
-                                <div class="col-sm-12">
-                                    <input type="text" name="mitra" class="form-control" placeholder="Nama Mitra" required>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-5 control-label pb-2"><b>File Kerjasama :</b></label>
-                                <div class="col-sm-12">
-                                    <input class="form-control<?php echo form_error('file') ? 'is-invalid' : '' ?>" type="file" name="file" accept="image/jpeg,image/jpg,image/png,application/pdf" onchange="readURL(this, 'fileAjuan')" />
-                                    <input type="hidden" id="fileAjuan" />
                                 </div>
                             </div>
 
@@ -95,6 +80,14 @@
                                 <label class="col-sm-5 control-label pb-2"><b>Tanggal Selesai :</b></label>
                                 <div class="col-sm-12">
                                     <input type="date" name="tgl_selesai" class="form-control" placeholder="" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label pb-2"><b>File Kerjasama :</b></label>
+                                <div class="col-sm-12">
+                                    <input class="form-control<?php echo form_error('file') ? 'is-invalid' : '' ?>" type="file" name="file" accept="image/jpeg,image/jpg,image/png,application/pdf" onchange="readURL(this, 'fileAjuan')" />
+                                    <input type="hidden" id="fileAjuan" />
                                 </div>
                             </div>
 

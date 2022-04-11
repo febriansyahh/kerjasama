@@ -15,6 +15,11 @@ class unit_model extends CI_Model
         return $this->db->query("SELECT * FROM tingkatan")->result();
     }
 
+    public function getUnit()
+    {
+        return $this->db->query("SELECT * FROM mst_unit WHERE idTIngkat != '1' ")->result();
+    }
+
     public function save()
     {
         $post = $this->input->post();
@@ -22,6 +27,7 @@ class unit_model extends CI_Model
         $date = date("Y-m-d H:i:s");
 
         $this->nmUnit 	= $post['nmUnit'];
+        $this->parentUnit 	= $post['parent'];
         $this->idTingkat 	= $post['idTingkatan'];
         $this->sysInput 	= $date;
 
@@ -34,9 +40,10 @@ class unit_model extends CI_Model
 
         $id = $post['id'];
         $nama = $post['nmUnit'];
+        $parent = $post['parent'];
         $idTingkat = $post['idTingkatan'];
 
-        $this->db->query("UPDATE mst_unit SET nmUnit = '$nama', idTingkat = '$idTingkat' WHERE idUnit = '$id'");
+        $this->db->query("UPDATE mst_unit SET nmUnit = '$nama', parentUnit = '$parent', idTingkat = '$idTingkat' WHERE idUnit = '$id'");
     }
 
     public function delete($id)

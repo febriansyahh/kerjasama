@@ -13,6 +13,7 @@ class unit extends CI_Controller
     public function index()
     {
         $data['unit'] = $this->unit_model->getAll();
+        $data['parent'] = $this->unit_model->getUnit();
         $data['tingkatan'] = $this->unit_model->getData();
         $this->load->view('panel/unit', $data);
     }

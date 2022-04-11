@@ -24,10 +24,6 @@
 		if ($this->session->flashdata('gglUbah')) echo '<script> swal("Gagal!", "Gagal Mengubah Data Unit !!", "error") </script>';
 		?>
 		<br><br>
-		<!-- <div class="card mb-3">
-			<div class="">
-			</div><br>
-		</div> -->
 		<div class="card">
 			<div class="box-body">
 				<div class="card-body">
@@ -57,7 +53,7 @@
 										</td>
 
 										<td>
-											<a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#editUnit" onclick="editableUnit(this)" data-id="<?php echo $value->idUnit . "~" . $value->nmUnit . "~" . $value->idTingkatan ?>" class="btn btn-success btn-sm"><i class="fas fa-edit"></i> Edit</a>
+											<a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#editUnit" onclick="editableUnit(this)" data-id="<?php echo $value->idUnit . "~" . $value->nmUnit . "~" . $value->idTingkatan . "~" . $value->parentUnit ?>" class="btn btn-success btn-sm"><i class="fas fa-edit"></i> Edit</a>
 											<a onclick="deleteConfirm('<?php echo site_url('admin/unit/delete/' . $value->idUnit) ?>')" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Hapus</a>
 										</td>
 
@@ -93,6 +89,21 @@
 						<input class="form-control <?php echo form_error('nmUnit') ? 'is-invalid' : '' ?>" type="text" name="nmUnit" id="editNm" />
 						<div class="invalid-feedback">
 							<?php echo form_error('nmUnit') ?>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="kode">Unit Terkait*</label>
+						<select name="parent" id="editParent" class="form-control">
+							<option value="">- Pilih -</option>
+							<?php
+							foreach ($parent as $row) {
+								echo "<option value='" . $row->idUnit . "'>" . $row->nmUnit . "</option>";
+							}
+							?>
+						</select>
+						<div class="invalid-feedback">
+							<?php echo form_error('idTingkatan') ?>
 						</div>
 					</div>
 

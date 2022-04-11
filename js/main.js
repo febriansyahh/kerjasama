@@ -9,6 +9,7 @@ function editableUnit(param) {
 	$("#editID").val(exp[0]);
 	$("#editNm").val(exp[1]);
 	$("#editIdTingkat").val(exp[2]);
+	$("#editParent").val(exp[3]);
 }
 
 function editableTingkatan(param) {
@@ -71,7 +72,6 @@ function readURL(input, type) {
 	const [file] = input.files
 	let fileType = file['type'];
 	let validImageTypes = ['image/jpg', 'image/jpeg', 'image/png'];
-	console.log('AAA');
 
 	if (file) {
 		// swal({
