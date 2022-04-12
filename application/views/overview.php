@@ -118,19 +118,6 @@
 				</div>
 			</div>
 		</div>
-		<!-- <div class="container" style="padding-top: 25px">
-			<div class="card col-md-12" style="width:100%">
-				<div class="card-body">
-					<center>
-						<br>
-						<h5>DASHBOARD SISTEM KERJASAMA</h5>
-						<img src="<?php echo base_url('assets/img/umk.png'); ?>" style="width:200px; height:200px" alt="">
-						<br><br>
-						<p class="font-Poppins;">Sistem Informasi Kerjasama <br> Universitas Muria Kudus</p>
-					</center>
-				</div>
-			</div>
-		</div> -->
 
 		<div class="card">
 			<div class="box-body">
