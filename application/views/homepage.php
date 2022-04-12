@@ -208,7 +208,9 @@
         </div>
       </div>
     </div>
-
+    <div class="custom"  >
+	<p style="text-align: center;">Copyright © 2022 Universitas Muria Kudus | Support by <span style="color: #000000;"><strong><a style="color: #000000;" href="http://upt-psi.umk.ac.id" target="_blank">UPT-PSI</a></strong></span></p></div>
+</div></div></div></div></div></div></section>
   
   </footer><!-- End Footer -->
 
