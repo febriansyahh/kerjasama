@@ -230,4 +230,23 @@ class ajuan_model extends CI_Model
         $sql = "DELETE FROM `tr_history` WHERE id_ajuan='$id'";
         $this->db->query($sql);
     }
+
+    public function get_moa()
+    {
+        $unit = $this->session->userdata('idUnit');
+        return $this->db->query("SELECT a.*, b.nama_mou, c.nmUnit, d.nama_status FROM tr_ajuan a, jenis_mou b, mst_unit c, status_mou d WHERE a.id_mou=b.id_mou AND a.id_unit=c.idUnit AND a.id_status=d.id_status AND a.id_mou='1' AND c.parentUnit= '$unit'")->result();
+    }
+
+    public function get_riks()
+    {
+        $unit = $this->session->userdata('idUnit');
+        return $this->db->query("SELECT a.*, b.nama_mou, c.nmUnit, d.nama_status FROM tr_ajuan a, jenis_mou b, mst_unit c, status_mou d WHERE a.id_mou=b.id_mou AND a.id_unit=c.idUnit AND a.id_status=d.id_status AND a.id_mou='2' AND c.parentUnit= '$unit'")->result();
+    }
+
+    public function get_ar()
+    {
+        $unit = $this->session->userdata('idUnit');
+        return $this->db->query("SELECT a.*, b.nama_mou, c.nmUnit, d.nama_status FROM tr_ajuan a, jenis_mou b, mst_unit c, status_mou d WHERE a.id_mou=b.id_mou AND a.id_unit=c.idUnit AND a.id_status=d.id_status AND a.id_mou='3' AND c.parentUnit= '$unit'")->result();
+    }
+
 }

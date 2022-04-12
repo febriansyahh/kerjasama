@@ -126,4 +126,22 @@ class ajuan extends CI_Controller
         redirect('admin/ajuan');
     }
 
+    public function moa()
+    {
+        $data["getmoa"] = $this->ajuan_model->get_moa();
+        $this->load->view('panel/ajuan/moa',$data);
+    }
+
+    public function riks()
+    {
+        $data["getriks"] = $this->ajuan_model->get_riks();
+        $this->load->view('panel/ajuan/riks',$data);
+    }
+
+    public function ar()
+    {
+        $data["getar"] = $this->ajuan_model->get_ar();
+        $this->load->view('panel/ajuan/ar',$data);
+    }
+
 }

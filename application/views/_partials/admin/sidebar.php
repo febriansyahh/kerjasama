@@ -198,22 +198,25 @@
 		<div class="multi-level collapse " role="list" id="submenu-app" aria-expanded="false">
 			<ul class="flex-column nav">
 				<li class="nav-item ">
-				<li><a class="nav-link" href="../../pages/tables/bootstrap-tables.html">
-						<span class="sidebar-text">Data MoA</span>
-					</a></li>
-	</li>
-	<li class="nav-item ">
-	<li><a class="nav-link" href="../../pages/tables/bootstrap-tables.html">
-			<span class="sidebar-text">Data RKS/IA</span>
-		</a></li>
-	</li>
-	<li class="nav-item ">
-	<li><a class="nav-link" href="../../pages/tables/bootstrap-tables.html">
-			<span class="sidebar-text">Data AR</span>
-		</a></li>
-	</li>
-	</ul>
-	</div>
+					<li><a class="nav-link" href="<?php echo site_url('admin/ajuan/moa');?>">
+							<span class="sidebar-text">Data MoA</span>
+						</a>
+					</li>
+				</li>
+				<li class="nav-item ">
+					<li><a class="nav-link" href="<?php echo site_url('admin/ajuan/riks');?>">
+						<span class="sidebar-text">Data RKS/IA</span>
+					</a>
+					</li>
+				</li>
+				<li class="nav-item ">
+					<li><a class="nav-link" href="<?php echo site_url('admin/ajuan/ar');?>">
+						<span class="sidebar-text">Data AR</span>
+					</a>
+					</li>
+				</li>
+			</ul>
+		</div>
 	</li>
 
 

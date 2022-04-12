@@ -116,7 +116,6 @@ class kerjasama extends CI_Controller
 
     public function add_riks()
     {
-        $post = $this->input->post();
         $model = $this->kerjasama_model;
         $validation = $this->form_validation;
 
