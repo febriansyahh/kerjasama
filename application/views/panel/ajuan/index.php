@@ -183,7 +183,24 @@
 												</td>
 
 												<td>
-													<a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detailajuan" onclick="detailajuan(this)" data-id="<?php echo $value->id_ajuan . "~" . $value->nm_ajuan  . "~" . $value->mitra . "~" . $value->file  . "~" . $value->tgl_mulai . "~" . $value->tgl_selesai  . "~" . $value->nama_mou . "~" . $value->nmUnit ?>" class="btn btn-secondary btn-sm"><i class="fas fa-eye"></i></a>
+													<?php
+													if ($this->session->userdata('is_down') == '1') {
+													?>
+														<a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detailajuan" onclick="detailajuan(this)" data-id="<?php echo $value->id_ajuan . "~" . $value->nm_ajuan  . "~" . $value->mitra . "~" . $value->file  . "~" . $value->tgl_mulai . "~" . $value->tgl_selesai  . "~" . $value->nama_mou . "~" . $value->nmUnit ?>" class="btn btn-secondary btn-sm"><i class="fas fa-eye"></i></a>
+														<a href="<?php echo base_url('upload/ajuan/' . $value->file) ?>" target="_blank" class="btn btn-success btn-sm"><i class="fas fa-download"></i></a>
+														<?php
+													} else {
+														if ($this->session->userdata('is_view') == '1') {
+														?>
+															<a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detailajuan" onclick="detailajuan(this)" data-id="<?php echo $value->id_ajuan . "~" . $value->nm_ajuan  . "~" . $value->mitra . "~" . $value->file  . "~" . $value->tgl_mulai . "~" . $value->tgl_selesai  . "~" . $value->nama_mou . "~" . $value->nmUnit ?>" class="btn btn-secondary btn-sm"><i class="fas fa-eye"></i></a>
+														<?php
+														} else {
+														?>
+															<button class="btn btn-warning btn-sm">Maaf Anda Tidak Memilliki Akses</button>
+													<?php
+														}
+													}
+													?>
 												</td>
 
 											</tr>
@@ -251,7 +268,24 @@
 												</td>
 
 												<td>
-													<a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detailajuan" onclick="detailajuan(this)" data-id="<?php echo $value->id_ajuan . "~" . $value->nm_ajuan  . "~" . $value->mitra . "~" . $value->file  . "~" . $value->tgl_mulai . "~" . $value->tgl_selesai  . "~" . $value->nama_mou . "~" . $value->nmUnit ?>" class="btn btn-secondary btn-sm"><i class="fas fa-eye"></i></a>
+													<?php
+													if ($this->session->userdata('is_down') == '1') {
+													?>
+														<a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detailajuan" onclick="detailajuan(this)" data-id="<?php echo $value->id_ajuan . "~" . $value->nm_ajuan  . "~" . $value->mitra . "~" . $value->file  . "~" . $value->tgl_mulai . "~" . $value->tgl_selesai  . "~" . $value->nama_mou . "~" . $value->nmUnit ?>" class="btn btn-secondary btn-sm"><i class="fas fa-eye"></i></a>
+														<a href="<?php echo base_url('upload/ajuan/' . $value->file) ?>" target="_blank" class="btn btn-success btn-sm"><i class="fas fa-download"></i></a>
+														<?php
+													} else {
+														if ($this->session->userdata('is_view') == '1') {
+														?>
+															<a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detailajuan" onclick="detailajuan(this)" data-id="<?php echo $value->id_ajuan . "~" . $value->nm_ajuan  . "~" . $value->mitra . "~" . $value->file  . "~" . $value->tgl_mulai . "~" . $value->tgl_selesai  . "~" . $value->nama_mou . "~" . $value->nmUnit ?>" class="btn btn-secondary btn-sm"><i class="fas fa-eye"></i></a>
+														<?php
+														} else {
+														?>
+															<button class="btn btn-warning btn-sm">Maaf Anda Tidak Memilliki Akses</button>
+													<?php
+														}
+													}
+													?>
 												</td>
 
 											</tr>

@@ -40,6 +40,8 @@ class login extends CI_Controller
 						$this->session->set_userdata('nmUser', $value->nmUser);
 						$this->session->set_userdata('username', $value->username);
 						$this->session->set_userdata('levelUser', $value->levelUser);
+						$this->session->set_userdata('is_view', $value->is_view);
+						$this->session->set_userdata('is_down', $value->is_download);
 						$this->session->set_userdata('status', $value->status);
 
 						if( ($this->session->userdata('levelUser')== '1' || $this->session->userdata('levelUser')== '2' || $this->session->userdata('levelUser')== '3') )

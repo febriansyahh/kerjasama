@@ -33,36 +33,53 @@
 							</tr>
 						</thead>
 						<tbody>
-							<?php 
-									$no=1;
-									foreach ($getAll as $value): ?>
-							<tr>
-								<td>
-									<?php echo $no++ ?>
-								</td>
-								<td>
-									<!-- tanggal mulai -->
-									<?php echo $value->tgl_mulai ?>
-								</td>
-								<td>
-									<!-- kerjasama -->
-									<?php echo $value->nm_kerjasama ?>
-								</td>
-								<td>
-									<!-- tentang -->
-									<?php echo $value->keterangan ?>
-								</td>
-								<td>
-									<!-- tgl berakir -->
-									<?php echo $value->tgl_selesai ?>
-								</td>
-								
-								<td>
-									<!-- view -->
-                                <a href="<?php echo site_url('admin/kerjasama_PUD/detail/'.$value->id_kerjasama) ?>" class="btn btn-success btn-sm"><i class="fa-solid fa-eye"></i>View</a>
-                                </td>
+							<?php
+							$no = 1;
+							foreach ($getAll as $value) : ?>
+								<tr>
+									<td>
+										<?php echo $no++ ?>
+									</td>
+									<td>
+										<!-- tanggal mulai -->
+										<?php echo $value->tgl_mulai ?>
+									</td>
+									<td>
+										<!-- kerjasama -->
+										<?php echo $value->nm_kerjasama ?>
+									</td>
+									<td>
+										<!-- tentang -->
+										<?php echo $value->keterangan ?>
+									</td>
+									<td>
+										<!-- tgl berakir -->
+										<?php echo $value->tgl_selesai ?>
+									</td>
 
-							</tr>
+									<td>
+										<?php
+										if ($this->session->userdata('is_down') == '1') {
+										?>
+											<a href="<?php echo site_url('admin/kerjasama_PUD/detail/' . $value->id_kerjasama) ?>" class="btn btn-success btn-sm"><i class="fa-solid fa-eye"></i>View</a>
+											<a href="<?php echo base_url('upload/kerjasama/' . $value->file) ?>" target="_blank" class="btn btn-success btn-sm"><i class="fas fa-download"></i></a>
+											<?php
+										} else {
+											if ($this->session->userdata('is_view') == '1') {
+											?>
+												<a href="<?php echo site_url('admin/kerjasama_PUD/detail/' . $value->id_kerjasama) ?>" class="btn btn-success btn-sm"><i class="fa-solid fa-eye"></i>View</a>
+											<?php
+											} else {
+											?>
+												<button class="btn btn-warning btn-sm">Maaf Anda Tidak Memilliki Akses</button>
+										<?php
+											}
+										}
+										?>
+										<a href="<?php echo site_url('admin/kerjasama_PUD/detail/' . $value->id_kerjasama) ?>" class="btn btn-success btn-sm"><i class="fa-solid fa-eye"></i>View</a>
+									</td>
+
+								</tr>
 							<?php endforeach; ?>
 						</tbody>
 
