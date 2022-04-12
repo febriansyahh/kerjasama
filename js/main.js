@@ -25,6 +25,18 @@ $("#ajuan").DataTable({
       { width: "12%" }, // tgl selesai
       { width: "20%" }, // Pilihan
     ],
+});
+  
+$("#history").DataTable({
+    columns: [
+      { width: "5%" }, // No
+      { width: "15%" }, // Unit
+      { width: "25%" }, // Nama Ajuan
+      { width: "15%" }, // mitra
+      { width: "10%" }, // bentuk moa
+      { width: "10%" }, // tgl selesai
+      { width: "20%" }, // Pilihan
+    ],
   });
 
 function kerjaFunc() {
@@ -179,10 +191,11 @@ function editableFile(param) {
 	$("editID").val(exp[0]);
 	$("editFile").val(exp[1]);
 	console.log(base_url);
+	console.log(base_url + '/upload/ajuan/' + exp[1]);
 	if (type[1] != 'pdf') {
-		$('#showFile').html(`<img id="blah" src="${base_url + '/upload/ajuan/' + exp[1]}" width="520px" height="350px" />`);
+		$('#showpreview').html(`<img id="imgs" src="${base_url + '/upload/ajuan/' + exp[1]}" width="520px" height="350px" />`);
 	} else {
-		$('#showFile').html(`<iframe src="${base_url + '/upload/ajuan/' + exp[1]}" height="520px" width="470px"></iframe>`);
+		$('#showpreview').html(`<iframe src="${base_url + '/upload/ajuan/' + exp[1]}" height="520px" width="470px"></iframe>`);
 	}
 }
 

@@ -20,7 +20,7 @@
             <div class="box-body">
                 <div class="card-body">
                     <div class="table-responsive py-4">
-                        <table id="example" class="display" style="width:100%">
+                        <table id="history" class="display" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>No</th>
@@ -63,7 +63,7 @@
 
                                         <td>
                                             <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#preview" onclick="editableFile(this)" data-id="<?php echo $value->id_ajuan . "~" . $value->file ?>" class="btn btn-success btn-sm"><i class="fas fa-info"></i> File</a>
-                                            <a href="<?php echo site_url('admin/history/detail/' . $value->id_ajuan) ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i> Detail</a>
+                                            <a href="<?php echo site_url('admin/history/detail/' . $value->id_ajuan) ?>" class="btn btn-secondary btn-sm"><i class="fas fa-eye"></i> Detail</a>
                                         </td>
 
                                     </tr>
@@ -89,13 +89,15 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="">Preview File Ajuan</h5>
+                <a href="#" class="close" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times" aria-hidden="true"></i>
+                </a>
             </div>
             <div class="modal-body">
-                    <div class="form-group">
-                        <div id="showFile">
-                            <img id="blah" src="#" alt="" />
-                        </div>
+                <div class="form-group">
+                    <div id="showpreview">
+                        <img id="imgs" src="#" alt="" />
                     </div>
+                </div>
             </div>
         </div>
     </div>

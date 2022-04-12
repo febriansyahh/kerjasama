@@ -183,7 +183,7 @@
 												</td>
 
 												<td>
-													<a href="<?php echo site_url('admin/ajuan/editable/' . $value->id_ajuan) ?>" onclick="editableAjuan(this)" data-id="<?php echo $value->id_ajuan . "~" . $value->file ?>" class="btn btn-secondary btn-sm"><i class="fas fa-eye"></i></a>
+													<a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detailajuan" onclick="detailajuan(this)" data-id="<?php echo $value->id_ajuan . "~" . $value->nm_ajuan  . "~" . $value->mitra . "~" . $value->file  . "~" . $value->tgl_mulai . "~" . $value->tgl_selesai  . "~" . $value->nama_mou . "~" . $value->nmUnit ?>" class="btn btn-secondary btn-sm"><i class="fas fa-eye"></i></a>
 												</td>
 
 											</tr>
@@ -251,7 +251,7 @@
 												</td>
 
 												<td>
-													<a href="<?php echo site_url('admin/ajuan/editable/' . $value->id_ajuan) ?>" onclick="editableAjuan(this)" data-id="<?php echo $value->id_ajuan . "~" . $value->file ?>" class="btn btn-secondary btn-sm"><i class="fas fa-eye"></i></a>
+													<a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detailajuan" onclick="detailajuan(this)" data-id="<?php echo $value->id_ajuan . "~" . $value->nm_ajuan  . "~" . $value->mitra . "~" . $value->file  . "~" . $value->tgl_mulai . "~" . $value->tgl_selesai  . "~" . $value->nama_mou . "~" . $value->nmUnit ?>" class="btn btn-secondary btn-sm"><i class="fas fa-eye"></i></a>
 												</td>
 
 											</tr>
