@@ -58,7 +58,7 @@
 						<td></td>
 						<td><b>Nama Kerjasama </b><br><?php echo $data->nm_kerjasama; ?></td>
 						<td> <b>Mitra </b><br><?php echo $data->mitra; ?></td>
-						<td width="10" align="right"><b>Tanggal mulai :</b> <?php echo $data->tgl_mulai ?><br><b>Tanggal selesai : </b><?php echo $data->tgl_selesai ?></td>
+						<td width="10"><b>Tanggal mulai :</b> <?php echo $data->tgl_mulai ?><br><b>Tanggal selesai : </b><?php echo $data->tgl_selesai ?></td>
 						</tr>
 						
 						<!-- <tr class="gradeX">

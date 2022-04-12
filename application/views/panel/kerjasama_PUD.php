@@ -28,7 +28,7 @@
 								<th>Tanggal Mou</th>
 								<th>Kerjasama</th>
 								<th>TENTANG/IMPLEMENTASI KEGIATAN</th>
-								<th>Tanggal Berakir Mou</th>
+								<th>Tanggal Berakhir Mou</th>
 								<th>Detail</th>
 							</tr>
 						</thead>

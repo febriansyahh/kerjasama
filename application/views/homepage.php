@@ -24,40 +24,44 @@
   <main id="main">
 
     <!-- ======= What We Do Section ======= -->
-    <section id="what-we-do" class="what-we-do">
+    <section id="what-we-do" class="what-we-do" style="background:#eff2f8;">
       <div class="container">
         <div class="row">
           <div class="col-lg-4 col-md-6">
             <div class="icon-box">
-              <div class="icon"><i class="bx bx-file"></i></div>
+              <div class="icon"> <i class="bx bx-receipt"></i></div>
               <h4><a href="">MoU</a></h4>
               <p>Memorandum of Understanding</p>
+              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6">
             <div class="icon-box">
-              <div class="icon"><i class="bx bx-file"></i></div>
+              <div class="icon"><i class="bx bxs-report"></i></div>
               <h4><a href="">PKS</a></h4>
               <p>Perjanjian Kerjasama</p>
+              <span  data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6">
             <div class="icon-box">
-              <div class="icon"><i class="bx bx-tachometer"></i></div>
+              <div class="icon"><i class="bx bx-hive"></i></div>
               <h4><a href="">IA</a></h4>
               <p>Rencana implementasi kerja sama</p>
+              <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>
             </div>
           </div>
 
         </div>
 
       </div>
-    </section><!-- End What We Do Section -->
+    </section>
+    <!-- End What We Do Section -->
 
     <!-- ======= Counts Section ======= -->
-    <section id="counts" class="counts">
+    <!-- <section id="counts" class="counts" style="background:#eff2f8;">
       <div class="container">
 
         <div class="row">
@@ -69,6 +73,7 @@
               <p>Jumlah MoU</p>
             </div>
           </div>
+          
 
           <div class="col-lg-4 col-6">
             <div class="count-box">
@@ -89,10 +94,13 @@
         </div>
 
       </div>
-    </section><!-- End Counts Section -->
+    </section> -->
+    <!-- End Counts Section -->
+
+    
 
     <!-- ======= Services Section ======= -->
-    <section id="services" class="services section-bg">
+    <!-- <section id="services" class="services section-bg">
       <div class="container">
 
         <div class="section-title">
@@ -146,7 +154,8 @@
         </div>
 
       </div>
-    </section><!-- End Services Section -->
+    </section> -->
+    <!-- End Services Section -->
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
@@ -157,6 +166,15 @@
         <div class="row">
 
         <div class="col-lg-4 col-md-6 footer-links">
+            <h4>UNIVERSITAS MURIA KUDUS </h4>
+            <p style="font-family: Poppins">Gondangmanis PO. BOX 53 Bae 59324 Kudus <br>
+                Jawa Tengah - Indonesia <br>
+                Telp. +62291-438229 Fax. +62291-437198 <br>
+                email. <a href="mailto:muria@umk.ac.id">muria@umk.ac.id</a>
+            </p>
+          </div>
+
+        <div class="col-lg-4 col-md-6 footer-links">
             <h4>Situs Terkait</h4>
               <a href="https://umk.ac.id" target="_blank">Website UMK</a><br>
               <a href="https://pmb.umk.ac.id/" target="_blank">PMB UMK</a><br>
@@ -164,7 +182,7 @@
               <a href="<?php echo site_url('login')?>">Login</a><br>
           </div>
 
-          <div class="col-lg-4 col-md-6 footer-links">
+          <!-- <div class="col-lg-4 col-md-6 footer-links">
             <h4>Our Services</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
@@ -173,14 +191,11 @@
               <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
             </ul>
-          </div>
+          </div> -->
 
           <div class="col-lg-4 col-md-6 footer-links">
-            <h4>Contact Us </h4>
-            <p style="font-family: Poppins">Gondangmanis PO. BOX 53 Bae 59324 Kudus <br>
-                Jawa Tengah - Indonesia <br>
-                Telp. +62291-438229 Fax. +62291-437198 <br>
-                email. <a href="mailto:muria@umk.ac.id">muria@umk.ac.id</a>
+            <h4>Sosial Media</h4>
+            <p style="font-family: Poppins">Selalu ikuti informasi terkini melalui sosial media kami.<br>
             </p>
             <div class="social-links mt-3">
               <a href="https://id-id.facebook.com/UNIVERSITAS-MURIA-KUDUS-UMK-182450701824294/" target="_blank" class="facebook"><i class="bx bxl-facebook"></i></a>
