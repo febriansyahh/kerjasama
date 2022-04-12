@@ -14,6 +14,19 @@ $("#kerjasama").DataTable({
     ],
   });
 
+$("#ajuan").DataTable({
+    columns: [
+      { width: "5%" }, // No
+      { width: "20%" }, // Nama Ajuan
+      { width: "10%" }, // jenis
+      { width: "10%" }, // unit
+      { width: "10%" }, // Mitra
+      { width: "13%" }, // tgl Mulai
+      { width: "12%" }, // tgl selesai
+      { width: "20%" }, // Pilihan
+    ],
+  });
+
 function kerjaFunc() {
 	var selectBox = document.getElementById("kerjasama");
 	console.log("AAA");
@@ -75,6 +88,56 @@ function editableTingkatan(param) {
 	$("#editNm").val(exp[1]);
 }
 
+function detailkerja(param) {
+	let data = $(param).data("id");
+	let exp = data.split("~");
+	let type = exp[5].split(".");
+
+	console.log(data);
+	console.log(type[1]);
+
+	$("#detID").val(exp[0]);
+	$("#detNmAjuan").val(exp[1]);
+	$("#detNmKerjasama").val(exp[2]);
+	$("#detMitra").val(exp[3]);
+	$("#detNmunit").val(exp[4]);
+	$("#detFile").val(exp[5]);
+	$("#detTglMulai").val(exp[6]);
+	$("#detTglSelesai").val(exp[7]);
+	$("#detKet").val(exp[8]);
+	$("#detmou").val(exp[9]);
+
+	if (type[1] != 'pdf') {
+		$('#showFile').html(`<img id="blah" src="${base_url + '/upload/kerjasama/' + exp[5]}" width="520px" height="350px" />`);
+	} else {
+		$('#showFile').html(`<iframe src="${base_url + '/upload/kerjasama/' + exp[5]}" height="520px" width="100%"></iframe>`);
+	}
+}
+
+function detailajuan(param) {
+	let data = $(param).data("id");
+	let exp = data.split("~");
+	let type = exp[3].split(".");
+
+	console.log(data);
+	console.log(type[1]);
+
+	$("#detAID").val(exp[0]);
+	$("#detANmAjuan").val(exp[1]);
+	$("#detAMitra").val(exp[2]);
+	$("#detAFile").val(exp[3]);
+	$("#detATglMulai").val(exp[4]);
+	$("#detATglSelesai").val(exp[5]);
+	$("#detAmou").val(exp[6]);
+	$("#detANmunit").val(exp[7]);
+
+	if (type[1] != 'pdf') {
+		$('#showFiles').html(`<img id="images" src="${base_url + '/upload/Ajuan/' + exp[3]}" width="520px" height="350px" />`);
+	} else {
+		$('#showFiles').html(`<iframe src="${base_url + '/upload/Ajuan/' + exp[3]}" height="520px" width="100%"></iframe>`);
+	}
+}
+
 function editableUser(param) {
 	let data = $(param).data("id");
 	let exp = data.split("~");
@@ -120,23 +183,6 @@ function editableFile(param) {
 		$('#showFile').html(`<img id="blah" src="${base_url + '/upload/ajuan/' + exp[1]}" width="520px" height="350px" />`);
 	} else {
 		$('#showFile').html(`<iframe src="${base_url + '/upload/ajuan/' + exp[1]}" height="520px" width="470px"></iframe>`);
-	}
-}
-
-function editableFileKerjasama(param) {
-	let data = $(param).data("id");
-	let exp = data.split("~");
-	let type = exp[1].split(".");
-	console.log(exp);
-	console.log(type);
-	console.log(type[1]);
-	$("editID").val(exp[0]);
-	$("editFile").val(exp[1]);
-	console.log(base_url);
-	if (type[1] != 'pdf') {
-		$('#showFile').html(`<img id="blah" src="${base_url + '/upload/kerjasama/' + exp[1]}" width="520px" height="350px" />`);
-	} else {
-		$('#showFile').html(`<iframe src="${base_url + '/upload/kerjasama/' + exp[1]}" height="520px" width="470px"></iframe>`);
 	}
 }
 

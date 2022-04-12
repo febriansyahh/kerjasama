@@ -237,3 +237,179 @@
 		</div>
 	</div>
 </div>
+
+<div id="detailkerja" class="modal fade">
+	<div class="modal-dialog modal-lg" style="width:1250px;">
+		<div class="modal-content">
+			<div class="modal-header">
+				<p class="modal-title">Detail Kerjasama</p>
+				<a href="" class="close" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times" aria-hidden="true"></i>
+				</a>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-6">
+						<div class="form-group">
+							<label class="col-sm-5 control-label pb-2"><b>Nama Ajuan :</b></label>
+							<div class="col-sm-12">
+								<input type="text" name="nm_ajuan" class="form-control" id="detNmAjuan" readonly>
+							</div>
+						</div>
+					</div>
+					<div class="col-6">
+						<div class="form-group">
+							<label class="col-sm-5 control-label pb-2"><b>Nama Kerjasama :</b></label>
+							<div class="col-sm-12">
+								<input type="text" name="nm_ajuan" class="form-control" id="detNmKerjasama" readonly>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-6">
+						<div class="form-group">
+							<label class="col-sm-5 control-label pb-2"><b>Bentuk Kerjasama :</b></label>
+							<div class="col-sm-12">
+								<input type="text" name="nm_ajuan" class="form-control" id="detmou" readonly>
+							</div>
+						</div>
+					</div>
+					<div class="col-6">
+						<div class="form-group">
+							<label class="col-sm-5 control-label pb-2"><b> Mitra Kerjasama :</b></label>
+							<div class="col-sm-12">
+								<input type="text" name="nm_ajuan" class="form-control" id="detMitra" readonly>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-6">
+						<div class="form-group">
+							<label class="col-sm-5 control-label pb-2"><b>Atas Nama Unit :</b></label>
+							<div class="col-sm-12">
+								<input type="text" name="nm_ajuan" class="form-control" id="detNmunit" readonly>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-6">
+						<div class="form-group">
+							<label class="col-sm-5 control-label pb-2"><b>Keterangan :</b></label>
+							<div class="col-sm-12">
+								<input type="text" name="nm_ajuan" class="form-control" id="detKet" readonly>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-6">
+						<div class="form-group">
+							<label class="col-sm-5 control-label pb-2"><b>Tgl. Mulai :</b></label>
+							<div class="col-sm-12">
+								<input type="text" name="nm_ajuan" class="form-control" id="detTglMulai" readonly>
+							</div>
+						</div>
+					</div>
+					<div class="col-6">
+						<div class="form-group">
+							<label class="col-sm-5 control-label pb-2"><b>Tgl. Selesai :</b></label>
+							<div class="col-sm-12">
+								<input type="text" name="nm_ajuan" class="form-control" id="detTglSelesai" readonly>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br>
+				<div class="form-group">
+					<label class="col-sm-5 control-label pb-2"><b>File Kerjasama :</b></label>
+					<div id="showFile">
+						<img id="blah" src="#" alt="" />
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<div id="detailajuan" class="modal fade">
+	<div class="modal-dialog modal-lg" style="width:1250px;">
+		<div class="modal-content">
+			<div class="modal-header">
+				<p class="modal-title">Detail Ajuan</p>
+				<a href="" class="close" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times" aria-hidden="true"></i>
+				</a>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-6">
+						<div class="form-group">
+							<label class="col-sm-5 control-label pb-2"><b>Nama Ajuan :</b></label>
+							<div class="col-sm-12">
+								<input type="text" name="nm_ajuan" class="form-control" id="detANmAjuan" readonly>
+							</div>
+						</div>
+					</div>
+					<div class="col-6">
+						<div class="form-group">
+							<label class="col-sm-5 control-label pb-2"><b>Nama Mitra :</b></label>
+							<div class="col-sm-12">
+								<input type="text" name="nm_ajuan" class="form-control" id="detAMitra" readonly>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-6">
+						<div class="form-group">
+							<label class="col-sm-5 control-label pb-2"><b>Bentuk Kerjasama :</b></label>
+							<div class="col-sm-12">
+								<input type="text" name="nm_ajuan" class="form-control" id="detAmou" readonly>
+							</div>
+						</div>
+					</div>
+					<div class="col-6">
+						<div class="form-group">
+							<label class="col-sm-5 control-label pb-2"><b> Atas Nama Unit :</b></label>
+							<div class="col-sm-12">
+								<input type="text" name="nm_ajuan" class="form-control" id="detANmunit" readonly>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-6">
+						<div class="form-group">
+							<label class="col-sm-5 control-label pb-2"><b>Tgl. Mulai :</b></label>
+							<div class="col-sm-12">
+								<input type="text" name="nm_ajuan" class="form-control" id="detATglMulai" readonly>
+							</div>
+						</div>
+					</div>
+					<div class="col-6">
+						<div class="form-group">
+							<label class="col-sm-5 control-label pb-2"><b>Tgl. Selesai :</b></label>
+							<div class="col-sm-12">
+								<input type="text" name="nm_ajuan" class="form-control" id="detATglSelesai" readonly>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br>
+				<div class="form-group">
+					<label class="col-sm-5 control-label pb-2"><b>File Ajuan :</b></label>
+					<div id="showFiles">
+						<img id="images" src="#" alt="" />
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>

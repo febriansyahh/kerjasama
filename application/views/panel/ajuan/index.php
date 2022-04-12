@@ -42,7 +42,7 @@
 					<div class="box-body">
 						<div class="card-body">
 							<div class="table-responsive py-4">
-								<table id="example" class="display" style="width:100%">
+								<table id="ajuan" class="display" style="width:100%">
 									<thead>
 										<tr>
 											<th>No</th>
@@ -64,7 +64,7 @@
 													<?php echo $no++ ?>
 												</td>
 												<td>
-													<?php echo $value->nama_mou ?>
+													<?php echo $value->nm_ajuan ?>
 												</td>
 												<td>
 													<?php echo $value->nama_mou ?>
@@ -113,8 +113,9 @@
 													<?php
 													}
 													?>
-													<a href="<?php echo site_url('admin/ajuan/editable/' . $value->id_ajuan) ?>" onclick="editableAjuan(this)" data-id="<?php echo $value->id_ajuan . "~" . $value->file ?>" class="btn btn-success btn-sm"><i class="fas fa-edit"></i> Edit</a>
-													<a onclick="deleteConfirm('<?php echo site_url('admin/ajuan/delete/' . $value->id_ajuan) ?>')" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Hapus</a>
+													<a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detailajuan" onclick="detailajuan(this)" data-id="<?php echo $value->id_ajuan . "~" . $value->nm_ajuan  . "~" . $value->mitra . "~" . $value->file  . "~" . $value->tgl_mulai . "~" . $value->tgl_selesai  . "~" . $value->nama_mou . "~" . $value->nmUnit ?>" class="btn btn-secondary btn-sm"><i class="fas fa-eye"></i></a>
+													<a href="<?php echo site_url('admin/ajuan/editable/' . $value->id_ajuan) ?>" onclick="editableAjuan(this)" data-id="<?php echo $value->id_ajuan . "~" . $value->file ?>" class="btn btn-success btn-sm"><i class="fas fa-edit"></i></a>
+													<a onclick="deleteConfirm('<?php echo site_url('admin/ajuan/delete/' . $value->id_ajuan) ?>')" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
 												</td>
 
 											</tr>
@@ -182,8 +183,7 @@
 												</td>
 
 												<td>
-													<a href="<?php echo site_url('admin/ajuan/editable/' . $value->id_ajuan) ?>" onclick="editableAjuan(this)" data-id="<?php echo $value->id_ajuan . "~" . $value->file ?>" class="btn btn-success btn-sm"><i class="fas fa-edit"></i> Edit</a>
-													<a onclick="deleteConfirm('<?php echo site_url('admin/ajuan/delete/' . $value->id_ajuan) ?>')" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Hapus</a>
+													<a href="<?php echo site_url('admin/ajuan/editable/' . $value->id_ajuan) ?>" onclick="editableAjuan(this)" data-id="<?php echo $value->id_ajuan . "~" . $value->file ?>" class="btn btn-secondary btn-sm"><i class="fas fa-eye"></i></a>
 												</td>
 
 											</tr>
@@ -202,6 +202,69 @@
 
 		case 3:
 		?>
+			<main class="content">
+
+				<?php $this->load->view("_partials/admin/navbar.php") ?>
+				<br>
+				<div class="card">
+					<div class="box-body">
+						<div class="card-body">
+							<div class="table-responsive py-4">
+								<table id="example" class="display" style="width:100%">
+									<thead>
+										<tr>
+											<th>No</th>
+											<th>Nama Ajuan</th>
+											<th>Jenis MoU</th>
+											<th>Unit</th>
+											<th>Mitra</th>
+											<th>Tgl. Mulai</th>
+											<th>Tgl. Selesai</th>
+											<th>Pilihan</th>
+										</tr>
+									</thead>
+									<tbody>
+										<?php
+										$no = 1;
+										foreach ($getAll as $value) : ?>
+											<tr>
+												<td>
+													<?php echo $no++ ?>
+												</td>
+												<td>
+													<?php echo $value->nama_mou ?>
+												</td>
+												<td>
+													<?php echo $value->nama_mou ?>
+												</td>
+												<td>
+													<?php echo $value->nmUnit ?>
+												</td>
+												<td>
+													<?php echo $value->mitra ?>
+												</td>
+												<td>
+													<?php echo date('d-m-Y', strtotime($value->tgl_mulai)) ?>
+												</td>
+												<td>
+													<?php echo date('d-m-Y', strtotime($value->tgl_selesai)) ?>
+												</td>
+
+												<td>
+													<a href="<?php echo site_url('admin/ajuan/editable/' . $value->id_ajuan) ?>" onclick="editableAjuan(this)" data-id="<?php echo $value->id_ajuan . "~" . $value->file ?>" class="btn btn-secondary btn-sm"><i class="fas fa-eye"></i></a>
+												</td>
+
+											</tr>
+										<?php endforeach; ?>
+									</tbody>
+
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</main>
 	<?php
 			break;
 	}

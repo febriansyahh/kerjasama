@@ -78,6 +78,11 @@ class ajuan_model extends CI_Model
                 return $this->db->query("SELECT a.*, b.nama_mou, c.nmUnit, d.id_status, d.nama_status FROM 
                 tr_ajuan a, jenis_mou b, mst_unit c, status_mou d WHERE a.id_mou=b.id_mou AND a.id_unit=c.idUnit AND a.id_status=d.id_status AND (c.idUnit = '$unit' OR c.parentUnit = '$unit') ORDER BY a.sysInput DESC")->result();
                 break;
+
+            case '3':
+                return $this->db->query("SELECT a.*, b.nama_mou, c.nmUnit, d.id_status, d.nama_status FROM 
+                tr_ajuan a, jenis_mou b, mst_unit c, status_mou d WHERE a.id_mou=b.id_mou AND a.id_unit=c.idUnit AND a.id_status=d.id_status AND c.idUnit = '$unit' ORDER BY a.sysInput DESC")->result();
+                break;
         }
         
     }
