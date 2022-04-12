@@ -79,7 +79,8 @@ class kerjasama_model extends CI_Model
 
     public function getAjuanPIC()
     {
-        return $this->db->query("SELECT a.*, b.nama_mou FROM tr_ajuan a, jenis_mou b, mst_unit c WHERE a.id_mou = b.id_mou AND a.id_unit=c.idUnit AND c.parentUnit='1' AND a.id_status='5' ORDER BY id_ajuan ASC ")->result();
+        $unit = $this->session->userdata('idUnit');
+        return $this->db->query("SELECT a.*, b.nama_mou FROM tr_ajuan a, jenis_mou b, mst_unit c WHERE a.id_mou = b.id_mou AND a.id_unit=c.idUnit AND (c.parentUnit='$unit' OR c.idUnit ='$unit') AND a.id_status='5' ORDER BY id_ajuan ASC ")->result();
     }
 
     public function getMou()
@@ -129,7 +130,7 @@ class kerjasama_model extends CI_Model
     public function getUnitId()
     {
         $unit = $this->session->userdata('idUnit');
-        return $this->db->query("SELECT * FROM mst_unit WHERE parentUnit = '$unit' ")->result();
+        return $this->db->query("SELECT * FROM mst_unit WHERE parentUnit = '$unit' OR idUnit='$unit' ")->result();
     }
 
     public function save_moa()
