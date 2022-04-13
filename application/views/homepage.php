@@ -97,7 +97,7 @@
           <div class="container border-top py-3">
             <div class="row justify-content-between">
               <div class="col-12 mb-1 mb-md-0">
-                <p class="mb-0">&copy; 2022 BAU UMK | Support by UPT-PSI</p>
+                <p class="mb-0">&copy;Support by UPT-PSI</p>
               </div>
               <!-- <div class="col-12 col-md-auto">
                 <p class="mb-0">

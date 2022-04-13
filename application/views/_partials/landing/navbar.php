@@ -4,7 +4,7 @@
     <ul class="navbar-nav ms-auto">
       <li class="nav-item"><a class="nav-link" aria-current="page" href="<?php echo base_url() ?>">Home</a></li>
       <li class="nav-item"><a class="nav-link" aria-current="page" href="<?php echo base_url('kerjasama') ?>">Kerjasama</a></li>
-      <li class="nav-item"><a class="nav-link" aria-current="page" href="pages/agenda.html">About</a></li>
+      <li class="nav-item"><a class="nav-link" aria-current="page" href="#">About</a></li>
     </ul>
     <div class="d-flex ms-lg-4"><a class="btn btn-warning ms-3" href="<?php echo base_url('login') ?>">Login</a></div>
 

@@ -9,9 +9,6 @@
 
 <body>
 
-  <!-- ===============================================-->
-  <!--    Main Content-->
-  <!-- ===============================================-->
   <main class="main" id="top">
     <nav class="navbar navbar-expand-lg navbar-light sticky-top" data-navbar-on-scroll="data-navbar-on-scroll">
 
@@ -21,51 +18,147 @@
 
     <section class="pt-4">
       <div class="container">
-        <h1 class="h3 mb-3 text-gray-800">Daftar Renovasi</h1>
-        <p class="mb-4 desc">Berikut adalah daftar renovasi yang ditangani Unit Maintenance berdasarkan ajuan unit. Jika Anda ingin melaporkan kerusakan sarana dan prasarana kampus untuk diperbaiki, silakan melakukan login. Pengerjaan renovasi mayor bisa dilakukan pihak luar atau rekanan melalui proses tender/lelang. Bagi Anda yang berminat mengerjakan renovasi mayor yang ditawarkan, silakan melakukan login untuk mengajukan penawaran.
+        <h1 class="h3 mb-3 text-gray-800">Daftar Memorandum of Understanding (MoU)</h1>
+        <p class="mb-2 desc">Berikut adalah daftar Memorandum of Understanding (MoU) yang ditangani oleh Lembaga Informasi dann Komunikasi (LINFOKOM) berdasarkan ajuan unit masing-masing. Beberapa data MoU dibawah ini terdiri beberapa RIKS atau IA dan AR didalamnya.
         </p>
+        <br>
         <table class="table table-bordered mb-0" id="data_table">
           <thead>
             <tr>
               <th>No</th>
-              <th>Jenis Renovasi</th>
-              <th>Lokasi</th>
-              <th>Pemohon</th>
-              <th>Tanggal Permohonan</th>
+              <th>Jenis MoU</th>
+              <th>Nama Kerjasama</th>
+              <th>Unit</th>
+              <th style="display:none;">id_mou</th>
+              <th>Mitra</th>
               <th>Status</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td class="td">1</td>
-              <td class="td">Mohon Bantuan merapikan kabel listrik</td>
-              <td class="td">Ruang Kaprodi Fisioterapi Gedung D Lanti 2 FIK</td>
-              <td class="td">Fakultas Ilmu Kesehatan</td>
-              <td class="td">11-04-2022 <br>10:03:15</td>
-              <td class="td"><button type="text" class="btn btn-custom">
-                  Ajuan
-                </button></td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Mohon Bantuan merapikan kabel listrik</td>
-              <td>Ruang Kaprodi Fisioterapi Gedung D Lanti 2 FIK</td>
-              <td>Fakultas Ilmu Kesehatan</td>
-              <td>11-04-2022 <br>10:03:15</td>
-              <td><button type="text" class="btn btn-proses">
-                  Dalam Proses
-                </button></td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Mohon Bantuan merapikan kabel listrik</td>
-              <td>Ruang Kaprodi Fisioterapi Gedung D Lanti 2 FIK</td>
-              <td>Fakultas Ilmu Kesehatan</td>
-              <td>11-04-2022 <br>10:03:15</td>
-              <td><button type="text" class="btn btn-selesai-renov">
-                  Selesai Renovasi
-                </button></td>
-            </tr>
+
+            <?php
+            $no = 1;
+            foreach ($getmoa as $value) {
+            ?>
+              <tr>
+                <td class="td">
+                  <?php echo $no++ ?>
+                </td>
+
+                <td class="td">
+                  <?php echo $value->nama_mou ?>
+                </td>
+
+                <td class="td">
+                  <?php echo $value->nm_kerjasama ?>
+                </td>
+
+                <td class="td">
+                  <?php echo $value->nmUnit ?>
+                </td>
+
+                <td class="td" style="display:none;">
+                  <?php echo $value->id_mou ?>
+                </td>
+
+                <td class="td">
+                  <?php echo $value->mitra ?>
+                </td>
+
+                <!-- <td class="td">
+                  <?php echo date('d-m-Y', strtotime($value->tgl_mulai)) ?>
+                </td>
+
+                <td class="td">
+                  <?php echo date('d-m-Y', strtotime($value->tgl_selesai)) ?>
+                </td> -->
+
+
+                <td class="td"><button type="text" class="btn btn-custom">Ajuan</button></td>
+
+              </tr>
+            <?php
+            }
+            foreach ($getrks as $value) {
+            ?>
+              <tr>
+                <td class="td">
+                  -
+                </td>
+
+                <td class="td">
+                  <?php echo $value->nama_mou ?>
+                </td>
+
+                <td class="td">
+                  <?php echo $value->nm_kerjasama ?>
+                </td>
+
+                <td class="td">
+                  <?php echo $value->nmUnit ?>
+                </td>
+
+                <td class="td" style="display:none;">
+                  <?php echo $value->id_mou ?>
+                </td>
+
+                <td class="td">
+                  <?php echo $value->mitra ?>
+                </td>
+
+                <!-- <td class="td">
+                  <?php echo date('d-m-Y', strtotime($value->tgl_mulai)) ?>
+                </td>
+
+                <td class="td">
+                  <?php echo date('d-m-Y', strtotime($value->tgl_selesai)) ?>
+                </td> -->
+
+
+                <td class="td"><button type="text" class="btn btn-custom">Ajuan</button></td>
+
+              </tr>
+            <?php
+            }
+            foreach ($getar as $value) {
+            ?>
+              <tr>
+                <td class="td"> </td>
+
+                <td class="td">
+                  <?php echo $value->nama_mou ?>
+                </td>
+
+                <td class="td">
+                  <?php echo $value->nm_kerjasama ?>
+                </td>
+
+                <td class="td">
+                  <?php echo $value->nmUnit ?>
+                </td>
+
+                <td class="td" style="display:none;">
+                  <?php echo $value->id_mou ?>
+                </td>
+
+                <td class="td">
+                  <?php echo $value->mitra ?>
+                </td>
+
+                <!-- <td class="td">
+                  <?php echo date('d-m-Y', strtotime($value->tgl_mulai)) ?>
+                </td>
+
+                <td class="td">
+                  <?php echo date('d-m-Y', strtotime($value->tgl_selesai)) ?>
+                </td> -->
+
+                <td class="td"><button type="text" class="btn btn-custom">Ajuan</button></td>
+
+              </tr>
+            <?php
+            }
+            ?>
 
           </tbody>
         </table>
@@ -81,9 +174,9 @@
         <div class="container border-top py-3">
           <div class="row justify-content-between">
             <div class="col-12 mb-1 mb-md-0">
-              <p class="mb-0">&copy; 2022 BAU UMK | Support by UPT-PSI</p>
+              <p class="mb-0">&copy; Support by UPT-PSI</p>
             </div>
-           
+
           </div>
         </div>
       </div><!-- end of .container-->

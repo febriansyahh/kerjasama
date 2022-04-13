@@ -14,11 +14,11 @@
   <!--    Main Content-->
   <!-- ===============================================-->
   <main class="main" id="top">
-    <nav class="navbar navbar-expand-lg navbar-light sticky-top" data-navbar-on-scroll="data-navbar-on-scroll">
-      <?php $this->load->view("_partials/landing/navbar.php") ?>
-    </nav>
-
+    
     <section id="login" class="content">
+      <nav class="navbar navbar-expand-lg navbar-light sticky-top" data-navbar-on-scroll="data-navbar-on-scroll">
+        <?php $this->load->view("_partials/landing/navbar.php") ?>
+        </nav>
       <br><br><br>
       <?php
       if ($this->session->flashdata('akses')) echo '<script> swal("Gagal!", "Gagal Login, Anda Tidak Memiliki Akses !!", "error") </script>';
