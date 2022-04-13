@@ -46,7 +46,7 @@
                             ?>
 							<tr>
                                     <td>
-                                      <b> RIKS/AR </b>
+                                      <b> RIKS/AR </b> <?php echo $value->nmUnit ?>
                                     </td>
 									<td></td>
 									<td></td>
