@@ -24,6 +24,13 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
 
+<link href="https://cdn.datatables.net/1.11.2/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.bootstrap5.min.css" rel="stylesheet" />
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+
+
 <!-- ===============================================-->
 <!--    Stylesheets-->
 <!-- ===============================================-->
