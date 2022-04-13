@@ -74,7 +74,7 @@
                 </td> -->
 
 
-                <td class="td"><button type="text" class="btn btn-custom">Ajuan</button></td>
+                <td class="td"><button type="text" class="btn btn-custom">Kerjasama</button></td>
 
               </tr>
             <?php
@@ -115,7 +115,7 @@
                 </td> -->
 
 
-                <td class="td"><button type="text" class="btn btn-custom">Ajuan</button></td>
+                <td class="td"><button type="text" class="btn btn-custom">Kerjasama</button></td>
 
               </tr>
             <?php
@@ -153,7 +153,7 @@
                   <?php echo date('d-m-Y', strtotime($value->tgl_selesai)) ?>
                 </td> -->
 
-                <td class="td"><button type="text" class="btn btn-custom">Ajuan</button></td>
+                <td class="td"><button type="text" class="btn btn-custom">Kerjasama</button></td>
 
               </tr>
             <?php
