@@ -20,7 +20,7 @@
 		</div> -->
 		<div class="card">
 			<div class="box-body">
-				<div class="table-responsive py-6">
+				<div class="table-responsive py-9">
                 <table class="table">
 				<tbody>
                     <?php
@@ -28,10 +28,10 @@
 						foreach ($detail as $data) {
 						?>
 						<tr>
-						<td style="border-bottom:3px double #000000;padding-left:200px" valign="left" align="center" width="500">
+						<td style="border-bottom:3px double #000000;padding-left:200px" valign="left" align="center" width="300">
                             <img src="<?php echo base_url('assets/img/umk.png');?>" >
                         </td>
-						<td colspan="3" style="border-bottom:3px double #000000; padding-top: 0px; line-height: 20px; text-align: center; padding-right:450px;">
+						<td colspan="5" style="border-bottom:3px double #000000; padding-top: 0px; line-height: 20px; text-align: center; padding-right:300px;">
                             <!-- <center> -->
 							<span class="nama1" style="font-weight: bold;">YAYASAN PEMBINA UNIVERSITAS MURIA KUDUS<br></span>
                             <span class="nama1" style="font-weight: bold;">Universitas Muria Kudus<br></span>
@@ -40,35 +40,75 @@
                         	<!-- </center> -->
                         </td>
 						</tr>
-						<tr class="gradeX">
-							<td with="170"> <b>Jenis MoU</b><br><?php echo $data->nama_mou ?> </td>
-							<td></td>
-							<td></td>
-							<td></td>
+						<?php
+                            $no = 1;
+                            foreach ($getrks as $value) { 
+                            ?>
+							<tr>
+                                    <td>
+                                      <b> RIKS/AR </b>
+                                    </td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td></td>
+                                    <td>
+                                       <b> Jenis MoU</b><br><?php echo $value->nama_mou ?>
+                                    </td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td></td>
+                                    <td>
+                                      <b> Kerjasama</b><br><?php echo $value->nm_kerjasama ?>
+                                    </td>
+                                    <td>
+                                       <b>Mitra</b><br> <?php echo $value->mitra ?>
+                                    </td>
+                                    <td>
+                                       <b> Tanggal Mulai </b> <?php echo date('d-m-Y', strtotime($value->tgl_mulai)) ?><br>
+										<b> Tanggal Selesai </b> <?php echo date('d-m-Y', strtotime($value->tgl_selesai)) ?>
+                                    </td>
 
-						</tr>
-						<tr class="gradeX">
-						<td></td>
-						<td><b>Nama Ajuan</b> <br><?php echo $data->nm_ajuan?></td>
-						<td></td>
-						<td></td>
-
-						</tr>
-						<tr class="gradeX">
-						<td></td>
-						<td><b>Nama Kerjasama </b><br><?php echo $data->nm_kerjasama; ?></td>
-						<td> <b>Mitra </b><br><?php echo $data->mitra; ?></td>
-						<td width="10"><b>Tanggal mulai :</b> <?php echo $data->tgl_mulai ?><br><b>Tanggal selesai : </b><?php echo $data->tgl_selesai ?></td>
-						</tr>
-						
-						<!-- <tr class="gradeX">
-						<td> </td>
-						<td  align="center"><b> Keterangan Perjanjian </b><br><?php echo $data->keterangan ?></td>
-						<td> </td>
-						<td> </td>
-						</tr> -->
-
-						
+                                </tr>
+                            <?php
+                            }
+                            foreach ($getar as $value) {
+                            ?>
+								<tr>
+                                    <td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td></td>
+                                    <td>
+                                       <b> Jenis MoU</b><br> <?php echo $value->nama_mou ?>
+                                    </td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+								
+									<td></td>
+                                    <td>
+                                       <b>Nama Kerjasama</b><br> <?php echo $value->nm_kerjasama ?>
+                                    </td>
+                                    <td>
+                                      <b> Mitra </b><br> <?php echo $value->mitra ?>
+                                    </td>
+                                    <td>
+                                      <b>Tanggal Mulai</b> <?php echo date('d-m-Y', strtotime($value->tgl_mulai)) ?><br>
+								 	  <b>Tanggal Selesai</b><?php echo date('d-m-Y', strtotime($value->tgl_selesai)) ?>
+                                    </td>
+                            <?php
+                            }
+                            ?>
+						<tr>
                     <?php
 						}
 					?>

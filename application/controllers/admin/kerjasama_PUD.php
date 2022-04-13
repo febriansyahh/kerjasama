@@ -17,7 +17,10 @@ class kerjasama_PUD extends CI_Controller
     public function detail($id){
  
 		$data["detail"] =$this->kerjasama_PUD_model->get_detail($id);
+        $data["getrks"] = $this->kerjasama_PUD_model->rks($id);
+        $data["getar"] = $this->kerjasama_PUD_model->ar($id);
 		$this->load->view('panel/D_kerjasama_PUD', $data);
+        
  
 	}
 
