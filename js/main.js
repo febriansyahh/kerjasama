@@ -3,7 +3,7 @@ $(document).ready(function () {
 });
 
 $("#report").DataTable({
-    order: [[0, "desc"]],
+    order: [[1, "desc"]],
 });
   
 $("#kerjasama").DataTable({
