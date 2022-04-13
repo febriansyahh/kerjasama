@@ -2,6 +2,10 @@ $(document).ready(function () {
 	$('#example').DataTable();
 });
 
+$("#report").DataTable({
+    order: [[0, "desc"]],
+});
+  
 $("#kerjasama").DataTable({
     columns: [
       { width: "5%" }, // No

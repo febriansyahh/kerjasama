@@ -23,7 +23,8 @@ class kerjasama_model extends CI_Model
                 break;
 
             case '3':
-                return $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, b.sysInput, c.nama_mou, d.idUnit, d.nmUnit FROM tr_kerjasama a, tr_ajuan b, jenis_mou c, mst_unit d WHERE a.id_ajuan=b.id_ajuan AND a.id_mou=c.id_mou AND a.id_unit=d.idUnit AND d.idUnit = '$unit' ORDER BY a.sysInput DESC")->result();
+                return $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, b.sysInput, c.nama_mou, d.idUnit, d.nmUnit FROM tr_kerjasama a, tr_ajuan b, jenis_mou c, mst_unit d WHERE a.id_ajuan=b.id_ajuan AND a.id_mou=c.id_mou AND a.id_unit=d.idUnit AND d.idUnit = '$unit' AND a.id_mou='1' ORDER BY a.sysInput DESC")->result();
+                // return $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, b.sysInput, c.nama_mou, d.idUnit, d.nmUnit FROM tr_kerjasama a, tr_ajuan b, jenis_mou c, mst_unit d WHERE a.id_ajuan=b.id_ajuan AND a.id_mou=c.id_mou AND a.id_unit=d.idUnit GROUP BY id ORDER BY a.sysInput DESC")->result();
                 
                 break;
             
@@ -439,4 +440,23 @@ class kerjasama_model extends CI_Model
 
 <?php
     }
+
+    public function getbyid($id)
+    {
+        return $this->db->query("SELECT a.*, b.nm_ajuan FROM tr_kerjasama a, tr_ajuan b WHERE a.id_ajuan=b.id_ajuan AND a.id_kerjasama='$id' ")->row();
+    }
+
+    public function rks($id)
+    {
+        return $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, c.nmUnit, d.nama_mou FROM tr_kerjasama a, tr_ajuan b, mst_unit c, jenis_mou d WHERE a.id_ajuan=b.id_ajuan AND a.id_unit=c.idUnit AND a.id_mou=d.id_mou AND a.id_mou ='2' AND a.is_mou ='$id'")->result();
+    }
+
+    public function ar($id) {
+        $getrks = $this->db->query("SELECT id_kerjasama FROM tr_kerjasama WHERE id_mou='2' AND is_mou='$id'")->row();
+        $rks = $getrks->id_kerjasama;
+        
+        return $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, c.nmUnit, d.nama_mou FROM tr_kerjasama a, tr_ajuan b, mst_unit c, jenis_mou d WHERE a.id_ajuan=b.id_ajuan AND a.id_unit=c.idUnit AND a.id_mou=d.id_mou AND a.id_mou ='3' AND a.is_mou ='$rks'")->result();
+
+    }
+
 }

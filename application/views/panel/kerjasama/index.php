@@ -183,29 +183,6 @@
             <main class="content">
 
                 <?php $this->load->view("_partials/admin/navbar.php") ?>
-                <div class="py-4">
-                    <div class="dropdown">
-                        <button class="btn btn-gray-800 d-inline-flex align-items-center me-2 dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-plus-square"></i>
-                            &nbsp;Upload Kerjasama
-                        </button>
-                        <div class="dropdown-menu dashboard-dropdown dropdown-menu-start mt-2 py-1">
-                            <a class="dropdown-item d-flex align-items-center" href="<?php echo site_url('admin/kerjasama/moa') ?>">
-                                <i class="fas fa-upload"></i>&nbsp;
-                                Upload MoA
-                            </a>
-                            <a class="dropdown-item d-flex align-items-center" href="<?php echo site_url('admin/kerjasama/riks') ?>">
-                                <i class="fas fa-upload"></i>&nbsp;
-                                Upload RIKS / IA
-                            </a>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                <i class="fas fa-upload"></i>&nbsp;
-                                Upload AR
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <br><br>
                 <div class="card">
                     <div class="box-body">
                         <div class="card-body">
@@ -261,7 +238,8 @@
                                                     } else {
                                                         if ($this->session->userdata('is_view') == '1') {
                                                         ?>
-                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detailkerja" onclick="detailkerja(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->nm_ajuan  . "~" . $value->nm_kerjasama . "~" . $value->mitra  . "~" . $value->nmUnit . "~" . $value->file . "~" . $value->tgl_mulai . "~" . $value->tgl_selesai  . "~" . $value->keterangan . "~" . $value->nama_mou ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i> Detail</a>
+                                                        <!-- <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detailkerja" onclick="detailkerja(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->nm_ajuan  . "~" . $value->nm_kerjasama . "~" . $value->mitra  . "~" . $value->nmUnit . "~" . $value->file . "~" . $value->tgl_mulai . "~" . $value->tgl_selesai  . "~" . $value->keterangan . "~" . $value->nama_mou ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i> Detail</a> -->
+                                                        <a href="<?php echo site_url('admin/kerjasama/detail/' .$value->id_kerjasama) ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i> Detail</a>
                                                         <?php
                                                         } else {
                                                         ?>

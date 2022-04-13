@@ -59,9 +59,11 @@ class kerjasama extends CI_Controller
 
     public function detail($id)
     {
-        // $data["getById"] = $this->ajuan_model->getbyid($id);
-        // $this->load->view('panel/kerjasama/detail', $data);
-        $this->load->view('panel/kerjasama/detail');
+        $data["getById"] = $this->kerjasama_model->getbyid($id);
+        $data["getrks"] = $this->kerjasama_model->rks($id);
+        $data["getar"] = $this->kerjasama_model->ar($id);
+        $this->load->view('panel/kerjasama/detail', $data);
+        // $this->load->view('panel/kerjasama/detail');
     }
 
     public function moa()
