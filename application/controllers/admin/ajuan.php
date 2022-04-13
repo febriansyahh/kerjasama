@@ -8,28 +8,37 @@ class ajuan extends CI_Controller
         parent::__construct();
         $this->load->library('form_validation');
         $this->load->model("admin/ajuan_model");
+        $this->load->model("admin/panel_models");
     }
 
     public function index()
     {
         $data["getAll"] = $this->ajuan_model->getAll();
+        $data["htg"] = $this->panel_models->notif();
+        $data["notif"] = $this->panel_models->isi_notif();
         $this->load->view('panel/ajuan/index', $data);
     }
-
+    
     public function ajukan()
     {
         $data["unit"] = $this->ajuan_model->getUnit();
         $data["mou"] = $this->ajuan_model->getMou();
         $data["id"] = $this->ajuan_model->getAI();
-
+        
+        $data["htg"] = $this->panel_models->notif();
+        $data["notif"] = $this->panel_models->isi_notif();
+        
         $this->load->view('panel/ajuan/ajuan', $data);
     }
-
+    
     public function editable($id)
     {
         $data["getData"] = $this->ajuan_model->getID($id);
         $data["unit"] = $this->ajuan_model->getUnit();
         $data["mou"] = $this->ajuan_model->getMou();
+       
+        $data["htg"] = $this->panel_models->notif();
+        $data["notif"] = $this->panel_models->isi_notif();
         
         $this->load->view('panel/ajuan/edit', $data);
     }

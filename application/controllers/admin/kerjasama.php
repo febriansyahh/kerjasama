@@ -8,10 +8,13 @@ class kerjasama extends CI_Controller
         parent::__construct();
         $this->load->library('form_validation');
         $this->load->model("admin/kerjasama_model");
+        $this->load->model("admin/panel_models");
     }
 
     public function index()
     {
+        $data["htg"] = $this->panel_models->notif();
+        $data["notif"] = $this->panel_models->isi_notif();
         $data["getAll"] = $this->kerjasama_model->getAll();
         $this->load->view('panel/kerjasama/index', $data);
     }
@@ -62,14 +65,33 @@ class kerjasama extends CI_Controller
         $data["getById"] = $this->kerjasama_model->getbyid($id);
         $data["getrks"] = $this->kerjasama_model->rks($id);
         $data["getar"] = $this->kerjasama_model->ar($id);
+
+        $data["htg"] = $this->panel_models->notif();
+        $data["notif"] = $this->panel_models->isi_notif();
+        
         $this->load->view('panel/kerjasama/detail', $data);
-        // $this->load->view('panel/kerjasama/detail');
+    }
+    
+    public function v_detail($id)
+    {
+        $data["getById"] = $this->kerjasama_model->getbyid($id);
+        $data["getrks"] = $this->kerjasama_model->rks($id);
+        $data["getar"] = $this->kerjasama_model->ar($id);
+        
+        $data["htg"] = $this->panel_models->notif();
+        $data["notif"] = $this->panel_models->isi_notif();
+        
+        $this->load->view('panel/kerjasama/v_detail', $data);
     }
 
     public function moa()
     {
         $data["ajuan"] = $this->kerjasama_model->getAjuanPIC();
         $data["unit"] = $this->kerjasama_model->getUnitId();
+
+        $data["htg"] = $this->panel_models->notif();
+        $data["notif"] = $this->panel_models->isi_notif();
+
         $this->load->view('panel/kerjasama/moa', $data);
     }
     
@@ -92,6 +114,10 @@ class kerjasama extends CI_Controller
     {
         $data["ajuan"] = $this->kerjasama_model->getAjuanPIC();
         $data["unit"] = $this->kerjasama_model->getUnitId();
+
+        $data["htg"] = $this->panel_models->notif();
+        $data["notif"] = $this->panel_models->isi_notif();
+        
         $this->load->view('panel/kerjasama/riks', $data);
     }
 
