@@ -1,11 +1,8 @@
- <!-- Vendor JS Files -->
- <script src="assets/vendor/purecounter/purecounter.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+<script src="<?php echo base_url('vendors/@popperjs/popper.min.js')?>"></script>
+<script src="<?php echo base_url('vendors/bootstrap/bootstrap.min.js')?>"></script>
+<script src="<?php echo base_url('vendors/is/is.min.js')?>"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+<script src="<?php echo base_url('vendors/fontawesome/all.min.js')?>"></script>
+<script src="<?php echo base_url('assets/js/theme.js')?>"></script>
 
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Volkhov:wght@700&amp;display=swap" rel="stylesheet">

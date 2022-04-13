@@ -1,24 +1,31 @@
 <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Kerjasama UMK Kudus</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
 
-  <!-- Favicons -->
-  <link href=<?php echo base_url('assets/img/umkicon.png')?> rel="icon">
-  <link href=<?php echo base_url('assets/img/apple-touch-icon.png')?> rel="apple-touch-icon">
+<!-- ===============================================-->
+<!--    Document Title-->
+<!-- ===============================================-->
+<title>Sistem Informasi Kerjasama UMK</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
-  <link href=<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css')?> rel="stylesheet">
-  <link href=<?php echo base_url('assets/vendor/bootstrap-icons/bootstrap-icons.css')?> rel="stylesheet">
-  <link href=<?php echo base_url('assets/vendor/boxicons/css/boxicons.min.css')?> rel="stylesheet">
-  <link href=<?php echo base_url('assets/vendor/glightbox/css/glightbox.min.css')?> rel="stylesheet">
-  <link href=<?php echo base_url('assets/vendor/swiper/swiper-bundle.min.css')?> rel="stylesheet">
+<!-- ===============================================-->
+<!--    Favicons-->
+<!-- ===============================================-->
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
+<link href=<?php echo base_url('assets/img/umkicon.png') ?> rel="icon">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
+<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url('assets/img/favicons/logo-umk.png') ?>">
+<link rel="manifest" href="<?php echo base_url('assets/img/favicons/manifest.json') ?>">
+<meta name="msapplication-TileImage" content="<?php echo base_url('assets/img/favicons/mstile-150x150.png') ?>">
+<meta name="theme-color" content="#ffffff">
 
-  <!-- Template Main CSS File -->
-  <link href=<?php echo base_url('assets/css/style.css')?> rel="stylesheet">
-  <link href=<?php echo base_url('assets/css/login.css')?> rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+
+<!-- ===============================================-->
+<!--    Stylesheets-->
+<!-- ===============================================-->
+<link href="<?php echo base_url('assets/css/theme.css') ?>" rel="stylesheet" />
+<link href=<?php echo base_url('assets/css/login.css') ?> rel="stylesheet">
