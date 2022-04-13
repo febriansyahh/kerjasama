@@ -19,7 +19,7 @@
     <section class="pt-4">
       <div class="container">
         <h1 class="h3 mb-3 text-gray-800">Daftar Memorandum of Understanding (MoU)</h1>
-        <p class="mb-2 desc">Berikut adalah daftar Memorandum of Understanding (MoU) yang ditangani oleh Lembaga Informasi dann Komunikasi (LINFOKOM) berdasarkan ajuan unit masing-masing. Beberapa data MoU dibawah ini terdiri beberapa RIKS atau IA dan AR didalamnya.
+        <p class="mb-2 desc">Berikut adalah daftar Memorandum of Understanding (MoU) yang ditangani oleh Lembaga Informasi dan Komunikasi (LINFOKOM) berdasarkan ajuan unit masing-masing. Beberapa data MoU dibawah ini terdiri beberapa RIKS atau IA dan AR didalamnya.
         </p>
         <br>
         <table class="table table-bordered mb-0" id="data_table">
