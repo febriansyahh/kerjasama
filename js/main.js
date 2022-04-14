@@ -12,9 +12,9 @@ $("#kerjasama").DataTable({
       { width: "10%" }, // Unit
       { width: "20%" }, // Nama Kerjasama
       { width: "15%" }, // Ajuan
-      { width: "15%" }, // Mitra
-      { width: "20%" }, // Bentuk MOA
-      { width: "15%" }, // Pilihan
+      { width: "20%" }, // Mitra
+      { width: "10%" }, // Bentuk MOA
+      { width: "20%" }, // Pilihan
     ],
   });
 
@@ -148,7 +148,6 @@ function detkernon(param) {
 	$("#nonTglSelesai").val(exp[7]);
 	$("#nonKet").val(exp[8]);
 	$("#nonmou").val(exp[9]);
-	
 }
 
 function detailajuan(param) {

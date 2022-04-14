@@ -215,7 +215,7 @@
                                             <th>Nama Kerjasama</th>
                                             <th>Nama Ajuan</th>
                                             <th>Mitra</th>
-                                            <!-- <th>Bentuk MoA</th> -->
+                                            <th>Bentuk MoA</th>
                                             <th>Pilihan</th>
                                         </tr>
                                     </thead>
@@ -244,23 +244,25 @@
                                                     <?php echo $value->mitra ?>
                                                 </td>
 
-                                                <!-- <td>
+                                                <td>
                                                     <?php echo $value->nama_mou ?>
-                                                </td> -->
+                                                </td>
 
                                                 <td>
                                                     <?php
                                                     if ($this->session->userdata('is_down') == '1') {
                                                     ?>
-                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detailkerja" onclick="detailkerja(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->nm_ajuan  . "~" . $value->nm_kerjasama . "~" . $value->mitra  . "~" . $value->nmUnit . "~" . $value->file . "~" . $value->tgl_mulai . "~" . $value->tgl_selesai  . "~" . $value->keterangan . "~" . $value->nama_mou ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i> Detail</a>
-                                                        <a href="<?php echo base_url('upload/kerjasama/' . $value->file) ?>" target="_blank" class="btn btn-success btn-sm"><i class="fas fa-download"></i></a>
+                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detailkerja" onclick="detailkerja(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->nm_ajuan  . "~" . $value->nm_kerjasama . "~" . $value->mitra  . "~" . $value->nmUnit . "~" . $value->file . "~" . $value->tgl_mulai . "~" . $value->tgl_selesai  . "~" . $value->keterangan . "~" . $value->nama_mou ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i></a>
+                                                        <a href="<?php echo base_url('upload/kerjasama/' . $value->file) ?>" target="_blank" class="btn btn-secondary btn-sm"><i class="fas fa-download"></i></a>
+                                                        <a href="<?php echo site_url('admin/kerjasama/v_detail/' . $value->id_kerjasama) ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i> Detail</a>
+
                                                         <?php
                                                     } else {
                                                         if ($this->session->userdata('is_view') == '1') {
                                                         ?>
-                                                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detkernon" onclick="detkernon(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->nm_ajuan  . "~" . $value->nm_kerjasama . "~" . $value->mitra  . "~" . $value->nmUnit . "~" . $value->file . "~" . $value->tgl_mulai . "~" . $value->tgl_selesai  . "~" . $value->keterangan . "~" . $value->nama_mou ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i> Detail</a>
-                                                            <a href="<?php echo site_url('admin/kerjasama/detail/' . $value->id_kerjasama) ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i> Detail</a>
-                                                            <a href="<?php echo site_url('admin/kerjasama/v_detail/' . $value->id_kerjasama) ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i> Detail V2</a>
+                                                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detkernon" onclick="detkernon(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->nm_ajuan  . "~" . $value->nm_kerjasama . "~" . $value->mitra  . "~" . $value->nmUnit . "~" . $value->file . "~" . $value->tgl_mulai . "~" . $value->tgl_selesai  . "~" . $value->keterangan . "~" . $value->nama_mou ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i></a>
+                                                            <!-- <a href="<?php echo site_url('admin/kerjasama/detail/' . $value->id_kerjasama) ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i> Detail</a> -->
+                                                            <a href="<?php echo site_url('admin/kerjasama/v_detail/' . $value->id_kerjasama) ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i> Detail</a>
                                                         <?php
                                                         } else {
                                                         ?>

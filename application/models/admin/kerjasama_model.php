@@ -30,6 +30,11 @@ class kerjasama_model extends CI_Model
         }
     }
 
+    public function result()
+    {
+        return $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, b.sysInput, c.nama_mou, d.idUnit, d.nmUnit FROM tr_kerjasama a, tr_ajuan b, jenis_mou c, mst_unit d WHERE a.id_ajuan=b.id_ajuan AND a.id_mou=c.id_mou AND a.id_unit=d.idUnit AND a.id_mou='1' ORDER BY a.sysInput DESC")->result();
+    }
+
     public function save()
     {
         $post = $this->input->post();
