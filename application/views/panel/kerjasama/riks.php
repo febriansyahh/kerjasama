@@ -37,7 +37,7 @@
                             <div class="form-group">
                                 <label class="col-sm-5 control-label pb-2"><b>Ajuan :</b></label>
                                 <div class="col-sm-12">
-                                    <select name="id_ajuan" id="kerjasama" class="form-control" onchange="kerjaFunc();" required>
+                                    <select name="id_ajuan" id="chkerjasama" class="form-control" onchange="kerjaFunc();" required>
                                         <option value="">- Pilih -</option>
                                         <?php
                                         foreach ($ajuan as $value) {

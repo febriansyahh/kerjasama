@@ -44,7 +44,7 @@ $("#history").DataTable({
   });
 
 function kerjaFunc() {
-	var selectBox = document.getElementById("kerjasama");
+	var selectBox = document.getElementById("chkerjasama");
 	console.log("AAA");
 	var selectedValue = selectBox.options[selectBox.selectedIndex].value;
 	let exp = selectedValue.split("~"); // untuk exp[0] -> id_ajuan || u/ exp[1] -> id_mou

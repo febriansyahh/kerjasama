@@ -14,20 +14,19 @@ class kerjasama_model extends CI_Model
         switch ($level) {
             case '1':
                 return $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, b.sysInput, c.nama_mou, d.idUnit, d.nmUnit FROM tr_kerjasama a, tr_ajuan b, jenis_mou c, mst_unit d WHERE a.id_ajuan=b.id_ajuan AND a.id_mou=c.id_mou AND a.id_unit=d.idUnit ORDER BY a.sysInput DESC")->result();
-                
+
                 break;
 
             case '2':
                 return $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, b.sysInput, c.nama_mou, d.idUnit, d.nmUnit FROM tr_kerjasama a, tr_ajuan b, jenis_mou c, mst_unit d WHERE a.id_ajuan=b.id_ajuan AND a.id_mou=c.id_mou AND a.id_unit=d.idUnit AND (d.idUnit = '$unit' OR d.parentUnit = '$unit') ORDER BY a.sysInput DESC")->result();
-                
+
                 break;
 
             case '3':
                 return $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, b.sysInput, c.nama_mou, d.idUnit, d.nmUnit FROM tr_kerjasama a, tr_ajuan b, jenis_mou c, mst_unit d WHERE a.id_ajuan=b.id_ajuan AND a.id_mou=c.id_mou AND a.id_unit=d.idUnit AND d.idUnit = '$unit' AND a.id_mou='1' ORDER BY a.sysInput DESC")->result();
                 // return $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, b.sysInput, c.nama_mou, d.idUnit, d.nmUnit FROM tr_kerjasama a, tr_ajuan b, jenis_mou c, mst_unit d WHERE a.id_ajuan=b.id_ajuan AND a.id_mou=c.id_mou AND a.id_unit=d.idUnit GROUP BY id ORDER BY a.sysInput DESC")->result();
-                
+
                 break;
-            
         }
     }
 
@@ -373,72 +372,85 @@ class kerjasama_model extends CI_Model
                 </select>
             </div>
         </div>
-    <?php
+        <?php
     }
 
     public function changeRiks()
     {
         $post = $this->input->post();
         $ts     = $post['rks'];
+
+
         $unit = $this->session->userdata('idUnit');
         $dataUnit = $this->db->query("SELECT * FROM mst_unit WHERE parentUnit = '$unit'")->result();
 
-    ?>
-        <div class="form-group">
-            <label class="col-sm-5 control-label pb-2"><b>Pengajuan dari unit :</b></label>
-            <div class="col-sm-12">
-                <select name="unit" id="" class="form-control" required>
-                    <option value="">- Pilih -</option>
-                    <?php
-                    foreach ($dataUnit as $value) {
-                        echo "<option value='" . $value->idUnit . "'>" . $value->nmUnit .  "</option>";
-                    }
-                    ?>
-                </select>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-5 control-label pb-2"><b>Nama Kerjasama :</b></label>
-            <div class="col-sm-12">
-                <input type="text" name="nama" class="form-control" placeholder="Nama Kerjasama" required>
-            </div>
-        </div>
+        $cekar = $this->db->query("SELECT id_kerjasama FROM tr_kerjasama WHERE is_mou = '$ts' ")->row();
 
-        <div class="form-group">
-            <label class="col-sm-5 control-label pb-2"><b>Tanggal Mulai :</b></label>
-            <div class="col-sm-12">
-                <input type="date" name="tgl_mulai" class="form-control" placeholder="" required>
-            </div>
-        </div>
+        if ($cekar->id_kerjasama != NULL) {
+        ?>
+            <br>
+            <span style="color: red"><em><b>Maaf, data RIKS yang dipilih telah memiliki AR</b></em></span>
+                <?php
+            } else {
+                ?>
+                    <div class="form-group">
+                        <label class="col-sm-5 control-label pb-2"><b>Pengajuan dari unit :</b></label>
+                        <div class="col-sm-12">
+                            <select name="unit" id="" class="form-control" required>
+                                <option value="">- Pilih -</option>
+                                <?php
+                                foreach ($dataUnit as $value) {
+                                    echo "<option value='" . $value->idUnit . "'>" . $value->nmUnit .  "</option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-5 control-label pb-2"><b>Nama Kerjasama :</b></label>
+                        <div class="col-sm-12">
+                            <input type="text" name="nama" class="form-control" placeholder="Nama Kerjasama" required>
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            <label class="col-sm-5 control-label pb-2"><b>Tanggal Selesai :</b></label>
-            <div class="col-sm-12">
-                <input type="date" name="tgl_selesai" class="form-control" placeholder="" required>
-            </div>
-        </div>
+                    <div class="form-group">
+                        <label class="col-sm-5 control-label pb-2"><b>Tanggal Mulai :</b></label>
+                        <div class="col-sm-12">
+                            <input type="date" name="tgl_mulai" class="form-control" placeholder="" required>
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            <label class="col-sm-5 control-label pb-2"><b>File Kerjasama :</b></label>
-            <div class="col-sm-12">
-                <input class="form-control<?php echo form_error('file') ? 'is-invalid' : '' ?>" type="file" name="file" accept="image/jpeg,image/jpg,image/png,application/pdf" onchange="readURL(this, 'fileAjuan')" />
-                <input type="hidden" id="fileAjuan" />
-            </div>
-        </div>
+                    <div class="form-group">
+                        <label class="col-sm-5 control-label pb-2"><b>Tanggal Selesai :</b></label>
+                        <div class="col-sm-12">
+                            <input type="date" name="tgl_selesai" class="form-control" placeholder="" required>
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            <label class="col-sm-5 control-label pb-2"><b>Keterangan :</b></label>
-            <div class="col-sm-12">
-                <textarea name="ket" cols="45" rows="3" class="form-control"></textarea>
-            </div>
-        </div>
+                    <div class="form-group">
+                        <label class="col-sm-5 control-label pb-2"><b>File Kerjasama :</b></label>
+                        <div class="col-sm-12">
+                            <input class="form-control<?php echo form_error('file') ? 'is-invalid' : '' ?>" type="file" name="file" accept="image/jpeg,image/jpg,image/png,application/pdf" onchange="readURL(this, 'fileAjuan')" />
+                            <input type="hidden" id="fileAjuan" />
+                        </div>
+                    </div>
 
-        <br>
-        <div class="box-footer text-center">
-            <button type="submit" class="btn btn-primary" name="btnSimpan">Upload</button>
-        </div>
+                    <div class="form-group">
+                        <label class="col-sm-5 control-label pb-2"><b>Keterangan :</b></label>
+                        <div class="col-sm-12">
+                            <textarea name="ket" cols="45" rows="3" class="form-control"></textarea>
+                        </div>
+                    </div>
 
-<?php
+                    <br>
+                    <div class="box-footer text-center">
+                        <button type="submit" class="btn btn-primary" name="btnSimpan">Upload</button>
+                    </div>
+                <?php
+            }
+                ?>
+
+        <?php
     }
 
     public function getbyid($id)
@@ -451,12 +463,11 @@ class kerjasama_model extends CI_Model
         return $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, c.nmUnit, d.nama_mou FROM tr_kerjasama a, tr_ajuan b, mst_unit c, jenis_mou d WHERE a.id_ajuan=b.id_ajuan AND a.id_unit=c.idUnit AND a.id_mou=d.id_mou AND a.id_mou ='2' AND a.is_mou ='$id'")->result();
     }
 
-    public function ar($id) {
+    public function ar($id)
+    {
         $getrks = $this->db->query("SELECT id_kerjasama FROM tr_kerjasama WHERE id_mou='2' AND is_mou='$id'")->row();
         $rks = $getrks->id_kerjasama;
-        
+
         return $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, c.nmUnit, d.nama_mou FROM tr_kerjasama a, tr_ajuan b, mst_unit c, jenis_mou d WHERE a.id_ajuan=b.id_ajuan AND a.id_unit=c.idUnit AND a.id_mou=d.id_mou AND a.id_mou ='3' AND a.is_mou ='$rks'")->result();
-
     }
-
 }
