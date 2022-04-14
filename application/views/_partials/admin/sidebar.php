@@ -176,44 +176,6 @@
 		</a>
 	</li>
 
-	<li class="nav-item">
-		<span class="nav-link  collapsed  d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#submenu-app">
-			<span>
-				<span class="sidebar-icon">
-					<i class="fas fa-database"></i>
-				</span>
-				<span class="sidebar-text">Data Kerjasama</span>
-			</span>
-			<span class="link-arrow">
-				<svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-					<path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
-				</svg>
-			</span>
-		</span>
-		<div class="multi-level collapse " role="list" id="submenu-app" aria-expanded="false">
-			<ul class="flex-column nav">
-				<li class="nav-item ">
-				<li><a class="nav-link" href="<?php echo site_url('admin/ajuan/moa'); ?>">
-						<span class="sidebar-text">Data MoA</span>
-					</a>
-				</li>
-	</li>
-	<li class="nav-item ">
-	<li><a class="nav-link" href="<?php echo site_url('admin/ajuan/riks'); ?>">
-			<span class="sidebar-text">Data RKS/IA</span>
-		</a>
-	</li>
-	</li>
-	<li class="nav-item ">
-	<li><a class="nav-link" href="<?php echo site_url('admin/ajuan/ar'); ?>">
-			<span class="sidebar-text">Data AR</span>
-		</a>
-	</li>
-	</li>
-	</ul>
-	</div>
-	</li>
-
 	<li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
 
 	<li class="nav-item ">
