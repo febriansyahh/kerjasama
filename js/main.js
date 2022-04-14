@@ -130,6 +130,27 @@ function detailkerja(param) {
 	}
 }
 
+function detkernon(param) {
+	let data = $(param).data("id");
+	let exp = data.split("~");
+	let type = exp[5].split(".");
+
+	console.log(data);
+	console.log(type[1]);
+
+	$("#nonID").val(exp[0]);
+	$("#nonNmAjuan").val(exp[1]);
+	$("#nonNmKerjasama").val(exp[2]);
+	$("#nonMitra").val(exp[3]);
+	$("#nonNmunit").val(exp[4]);
+	$("#nonFile").val(exp[5]);
+	$("#nonTglMulai").val(exp[6]);
+	$("#nonTglSelesai").val(exp[7]);
+	$("#nonKet").val(exp[8]);
+	$("#nonmou").val(exp[9]);
+	
+}
+
 function detailajuan(param) {
 	let data = $(param).data("id");
 	let exp = data.split("~");
