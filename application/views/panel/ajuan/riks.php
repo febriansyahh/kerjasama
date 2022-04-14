@@ -24,10 +24,7 @@
         ?>
         <h4 style="font-family : Helvetica">Data Ajuan RIKS / IA</h4>
         <br><br>
-        <!-- <div class="card mb-3">
-			<div class="">
-			</div><br>
-		</div> -->
+        
         <div class="card">
             <div class="box-body">
                 <div class="card-body">

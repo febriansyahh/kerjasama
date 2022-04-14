@@ -110,7 +110,7 @@ class kerjasama extends CI_Controller
         redirect('admin/kerjasama/');
     }
     
-    public function riks()
+    public function upload()
     {
         $data["ajuan"] = $this->kerjasama_model->getAjuanPIC();
         $data["unit"] = $this->kerjasama_model->getUnitId();
@@ -118,7 +118,7 @@ class kerjasama extends CI_Controller
         $data["htg"] = $this->panel_models->notif();
         $data["notif"] = $this->panel_models->isi_notif();
         
-        $this->load->view('panel/kerjasama/riks', $data);
+        $this->load->view('panel/kerjasama/upload', $data);
     }
 
     // public function usulan()

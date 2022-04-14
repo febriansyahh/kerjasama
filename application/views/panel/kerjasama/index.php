@@ -93,6 +93,10 @@
 
                 <?php $this->load->view("_partials/admin/navbar.php") ?>
                 <div class="py-4">
+                    <a href="<?php echo site_url('admin/kerjasama/upload') ?>" class="btn btn-primary"><i class="fas fa-plus-square"></i> Upload Kerjasama</a>
+
+                </div>
+                <!-- <div class="py-4">
                     <div class="dropdown">
                         <button class="btn btn-gray-800 d-inline-flex align-items-center me-2 dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-plus-square"></i>
@@ -113,7 +117,7 @@
                             </a>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <br><br>
                 <div class="card">
                     <div class="box-body">
@@ -161,7 +165,23 @@
                                                 </td>
 
                                                 <td>
-                                                    <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detailkerja" onclick="detailkerja(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->nm_ajuan  . "~" . $value->nm_kerjasama . "~" . $value->mitra  . "~" . $value->nmUnit . "~" . $value->file . "~" . $value->tgl_mulai . "~" . $value->tgl_selesai  . "~" . $value->keterangan . "~" . $value->nama_mou ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i> Detail</a>
+                                                    <?php
+                                                    if ($this->session->userdata('is_down') == '1') {
+                                                    ?>
+                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detailkerja" onclick="detailkerja(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->nm_ajuan  . "~" . $value->nm_kerjasama . "~" . $value->mitra  . "~" . $value->nmUnit . "~" . $value->file . "~" . $value->tgl_mulai . "~" . $value->tgl_selesai  . "~" . $value->keterangan . "~" . $value->nama_mou ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i> Detail</a>
+                                                        <?php
+                                                    } else {
+                                                        if ($this->session->userdata('is_view') == '1') {
+                                                        ?>
+                                                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detkernon" onclick="detkernon(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->nm_ajuan  . "~" . $value->nm_kerjasama . "~" . $value->mitra  . "~" . $value->nmUnit . "~" . $value->file . "~" . $value->tgl_mulai . "~" . $value->tgl_selesai  . "~" . $value->keterangan . "~" . $value->nama_mou ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i> Detail</a>
+                                                        <?php
+                                                        } else {
+                                                        ?>
+                                                            <button class="btn btn-warning btn-sm">Maaf Anda Tidak Memilliki Akses</button>
+                                                    <?php
+                                                        }
+                                                    }
+                                                    ?>
                                                 </td>
 
                                             </tr>
@@ -238,9 +258,9 @@
                                                     } else {
                                                         if ($this->session->userdata('is_view') == '1') {
                                                         ?>
-                                                        <!-- <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detailkerja" onclick="detailkerja(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->nm_ajuan  . "~" . $value->nm_kerjasama . "~" . $value->mitra  . "~" . $value->nmUnit . "~" . $value->file . "~" . $value->tgl_mulai . "~" . $value->tgl_selesai  . "~" . $value->keterangan . "~" . $value->nama_mou ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i> Detail</a> -->
-                                                        <a href="<?php echo site_url('admin/kerjasama/detail/' .$value->id_kerjasama) ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i> Detail</a>
-                                                        <a href="<?php echo site_url('admin/kerjasama/v_detail/' .$value->id_kerjasama) ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i> Detail V2</a>
+                                                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detkernon" onclick="detkernon(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->nm_ajuan  . "~" . $value->nm_kerjasama . "~" . $value->mitra  . "~" . $value->nmUnit . "~" . $value->file . "~" . $value->tgl_mulai . "~" . $value->tgl_selesai  . "~" . $value->keterangan . "~" . $value->nama_mou ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i> Detail</a>
+                                                            <a href="<?php echo site_url('admin/kerjasama/detail/' . $value->id_kerjasama) ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i> Detail</a>
+                                                            <a href="<?php echo site_url('admin/kerjasama/v_detail/' . $value->id_kerjasama) ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i> Detail V2</a>
                                                         <?php
                                                         } else {
                                                         ?>
