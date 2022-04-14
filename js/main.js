@@ -1,10 +1,11 @@
 $(document).ready(function () {
 	$('#example').DataTable();
+	// $('#report').DataTable();
 });
 
-$("#report").DataTable({
-    order: [[1, "desc"]],
-});
+// $("#report").DataTable({
+//     order: [[1, "desc"]],
+// });
   
 $("#kerjasama").DataTable({
     columns: [

@@ -240,6 +240,8 @@ class kerjasama_model extends CI_Model
             case '1':
 ?>
                 <div class="form-group">
+                    <input type="hidden" name="id_mou" value="1">
+                    <input type="hidden" name="parent" class="form-control" value="0" required>
                     <label class="col-sm-5 control-label pb-2"><b>Nama Kerjasama :</b></label>
                     <div class="col-sm-12">
                         <input type="text" name="nama" class="form-control" placeholder="Nama Kerjasama" required>
@@ -252,7 +254,7 @@ class kerjasama_model extends CI_Model
                         <select name="unit" id="" class="form-control" required>
                             <option value="">- Pilih -</option>
                             <?php
-                            foreach ($unit as $value) {
+                            foreach ($dataUnit as $value) {
                                 echo "<option value='" . $value->idUnit . "'>" . $value->nmUnit .  "</option>";
                             }
                             ?>
@@ -300,6 +302,7 @@ class kerjasama_model extends CI_Model
             ?>
                 <div class="form-group">
                     <input type="hidden" name="id_mou" value="2">
+                    <input type="hidden" name="parent" class="form-control" value="1" required>
                     <label class="col-sm-5 control-label pb-2"><b>Berdasarkan MOA :</b></label>
                     <div class="col-sm-12">
                         <select name="is_mou" id="" class="form-control" required>
@@ -374,6 +377,7 @@ class kerjasama_model extends CI_Model
             ?>
                 <div class="form-group">
                     <input type="hidden" name="id_mou" value="3">
+                    <input type="hidden" name="parent" class="form-control" value="2" required>
                     <label class="col-sm-5 control-label pb-2"><b>Berdasarkan MOA :</b></label>
                     <div class="col-sm-12">
                         <select name="moa_id" id="moa" class="form-control" onchange="moaFunc();" required>
@@ -505,14 +509,22 @@ class kerjasama_model extends CI_Model
 
     public function rks($id)
     {
-        return $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, c.nmUnit, d.nama_mou FROM tr_kerjasama a, tr_ajuan b, mst_unit c, jenis_mou d WHERE a.id_ajuan=b.id_ajuan AND a.id_unit=c.idUnit AND a.id_mou=d.id_mou AND a.id_mou ='2' AND a.is_mou ='$id'")->result();
+        
+        // $sql = $this->db->query("SELECT * FROM tr_kerjasama WHERE parent ='1' AND id_mou='2' ")->result();
+        // return $sql;
+        // // var_dump($sql);
+        // // exit();
+        return $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, c.nmUnit, d.nama_mou FROM tr_kerjasama a, tr_ajuan b, mst_unit c, jenis_mou d WHERE a.id_ajuan=b.id_ajuan AND a.id_unit=c.idUnit AND a.id_mou=d.id_mou AND a.id_mou ='2' AND a.parent='1'")->result();
     }
 
     public function ar($id)
     {
-        $getrks = $this->db->query("SELECT id_kerjasama FROM tr_kerjasama WHERE id_mou='2' AND is_mou='$id'")->row();
+        $getrks = $this->db->query("SELECT id_kerjasama FROM tr_kerjasama WHERE id_mou='3' AND parent='2'")->row();
         $rks = $getrks->id_kerjasama;
 
-        return $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, c.nmUnit, d.nama_mou FROM tr_kerjasama a, tr_ajuan b, mst_unit c, jenis_mou d WHERE a.id_ajuan=b.id_ajuan AND a.id_unit=c.idUnit AND a.id_mou=d.id_mou AND a.id_mou ='3' AND a.is_mou ='$rks'")->result();
+        return $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, c.nmUnit, d.nama_mou FROM tr_kerjasama a, tr_ajuan b, mst_unit c, jenis_mou d WHERE a.id_ajuan=b.id_ajuan AND a.id_unit=c.idUnit AND a.id_mou=d.id_mou AND a.parent='2' AND a.id_mou='3'")->result();
+        // $sql = $this->db->query("SELECT * FROM tr_kerjasama WHERE parent ='2' AND id_mou='3' ")->result();
+        // return $sql;
+    
     }
 }

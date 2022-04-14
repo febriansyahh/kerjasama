@@ -109,7 +109,7 @@
 	<li class="nav-item ">
 		<a href="<?php echo site_url('admin/kerjasama') ?>" class="nav-link">
 			<span class="sidebar-icon">
-				<i class="fas fa-file"></i>
+				<i class="fas fa-database"></i>
 			</span>
 			<span class="sidebar-text">Data Kerjasama</span>
 		</a>
@@ -118,7 +118,7 @@
 	<li class="nav-item ">
 		<a href="<?php echo site_url('admin/kerjasama/result') ?>" class="nav-link">
 			<span class="sidebar-icon">
-				<i class="fas fa-file"></i>
+				<i class="fas fa-layer-group"></i>
 			</span>
 			<span class="sidebar-text">Hasil Kerjasama</span>
 		</a>
@@ -179,7 +179,7 @@
 	<li class="nav-item ">
 		<a href="<?php echo site_url('admin/kerjasama') ?>" class="nav-link">
 			<span class="sidebar-icon">
-				<i class="fas fa-file"></i>
+				<i class="fas fa-database"></i>
 			</span>
 			<span class="sidebar-text">Usulan Kerjasama</span>
 		</a>
@@ -188,7 +188,7 @@
 	<li class="nav-item ">
 		<a href="<?php echo site_url('admin/kerjasama/result') ?>" class="nav-link">
 			<span class="sidebar-icon">
-				<i class="fas fa-file"></i>
+				<i class="fas fa-layer-group"></i>
 			</span>
 			<span class="sidebar-text">Hasil Kerjasama</span>
 		</a>
@@ -231,7 +231,7 @@
 	<li class="nav-item ">
 	<li><a class="nav-link" href="<?php echo site_url('admin/kerjasama') ?>">
 			<span class="sidebar-icon">
-				<i class="fas fa-database"></i>
+				<i class="fas fa-layer-group"></i>
 			</span>
 			<span class="sidebar-text">Data Kerjasama V2</span>
 		</a>

@@ -88,6 +88,12 @@ class kerjasama extends CI_Controller
         
         $data["htg"] = $this->panel_models->notif();
         $data["notif"] = $this->panel_models->isi_notif();
+
+        // echo '<pre>';
+        // var_dump($data["getrks"]);
+        // var_dump($data["getar"]);
+        // echo '</pre>';
+        // die();
         
         $this->load->view('panel/kerjasama/v_detail', $data);
     }
