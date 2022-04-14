@@ -9,11 +9,11 @@
             </ul>
         </div>
         <div class="col-lg-6 col-md-6 mb-4 mb-lg-0 order-4 order-md-4 order-lg-3">
-            <p class="fs-2 mb-lg-4">Legal stuff</p>
+            <p class="fs-2 mb-lg-4">Contact Us</p>
             <p style="font-family: Poppins">Gondangmanis PO. BOX 53 Bae 59324 Kudus <br>
                 Jawa Tengah - Indonesia <br>
                 Telp. +62291-438229 Fax. +62291-437198 <br>
-                email. <a href="mailto:perpustakaan@umk.ac.id">perpustakaan@umk.ac.id</a>
+                email. <a href="mailto:muria@umk.ac.id">muria@umk.ac.id</a>
             </p>
             <a href="https://www.facebook.com/UNIVERSITAS-MURIA-KUDUS-UMK-182450701824294/" target="_blank" class="facebook"><i class="fab fa-facebook-square fa-xl"></i></a>
             <a href="https://twitter.com/@UMK_mu" target="_blank" class="twitter"><i class="fab fa-twitter-square fa-xl"></i></a>

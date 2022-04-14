@@ -24,7 +24,8 @@
             <div class="col-md-6 text-md-start text-center py-6">
               <p class="lead text-primary">Selamat Datang di</p>
               <h1 class="mb-4 fs-9 fw-bold">Sistem Kerjasama</h1>
-              <p class="mb-6 lead text-secondary">di lingkungan Universitas Muria Kudus.</p>
+              <!-- <p class="mb-6 lead text-secondary">di lingkungan Universitas Muria Kudus.</p> -->
+              <p class="mb-6 lead text-secondary">Layanan informasi dan pendataan data kerjasama Universitas Muria dengan mitra dalam negeri maupun luar negeri.</p>
             </div>
             <div class="col-md-6 text-end"><img class="pt-7 pt-md-0 img-fluid" src="assets/img/hero/bg-kerjasama.jpg" alt="" /></div>
           </div>
@@ -46,7 +47,7 @@
           <div class="row">
             <div class="col-lg-4 col-md-6">
               <div class="icon-box">
-                <div class="icon"> <i class="bx bx-receipt"></i></div>
+                <div class="icon"> <i class="bx bx-receipt"></i><b><?php echo $moa->jumlah ?></b></div>
                 <h4><a href="">MoU</a></h4>
                 <p>Memorandum of Understanding</p>
                 <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
@@ -55,18 +56,18 @@
 
             <div class="col-lg-4 col-md-6">
               <div class="icon-box">
-                <div class="icon"><i class="bx bxs-report"></i></div>
-                <h4><a href="">PKS</a></h4>
-                <p>Perjanjian Kerjasama</p>
+                <div class="icon"><i class="bx bxs-report"></i><b><?php echo $riks->jumlah ?></b></div>
+                <h4><a href="">IA</a></h4>
+                <p>Implementation Arrangement</p>
                 <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
               </div>
             </div>
 
             <div class="col-lg-4 col-md-6">
               <div class="icon-box">
-                <div class="icon"><i class="bx bx-hive"></i></div>
-                <h4><a href="">IA</a></h4>
-                <p>Rencana implementasi kerja sama</p>
+                <div class="icon"><i class="bx bx-hive"></i><b><?php echo $ar->jumlah ?></b></div>
+                <h4><a href="">AR</a></h4>
+                <p>Archive Report</p>
                 <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>
               </div>
             </div>
