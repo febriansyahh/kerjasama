@@ -20,11 +20,17 @@
         $(this).closest('.toast').toast('hide')
     })
 
-    $('#data_table').DataTable({
-        order: [
-            [4, "asc"]
-        ],
-    });
+    // $('#data_table').DataTable({
+    //     order: [
+    //         [4, "asc"]
+    //     ],
+    // });
+
+    $('#data_table').DataTable();
 </script>
 
+<script src="<?php echo base_url('js/main.js') ?>"></script>
+<script>
+    var base_url = '<?php echo base_url(); ?>';
+</script>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Volkhov:wght@700&amp;display=swap" rel="stylesheet">

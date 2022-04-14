@@ -1,5 +1,6 @@
 $(document).ready(function () {
 	$('#example').DataTable();
+	$('#data_table').DataTable();
 	// $('#report').DataTable();
 });
 
@@ -129,6 +130,29 @@ function detailkerja(param) {
 	} else {
 		$('#showFile').html(`<iframe src="${base_url + '/upload/kerjasama/' + exp[5]}" height="520px" width="100%"></iframe>`);
 	}
+}
+
+function groupmou(param) {
+	let data = $(param).data("id");
+	let exp = data.split("~");
+
+	console.log(data);
+
+	$("#detIDKer").val(exp[0]);
+	$("#detIsGroup").val(exp[1]);
+	
+	let is_group = exp[1];
+
+	console.log(is_group);
+
+	$.ajax({
+      type: "POST",
+      url: base_url + "kerjasama/modal",
+      data: { is_group },
+      success: function (response) {
+        $("#treeview").html(response);
+      },
+    });
 }
 
 function detkernon(param) {

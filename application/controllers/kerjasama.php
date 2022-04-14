@@ -17,4 +17,26 @@ class kerjasama extends CI_Controller
         $data["getar"] = $this->kerjasama_model->ar();
         $this->load->view('kerjasama', $data);
     }
+
+    public function tree()
+    {
+        $data["get"] = $this->kerjasama_model->tree();
+
+        // echo '<pre>';
+        // var_dump($data["get"]);
+        // echo '</pre>';
+        // die();
+        $this->load->view('tree', $data);
+    }
+
+    // public function treeview()
+    // {
+    //     $this->kerjasama_model->treeview();
+    //     // $this->kerjasama_model->yaa();
+    // }
+    
+    public function modal()
+    {
+        $this->kerjasama_model->treeview();
+    }
 }

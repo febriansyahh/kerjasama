@@ -31,9 +31,7 @@
                     <table class="table">
                         <tbody>
                             <?php
-                            // echo '<pre>';
-                            // var_dump($getrks);
-                            // echo '</pre>';
+                       
                             $no = 1;
                             foreach ($getrks as $data) {
                             ?>
@@ -49,9 +47,7 @@
                                 </tr>
                             <?php
                             }
-                            // echo '<pre>';
-                            // var_dump($getar);
-                            // echo '</pre>';
+                            
                             foreach ($getar as $value) {
 
                             ?>

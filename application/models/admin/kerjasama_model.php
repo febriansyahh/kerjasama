@@ -435,13 +435,14 @@ class kerjasama_model extends CI_Model
 
         $cekar = $this->db->query("SELECT id_kerjasama FROM tr_kerjasama WHERE is_mou = '$ts' ")->row();
 
-        if ($cekar->id_kerjasama != NULL) {
+        if ($cekar->id_kerjasama != '') {
         ?>
             <br>
             <span style="color: red"><em><b>Maaf, data RIKS yang dipilih telah memiliki AR</b></em></span>
         <?php
         } else {
         ?>
+        
             <div class="form-group">
                 <label class="col-sm-5 control-label pb-2"><b>Pengajuan dari unit :</b></label>
                 <div class="col-sm-12">
@@ -509,20 +510,30 @@ class kerjasama_model extends CI_Model
 
     public function rks($id)
     {
-        
         // $sql = $this->db->query("SELECT * FROM tr_kerjasama WHERE parent ='1' AND id_mou='2' ")->result();
         // return $sql;
         // // var_dump($sql);
         // // exit();
-        return $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, c.nmUnit, d.nama_mou FROM tr_kerjasama a, tr_ajuan b, mst_unit c, jenis_mou d WHERE a.id_ajuan=b.id_ajuan AND a.id_unit=c.idUnit AND a.id_mou=d.id_mou AND a.id_mou ='2' AND a.parent='1'")->result();
+ 
+
+        return $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, c.nmUnit, d.nama_mou FROM tr_kerjasama a, tr_ajuan b, mst_unit c, jenis_mou d WHERE a.id_ajuan=b.id_ajuan AND a.id_unit=c.idUnit AND a.id_mou=d.id_mou AND a.id_mou ='2' AND a.parent='1' AND a.is_mou='$id'")->result();
     }
 
     public function ar($id)
     {
-        $getrks = $this->db->query("SELECT id_kerjasama FROM tr_kerjasama WHERE id_mou='3' AND parent='2'")->row();
-        $rks = $getrks->id_kerjasama;
 
-        return $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, c.nmUnit, d.nama_mou FROM tr_kerjasama a, tr_ajuan b, mst_unit c, jenis_mou d WHERE a.id_ajuan=b.id_ajuan AND a.id_unit=c.idUnit AND a.id_mou=d.id_mou AND a.parent='2' AND a.id_mou='3'")->result();
+        $getrks = $this->db->query("SELECT id_kerjasama FROM tr_kerjasama WHERE id_mou='2' AND parent='1' AND is_mou='$id'")->result();
+        // $rks = $getrks->id_kerjasama;
+
+        $x = array();
+        foreach ($getrks as $key => $value) {
+            $l = $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, c.nmUnit, d.nama_mou FROM tr_kerjasama a, tr_ajuan b, mst_unit c, jenis_mou d WHERE a.id_ajuan=b.id_ajuan AND a.id_unit=c.idUnit AND a.id_mou=d.id_mou AND a.parent='2' AND a.id_mou='3' AND a.is_mou='$value->id_kerjasama' order by a.is_mou")->row();
+            $x[] = $l;
+        }
+        
+        return $x;
+
+        // return $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, c.nmUnit, d.nama_mou FROM tr_kerjasama a, tr_ajuan b, mst_unit c, jenis_mou d WHERE a.id_ajuan=b.id_ajuan AND a.id_unit=c.idUnit AND a.id_mou=d.id_mou AND a.parent='2' AND a.id_mou='$rks'")->result();
         // $sql = $this->db->query("SELECT * FROM tr_kerjasama WHERE parent ='2' AND id_mou='3' ")->result();
         // return $sql;
     
