@@ -107,63 +107,64 @@ class kerjasama_model extends CI_Model
 
         <section class="pt-4">
             <div class="container">
-
-                <table class="table table-bordered mb-0" id="data_table">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Jenis MoU</th>
-                            <th>Nama Kerjasama</th>
-                            <th>Unit</th>
-                            <th style="display:none;">id_mou</th>
-                            <th>Mitra</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        <?php
-                        $no = 1;
-                        foreach ($data as $value) {
-                        ?>
+                <div class="table-responsive">
+                    <table class="table table-bordered mb-0" id="data_table">
+                        <thead>
                             <tr>
-
-                                <td class="td">
-                                    <?php
-                                    echo $no++;
-                                    ?>
-                                </td>
-
-                                <td class="td">
-                                    <?php echo $value->nama_mou ?>
-                                </td>
-
-                                <td class="td">
-                                    <?php echo $value->nm_kerjasama ?>
-                                </td>
-
-                                <td class="td">
-                                    <?php echo $value->nmUnit ?>
-                                </td>
-
-                                <td class="td" style="display:none;">
-                                    <?php echo $value->id_mou ?>
-                                </td>
-
-                                <td class="td">
-                                    <?php echo $value->mitra ?>
-                                </td>
-
-                                <!-- <td class="td"><a class="btn btn-custom ">Kerjasama</a></td> -->
-                                <td class="td"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#groupar" onclick="groupar(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->is_group   ?>" class="btn btn-custom ">AR</a></td>
-
+                                <th>No</th>
+                                <th>Jenis MoU</th>
+                                <th>Nama Kerjasama</th>
+                                <th>Unit</th>
+                                <th style="display:none;">id_mou</th>
+                                <th>Mitra</th>
+                                <th>Status</th>
                             </tr>
-                        <?php
-                        }
-                        ?>
-
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+    
+                            <?php
+                            $no = 1;
+                            foreach ($data as $value) {
+                            ?>
+                                <tr>
+    
+                                    <td class="td">
+                                        <?php
+                                        echo $no++;
+                                        ?>
+                                    </td>
+    
+                                    <td class="td">
+                                        <?php echo $value->nama_mou ?>
+                                    </td>
+    
+                                    <td class="td">
+                                        <?php echo $value->nm_kerjasama ?>
+                                    </td>
+    
+                                    <td class="td">
+                                        <?php echo $value->nmUnit ?>
+                                    </td>
+    
+                                    <td class="td" style="display:none;">
+                                        <?php echo $value->id_mou ?>
+                                    </td>
+    
+                                    <td class="td">
+                                        <?php echo $value->mitra ?>
+                                    </td>
+    
+                                    <!-- <td class="td"><a class="btn btn-custom ">Kerjasama</a></td> -->
+                                    <td class="td"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#groupar" onclick="groupar(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->is_group   ?>" class="btn btn-custom ">AR</a></td>
+    
+                                </tr>
+                            <?php
+                            }
+                            ?>
+    
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
     <?php
