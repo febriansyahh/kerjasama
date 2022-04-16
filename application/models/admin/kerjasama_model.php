@@ -192,13 +192,13 @@ class kerjasama_model extends CI_Model
     public function save_kerja()
     {
         $post = $this->input->post();
-        // var_dump($post["id_mou"]);
-        // var_dump($post["unit"]);
-        // die();
+
         $exp = explode('~', $post["id_ajuan"]);
+        $exps = explode('~', $post["is_mou"]);
         $id_ajuan = $exp[0];
         $id_mou = $exp[1];
-        $is_mou = $post['is_mou'];
+        $is_mou = $exps[0];
+        $is_group = $exps[1];
         $nama = $post["nama"];
         $unit = $post["unit"];
         $tgl_mulai = $post["tgl_mulai"];
@@ -208,8 +208,25 @@ class kerjasama_model extends CI_Model
 
         $cu = $this->db->query("SELECT nmUnit FROM mst_unit WHERE idUnit = '$unit'")->row();
 
+        $a = $this->db->query("SELECT is_group FROM tr_kerjasama WHERE id_mou = '1' ORDER BY id_kerjasama DESC LIMIT 1 ")->row();
 
-        $sql =  "INSERT INTO `tr_kerjasama`(`id_mou`, `id_ajuan`, `is_mou`, `nm_kerjasama`, `id_unit`, `file`, `tgl_mulai`, `tgl_selesai`, `keterangan`, `status`, `sysInput`) VALUES(
+        $res_group = $a->is_group + 1;
+
+        switch ($id_mou) {
+            case '1':
+                $result = '0';
+                break;
+            case '2':
+                $result = '1';
+                break;
+            case '3':
+                $result = '2';
+                break;
+        }
+
+
+        if ($id_mou == '1') {
+            $sql =  "INSERT INTO `tr_kerjasama`(`id_mou`, `id_ajuan`, `is_mou`, `nm_kerjasama`, `id_unit`, `file`, `tgl_mulai`, `tgl_selesai`, `keterangan`, `status`, `parent`, `is_group`, `sysInput`) VALUES(
             '" . $id_mou . "',
             '" . $id_ajuan . "',
             '" . $is_mou . "',
@@ -220,8 +237,27 @@ class kerjasama_model extends CI_Model
             '" . $tgl_selesai . "',
             '" . $ket . "',
             '1',
+            '" . $result . "',
+            '" . $res_group . "',
             '" . $sys . "'
         )";
+        } else {
+            $sql =  "INSERT INTO `tr_kerjasama`(`id_mou`, `id_ajuan`, `is_mou`, `nm_kerjasama`, `id_unit`, `file`, `tgl_mulai`, `tgl_selesai`, `keterangan`, `status`, `parent`, `is_group`, `sysInput`) VALUES(
+            '" . $id_mou . "',
+            '" . $id_ajuan . "',
+            '" . $is_mou . "',
+            '" . $nama . "',
+            '" . $unit . "',
+            '" . $this->_uploadKerjasama($nama, $cu->nmUnit) . "',
+            '" . $tgl_mulai . "',
+            '" . $tgl_selesai . "',
+            '" . $ket . "',
+            '1',
+            '" . $result . "',
+            '" . $is_group . "',
+            '" . $sys . "'
+        )";
+        }
 
         return $this->db->query($sql);
     }
@@ -240,6 +276,7 @@ class kerjasama_model extends CI_Model
             case '1':
 ?>
                 <div class="form-group">
+                    <input type="hidden" name="is_mou" value="0">
                     <input type="hidden" name="id_mou" value="1">
                     <input type="hidden" name="parent" class="form-control" value="0" required>
                     <label class="col-sm-5 control-label pb-2"><b>Nama Kerjasama :</b></label>
@@ -255,7 +292,7 @@ class kerjasama_model extends CI_Model
                             <option value="">- Pilih -</option>
                             <?php
                             foreach ($dataUnit as $value) {
-                                echo "<option value='" . $value->idUnit . "'>" . $value->nmUnit .  "</option>";
+                                echo "<option value='" . $value->idUnit . "~" . $value->is_group . "'>" . $value->nmUnit .  "</option>";
                             }
                             ?>
                         </select>
@@ -309,7 +346,7 @@ class kerjasama_model extends CI_Model
                             <option value="">- Pilih -</option>
                             <?php
                             foreach ($data_moa as $value) {
-                                echo "<option value='" . $value->id_kerjasama . "'>" . $value->nm_kerjasama . " - " . $value->nmUnit .  "</option>";
+                                echo "<option value='" . $value->id_kerjasama . "~" . $value->is_group . "'>" . $value->nm_kerjasama . " - " . $value->nmUnit .  "</option>";
                             }
                             ?>
                         </select>
@@ -415,7 +452,7 @@ class kerjasama_model extends CI_Model
                     <option value="">- Pilih -</option>
                     <?php
                     foreach ($data_riks as $value) {
-                        echo "<option value='" . $value->id_kerjasama . "'>" . $value->nm_kerjasama . " - " . $value->nmUnit .  "</option>";
+                        echo "<option value='" . $value->id_kerjasama . "~" . $value->is_group . "'>" . $value->nm_kerjasama . " - " . $value->nmUnit .  "</option>";
                     }
                     ?>
                 </select>
@@ -442,7 +479,7 @@ class kerjasama_model extends CI_Model
         <?php
         } else {
         ?>
-        
+
             <div class="form-group">
                 <label class="col-sm-5 control-label pb-2"><b>Pengajuan dari unit :</b></label>
                 <div class="col-sm-12">
@@ -500,7 +537,7 @@ class kerjasama_model extends CI_Model
         }
         ?>
 
-<?php
+    <?php
     }
 
     public function getbyid($id)
@@ -508,13 +545,15 @@ class kerjasama_model extends CI_Model
         return $this->db->query("SELECT a.*, b.nm_ajuan FROM tr_kerjasama a, tr_ajuan b WHERE a.id_ajuan=b.id_ajuan AND a.id_kerjasama='$id' ")->row();
     }
 
+    public function getDataMoa($id)
+    {
+        $getid = $this->db->query("SELECT is_group FROM tr_kerjasama WHERE id_kerjasama='$id' ")->row();
+        $ts = $getid->is_group;
+        return $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, c.nmUnit, d.nama_mou, a.is_group FROM tr_kerjasama a, tr_ajuan b, mst_unit c, jenis_mou d WHERE a.id_ajuan=b.id_ajuan AND a.id_unit=c.idUnit AND a.id_mou=d.id_mou AND a.is_group='$ts'")->result();
+    }
+
     public function rks($id)
     {
-        // $sql = $this->db->query("SELECT * FROM tr_kerjasama WHERE parent ='1' AND id_mou='2' ")->result();
-        // return $sql;
-        // // var_dump($sql);
-        // // exit();
- 
 
         return $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, c.nmUnit, d.nama_mou FROM tr_kerjasama a, tr_ajuan b, mst_unit c, jenis_mou d WHERE a.id_ajuan=b.id_ajuan AND a.id_unit=c.idUnit AND a.id_mou=d.id_mou AND a.id_mou ='2' AND a.parent='1' AND a.is_mou='$id'")->result();
     }
@@ -523,19 +562,127 @@ class kerjasama_model extends CI_Model
     {
 
         $getrks = $this->db->query("SELECT id_kerjasama FROM tr_kerjasama WHERE id_mou='2' AND parent='1' AND is_mou='$id'")->result();
-        // $rks = $getrks->id_kerjasama;
 
         $x = array();
         foreach ($getrks as $key => $value) {
             $l = $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, c.nmUnit, d.nama_mou FROM tr_kerjasama a, tr_ajuan b, mst_unit c, jenis_mou d WHERE a.id_ajuan=b.id_ajuan AND a.id_unit=c.idUnit AND a.id_mou=d.id_mou AND a.parent='2' AND a.id_mou='3' AND a.is_mou='$value->id_kerjasama' order by a.is_mou")->row();
             $x[] = $l;
         }
-        
-        return $x;
 
-        // return $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, c.nmUnit, d.nama_mou FROM tr_kerjasama a, tr_ajuan b, mst_unit c, jenis_mou d WHERE a.id_ajuan=b.id_ajuan AND a.id_unit=c.idUnit AND a.id_mou=d.id_mou AND a.parent='2' AND a.id_mou='$rks'")->result();
-        // $sql = $this->db->query("SELECT * FROM tr_kerjasama WHERE parent ='2' AND id_mou='3' ")->result();
-        // return $sql;
-    
+        return $x;
+    }
+
+    public function modal()
+    {
+        $post = $this->input->post();
+        $ts     = $post['is_group'];
+
+        $data = $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, c.nmUnit, d.nama_mou, a.is_group FROM tr_kerjasama a, tr_ajuan b, mst_unit c, jenis_mou d WHERE a.id_ajuan=b.id_ajuan AND a.id_unit=c.idUnit AND a.id_mou=d.id_mou AND a.is_group='$ts'")->result();
+
+    ?>
+
+
+        <section class="pt-4">
+            <div class="container">
+                <div class="table-responsive py-4">
+                    <table id="example1" class="display" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Jenis MoU</th>
+                                <th>Nama Kerjasama</th>
+                                <th>Unit</th>
+                                <th style="display:none;">id_mou</th>
+                                <th>Mitra</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <?php
+                            $no = 1;
+                            foreach ($data as $value) {
+                            ?>
+                                <tr>
+
+
+                                    <td class="td">
+                                        <?php echo $value->nama_mou ?>
+                                    </td>
+
+                                    <td class="td">
+                                        <?php echo $value->nm_kerjasama ?>
+                                    </td>
+
+                                    <td class="td">
+                                        <?php echo $value->nmUnit ?>
+                                    </td>
+
+                                    <td class="td" style="display:none;">
+                                        <?php echo $value->id_mou ?>
+                                    </td>
+
+                                    <td class="td">
+                                        <?php echo $value->mitra ?>
+                                    </td>
+
+                                    <td class="td"><a class="btn btn-custom ">Kerjasama</a></td>
+
+                                </tr>
+                            <?php
+                            }
+                            ?>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        <?php
+    }
+
+    public function modal_ar()
+    {
+        $post = $this->input->post();
+        $ts     = $post['is_mou'];
+
+        $data_ar = $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, c.nmUnit, d.nama_mou, a.is_group FROM tr_kerjasama a, tr_ajuan b, mst_unit c, jenis_mou d WHERE a.id_ajuan=b.id_ajuan AND a.id_unit=c.idUnit AND a.id_mou=d.id_mou AND a.id_mou = '3' AND a.is_mou='$ts'")->row();
+
+        if ($data_ar != NULL) {
+        ?>
+            <div class="row">
+                <div class="col-5">
+                    Nama Kerjasama :
+                </div>
+                <div class="col-7">
+                    <?php echo $data_ar->nm_kerjasama ?>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-5">
+                    Unit Terkait :
+                </div>
+                <div class="col-7">
+                    <?php echo $data_ar->nmUnit ?>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-5">
+                    Mitra :
+                </div>
+                <div class="col-7">
+                    <?php echo $data_ar->mitra ?>
+                </div>
+            </div>
+        <?php
+
+        } else {
+        ?>
+            <center>
+                <p><em>Maaf, Data AR dari RIKS Ini belum tersedia</em></p>
+            </center>
+<?php
+        }
     }
 }

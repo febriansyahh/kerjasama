@@ -82,9 +82,11 @@ class kerjasama extends CI_Controller
     
     public function v_detail($id)
     {
-        $data["getById"] = $this->kerjasama_model->getbyid($id);
+        $data["getBy"] = $this->kerjasama_model->getbyid($id);
+        
         $data["getrks"] = $this->kerjasama_model->rks($id);
-        $data["getar"] = $this->kerjasama_model->ar($id);
+        // $data["getById"] = $this->kerjasama_model->getbyid($id);
+        // $data["getar"] = $this->kerjasama_model->ar($id);
         
         $data["htg"] = $this->panel_models->notif();
         $data["notif"] = $this->panel_models->isi_notif();
@@ -170,5 +172,15 @@ class kerjasama extends CI_Controller
         }
 
         redirect('admin/kerjasama/');
+    }
+
+    public function modal()
+    {
+        $this->kerjasama_model->modal();
+    }
+
+    public function modal_ar()
+    {
+        $this->kerjasama_model->modal_ar();
     }
 }

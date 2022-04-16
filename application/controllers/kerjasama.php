@@ -12,9 +12,11 @@ class kerjasama extends CI_Controller
 
     public function index()
     {
-        $data["getmoa"] = $this->kerjasama_model->moa();
-        $data["getrks"] = $this->kerjasama_model->riks();
-        $data["getar"] = $this->kerjasama_model->ar();
+        // $data["getmoa"] = $this->kerjasama_model->moa();
+        // $data["getrks"] = $this->kerjasama_model->riks();
+        // $data["getar"] = $this->kerjasama_model->ar();
+
+        $data["get"] = $this->kerjasama_model->tree();
         $this->load->view('kerjasama', $data);
     }
 
@@ -38,5 +40,10 @@ class kerjasama extends CI_Controller
     public function modal()
     {
         $this->kerjasama_model->treeview();
+    }
+    
+    public function modal_ar()
+    {
+        $this->kerjasama_model->modal_ar();
     }
 }

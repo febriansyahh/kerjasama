@@ -1002,6 +1002,7 @@
     --bs-gray-900: #111827;
     --bs-primary: #1F2937;
     --bs-secondary: #f0bc74;
+    --bs-custom: #ff9000;
     --bs-tertiary: #31316A;
     --bs-success: #10B981;
     --bs-info: #2361ce;
@@ -4783,6 +4784,13 @@ textarea.form-control-lg {
     color: #1F2937;
     background-color: #f0bc74;
     border-color: #f0bc74;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(17, 24, 39, 0.075);
+}
+
+.btn-custom {
+    color: #fff;
+    background-color: #ff9000;
+    border-color: #ff9000;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(17, 24, 39, 0.075);
 }
 

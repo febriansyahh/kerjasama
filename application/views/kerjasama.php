@@ -38,9 +38,33 @@
 
             <?php
             $no = 1;
-            foreach ($getmoa as $value) {
+            foreach ($get as $value) {
             ?>
               <tr>
+                <!-- <td class="td">
+                                    <?php
+                                    switch ($value->id_mou) {
+                                      case '1':
+                                    ?>
+                                            <p>-</p>
+                                            <?php
+                                            break;
+
+                                          case '2':
+                                            ?>
+
+                                            <?php
+                                            break;
+
+                                          case '3':
+                                            ?>
+
+                                            <?php
+                                            break;
+                                        }
+                                            ?>
+                                </td> -->
+
                 <td class="td">
                   <?php echo $no++ ?>
                 </td>
@@ -65,96 +89,7 @@
                   <?php echo $value->mitra ?>
                 </td>
 
-                <!-- <td class="td">
-                  <?php echo date('d-m-Y', strtotime($value->tgl_mulai)) ?>
-                </td>
-
-                <td class="td">
-                  <?php echo date('d-m-Y', strtotime($value->tgl_selesai)) ?>
-                </td> -->
-
-
-                <td class="td"><button type="text" class="btn btn-custom">Kerjasama</button></td>
-
-              </tr>
-            <?php
-            }
-            foreach ($getrks as $value) {
-            ?>
-              <tr>
-                <td class="td">
-                  -
-                </td>
-
-                <td class="td">
-                  <?php echo $value->nama_mou ?>
-                </td>
-
-                <td class="td">
-                  <?php echo $value->nm_kerjasama ?>
-                </td>
-
-                <td class="td">
-                  <?php echo $value->nmUnit ?>
-                </td>
-
-                <td class="td" style="display:none;">
-                  <?php echo $value->id_mou ?>
-                </td>
-
-                <td class="td">
-                  <?php echo $value->mitra ?>
-                </td>
-
-                <!-- <td class="td">
-                  <?php echo date('d-m-Y', strtotime($value->tgl_mulai)) ?>
-                </td>
-
-                <td class="td">
-                  <?php echo date('d-m-Y', strtotime($value->tgl_selesai)) ?>
-                </td> -->
-
-
-                <td class="td"><button type="text" class="btn btn-custom">Kerjasama</button></td>
-
-              </tr>
-            <?php
-            }
-            foreach ($getar as $value) {
-            ?>
-              <tr>
-                <td class="td"> </td>
-
-                <td class="td">
-                  <?php echo $value->nama_mou ?>
-                </td>
-
-                <td class="td">
-                  <?php echo $value->nm_kerjasama ?>
-                </td>
-
-                <td class="td">
-                  <?php echo $value->nmUnit ?>
-                </td>
-
-                <td class="td" style="display:none;">
-                  <?php echo $value->id_mou ?>
-                </td>
-
-                <td class="td">
-                  <?php echo $value->mitra ?>
-                </td>
-
-                <!-- <td class="td">
-                  <?php echo date('d-m-Y', strtotime($value->tgl_mulai)) ?>
-                </td>
-
-                <td class="td">
-                  <?php echo date('d-m-Y', strtotime($value->tgl_selesai)) ?>
-                </td> -->
-
-                <td class="td"><button type="text" class="btn btn-custom">Kerjasama</button></td>
-
+                <td class="td"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#groupmou" onclick="groupmou(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->is_group   ?>" class="btn btn-custom ">Kerjasama</a></td>
               </tr>
             <?php
             }
@@ -205,3 +140,36 @@
 </body>
 
 </html>
+
+
+<div id="groupmou" class="modal fade">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Detail Rincian Daftar MOU</h5>
+        <a href="" class="close" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="modal-body">
+        <div id="treeview">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="groupar" class="modal fade">
+  <div class="modal-dialog" style="padding-top: 50px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Rincian AR</h5>
+        <a href="" class="close" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="modal-body">
+        <div id="ar_view">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

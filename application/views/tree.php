@@ -150,7 +150,7 @@
                 <a href="" class="close" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times" aria-hidden="true"></i>
                 </a>
             </div>
-            <div class="modal-body">
+            <div class="modal-body"> 
                 <div id="treeview">
                 </div>
             </div>

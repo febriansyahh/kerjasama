@@ -1,5 +1,6 @@
 $(document).ready(function () {
 	$('#example').DataTable();
+	$('#example1').DataTable().ajax.reload();
 	$('#data_table').DataTable();
 	// $('#report').DataTable();
 });
@@ -148,6 +149,79 @@ function groupmou(param) {
 	$.ajax({
       type: "POST",
       url: base_url + "kerjasama/modal",
+      data: { is_group },
+      success: function (response) {
+        $("#treeview").html(response);
+      },
+    });
+}
+
+function groupar(param) {
+	let data = $(param).data("id");
+	let exp = data.split("~");
+
+	console.log(data);
+
+	$("#arIDKer").val(exp[0]);
+	$("#arIsGroup").val(exp[1]);
+	
+	let is_mou = exp[0];
+	let is_group = exp[1];
+
+	console.log(is_group);
+
+	$.ajax({
+      type: "POST",
+      url: base_url + "kerjasama/modal_ar",
+      data: { is_mou, is_group },
+      success: function (response) {
+        $("#ar_view").html(response);
+      },
+    });
+}
+
+// function groupar_panel(param) {
+// 	let data = $(param).data("id");
+// 	let exp = data.split("~");
+
+// 	console.log(data);
+
+// 	$("#arIDKer").val(exp[0]);
+// 	$("#arIsGroup").val(exp[1]);
+	
+// 	let is_mou = exp[0];
+// 	let is_group = exp[1];
+
+// 	console.log(is_group);
+
+// 	$.ajax({
+//       type: "POST",
+//       url: base_url + "admin/kerjasama/modal_ar",
+//       data: { is_mou, is_group },
+//       success: function (response) {
+//         $("#ar_view").html(response);
+//       },
+//     });
+// }
+
+function detmoa(param) {
+	let data = $(param).data("id");
+	let exp = data.split("~");
+
+	console.log(data);
+
+	$("#IDKer").val(exp[0]);
+	$("#IsGroup").val(exp[1]);
+	
+	let is_group = exp[1];
+
+	console.log(is_group);
+	console.log('AAA');
+	
+
+	$.ajax({
+      type: "POST",
+      url: base_url + "admin/kerjasama/modal",
       data: { is_group },
       success: function (response) {
         $("#treeview").html(response);

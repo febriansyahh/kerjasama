@@ -72,14 +72,17 @@
                                             if ($this->session->userdata('is_down') == '1') {
                                             ?>
                                                 <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detailkerja" onclick="detailkerja(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->nm_ajuan  . "~" . $value->nm_kerjasama . "~" . $value->mitra  . "~" . $value->nmUnit . "~" . $value->file . "~" . $value->tgl_mulai . "~" . $value->tgl_selesai  . "~" . $value->keterangan . "~" . $value->nama_mou ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i></a>
-                                                <a href="<?php echo site_url('admin/kerjasama/v_detail/' . $value->id_kerjasama) ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i> Detail</a>
-                                                <a href="<?php echo base_url('upload/kerjasama/' . $value->file) ?>" target="_blank" class="btn btn-secondary btn-sm"><i class="fas fa-download"></i></a>
+                                                <a href="<?php echo site_url('admin/kerjasama/v_detail/' . $value->id_kerjasama) ?>" class="btn btn-secondary btn-sm"><i class="fas fa-history"></i> Rincian</a>
+                                                <!-- <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detmoa" onclick="detmoa(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->is_group  ?>" class="btn btn-secondary btn-sm"><i class="fas fa-history"></i> </a> -->
+                                                <!-- <a href="<?php echo base_url('upload/kerjasama/' . $value->file) ?>" target="_blank" class="btn btn-secondary btn-sm"><i class="fas fa-download"></i></a> -->
+
                                                 <?php
                                             } else {
                                                 if ($this->session->userdata('is_view') == '1') {
                                                 ?>
                                                     <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detkernon" onclick="detkernon(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->nm_ajuan  . "~" . $value->nm_kerjasama . "~" . $value->mitra  . "~" . $value->nmUnit . "~" . $value->file . "~" . $value->tgl_mulai . "~" . $value->tgl_selesai  . "~" . $value->keterangan . "~" . $value->nama_mou ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i></a>
-                                                    <a href="<?php echo site_url('admin/kerjasama/v_detail/' . $value->id_kerjasama) ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i> Detail</a>
+                                                    <a href="<?php echo site_url('admin/kerjasama/v_detail/' . $value->id_kerjasama) ?>" class="btn btn-secondary btn-sm"><i class="fas fa-history"></i> Rincian</a>
+                                                    <!-- <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detmoa" onclick="detmoa(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->is_group  ?>" class="btn btn-secondary btn-sm"><i class="fas fa-eye"></i> </a> -->
                                                 <?php
                                                 } else {
                                                 ?>
@@ -122,6 +125,23 @@
                     <div id="showFile">
                         <img id="blah" src="#" alt="" />
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="detmoa" class="modal fade">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Detail Rincian Daftar MOU</h5>
+                <a href="" class="close" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div class="modal-body">
+                <div id="treeview">
                 </div>
             </div>
         </div>
