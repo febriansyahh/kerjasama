@@ -16,8 +16,8 @@ $("#kerjasama").DataTable({
       { width: "20%" }, // Nama Kerjasama
       { width: "15%" }, // Ajuan
       { width: "20%" }, // Mitra
-      { width: "10%" }, // Bentuk MOA
-      { width: "20%" }, // Pilihan
+      { width: "5%" }, // Bentuk MOA
+      { width: "25%" }, // Pilihan
     ],
   });
 

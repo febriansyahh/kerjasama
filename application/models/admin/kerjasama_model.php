@@ -112,6 +112,11 @@ class kerjasama_model extends CI_Model
         return $this->db->query("SELECT * FROM jenis_mou")->result();
     }
 
+    public function getID($id)
+    {
+        return $this->db->query("SELECT a.*, b.mitra FROM tr_kerjasama a, tr_ajuan b WHERE a.id_ajuan=b.id_ajuan AND a.id_kerjasama ='$id' ")->row();
+    }
+
     public function update()
     {
         $post = $this->input->post();

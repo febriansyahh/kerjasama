@@ -43,7 +43,19 @@ class kerjasama extends CI_Controller
         redirect('admin/kerjasama');
     }
 
-    public function edit()
+    public function edit($id)
+    {
+        $data["getData"] = $this->kerjasama_model->getID($id);
+        $data["mou"] = $this->kerjasama_model->getMou();
+        $data["unit"] = $this->kerjasama_model->getUnit();
+
+        $data["htg"] = $this->panel_models->notif();
+        $data["notif"] = $this->panel_models->isi_notif();
+
+        $this->load->view('panel/kerjasama/edit', $data);
+    }
+
+    public function update()
     {
         $model = $this->kerjasama_model;
         $validation = $this->form_validation;
@@ -136,13 +148,6 @@ class kerjasama extends CI_Controller
         
         $this->load->view('panel/kerjasama/upload', $data);
     }
-
-    // public function usulan()
-    // {
-    //     // $data["usulan"] = $this->ajuan_model->getUsulan();
-    //     // $this->load->view('panel/kerjasama/usulan', $data);
-    //     $this->load->view('panel/kerjasama/usulan');
-    // }
 
     public function changeKerjasama()
     {
