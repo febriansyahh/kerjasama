@@ -47,17 +47,17 @@
           <div class="row">
             <div class="col-lg-4 col-md-6">
               <div class="icon-box">
-                <div class="icon"> <i class="bx bx-receipt"></i><b><?php echo $moa->jumlah ?></b></div>
-                <h4><a href="">MoU</a></h4>
-                <p>Memorandum of Understanding</p>
+                <div class="icon"> <i class="bx bx-receipt"></i><b><p style="font-size: 28px; font-weight: bold"><?php echo $moa->jumlah ?></p></b></div>
+                <h4><a href="#">MoA</a></h4>
+                <p>Memorandum of Agreement</p>
                 <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
               </div>
             </div>
 
             <div class="col-lg-4 col-md-6">
               <div class="icon-box">
-                <div class="icon"><i class="bx bxs-report"></i><b><?php echo $riks->jumlah ?></b></div>
-                <h4><a href="">IA</a></h4>
+                <div class="icon"><i class="bx bxs-report"></i><b><p style="font-size: 28px; font-weight: bold"><?php echo $riks->jumlah ?></p></b></div>
+                <h4><a href="#">RIKS / IA</a></h4>
                 <p>Implementation Arrangement</p>
                 <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
               </div>
@@ -65,8 +65,8 @@
 
             <div class="col-lg-4 col-md-6">
               <div class="icon-box">
-                <div class="icon"><i class="bx bx-hive"></i><b><?php echo $ar->jumlah ?></b></div>
-                <h4><a href="">AR</a></h4>
+                <div class="icon"><i class="bx bx-hive"></i><b><p style="font-size: 28px; font-weight: bold"><?php echo $ar->jumlah ?></p></b></div>
+                <h4><a href="#">AR</a></h4>
                 <p>Archive Report</p>
                 <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>
               </div>
