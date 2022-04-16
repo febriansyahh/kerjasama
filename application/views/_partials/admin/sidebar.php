@@ -219,21 +219,21 @@
 		</a>
 	</li>
 
-	<li class="nav-item ">
+	<!-- <li class="nav-item ">
 	<li><a class="nav-link" href="<?php echo site_url('admin/kerjasama_PUD') ?>">
 			<span class="sidebar-icon">
 				<i class="fas fa-database"></i>
 			</span>
 			<span class="sidebar-text">Data Kerjasama</span>
 		</a>
-	</li>
+	</li> -->
 
 	<li class="nav-item ">
 	<li><a class="nav-link" href="<?php echo site_url('admin/kerjasama') ?>">
 			<span class="sidebar-icon">
 				<i class="fas fa-layer-group"></i>
 			</span>
-			<span class="sidebar-text">Data Kerjasama V2</span>
+			<span class="sidebar-text">Data Kerjasama</span>
 		</a>
 	</li>
 
