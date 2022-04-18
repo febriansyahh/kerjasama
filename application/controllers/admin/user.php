@@ -1,26 +1,26 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class user extends CI_Controller
+class User extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
         $this->load->library('form_validation');
-        $this->load->model("admin/user_model");
+        $this->load->model("admin/User_model");
     }
 
     public function index()
     {
-        $data["user"] = $this->user_model->getAll();
-        $data["unit"] = $this->user_model->getData();
+        $data["user"] = $this->User_model->getAll();
+        $data["unit"] = $this->User_model->getData();
 
         $this->load->view('panel/user', $data);
     }
 
     public function add()
     {
-        $model = $this->user_model;
+        $model = $this->User_model;
         $validation = $this->form_validation;
 
         // $validation->set_rules($model->rules());
@@ -47,7 +47,7 @@ class user extends CI_Controller
 
     public function edit()
     {
-        $model = $this->user_model;
+        $model = $this->User_model;
         $validation = $this->form_validation;
 
         if($validation)
@@ -65,7 +65,7 @@ class user extends CI_Controller
     {
         if (!isset($id)) show_404();
 
-		if ($this->user_model->delete($id)) {
+		if ($this->User_model->delete($id)) {
 			redirect('admin/user');
 		}
     }

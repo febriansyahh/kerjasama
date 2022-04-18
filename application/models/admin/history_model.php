@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class history_model extends CI_Model
+class History_model extends CI_Model
 {
     private $_table = 'tr_history';
 

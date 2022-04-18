@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class login_model extends CI_Model {
+class Login_model extends CI_Model {
     private $_table = "user";
 
     function userdaftar($username)

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class kerjasama_model extends CI_Model
+class Kerjasama_model extends CI_Model
 {
 
     public function moa()
@@ -181,28 +181,61 @@ class kerjasama_model extends CI_Model
     ?>
         <div class="row">
             <div class="col-5">
-                Nama Kerjasama :
+                Nama Kerjasama 
             </div>
-            <div class="col-7">
+            <div class="col-1">
+                :
+            </div>
+            <div class="col-6">
                 <?php echo $data_ar->nm_kerjasama ?>
             </div>
         </div>
 
         <div class="row">
             <div class="col-5">
-                Unit Terkait :
+                Unit Terkait 
             </div>
-            <div class="col-7">
+            <div class="col-1">
+                :
+            </div>
+            <div class="col-6">
                 <?php echo $data_ar->nmUnit ?>
             </div>
         </div>
 
         <div class="row">
             <div class="col-5">
-                Mitra :
+                Mitra 
+            </div> 
+            <div class="col-1">
+                :
             </div>
-            <div class="col-7">
+            <div class="col-6">
                 <?php echo $data_ar->mitra ?>
+            </div>
+        </div>
+       
+        <div class="row">
+            <div class="col-5">
+                Tgl. Mulai 
+            </div> 
+            <div class="col-1">
+                :
+            </div>
+            <div class="col-6">
+                <?php echo date('d-m-Y', strtotime($data_ar->tgl_mulai)) ?>
+            </div>
+        </div>
+       
+        <div class="row">
+            <div class="col-5">
+                Tgl. Selesai 
+            </div> 
+            <div class="col-1">
+                :
+            </div>
+            <div class="col-6">
+                <?php echo date('d-m-Y', strtotime($data_ar->tgl_selesai)) ?>
             </div>
         </div>
 <?php

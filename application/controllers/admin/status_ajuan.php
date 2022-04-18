@@ -1,24 +1,24 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class status_ajuan extends CI_Controller
+class Status_ajuan extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
         $this->load->library('form_validation');
-        $this->load->model("admin/status_model");
+        $this->load->model("admin/Status_model");
     }
 
     public function index()
     {
-        $data["getAll"] = $this->status_model->getAll();
+        $data["getAll"] = $this->Status_model->getAll();
         $this->load->view('panel/status', $data);
     }
 
     public function add()
     {
-        $model = $this->status_model;
+        $model = $this->Status_model;
         $validation = $this->form_validation;
 
         if($validation){
@@ -33,7 +33,7 @@ class status_ajuan extends CI_Controller
 
     public function update()
     {
-        $model = $this->status_model;
+        $model = $this->Status_model;
         $validation = $this->form_validation;
 
         if($validation){
@@ -50,7 +50,7 @@ class status_ajuan extends CI_Controller
     {
         if (!isset($id)) show_404();
 
-		if ($this->status_model->delete($id)) {
+		if ($this->Status_model->delete($id)) {
 			redirect('admin/status_ajuan');
 		}
     }

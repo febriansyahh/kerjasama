@@ -1,13 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class kerjasama extends CI_Controller
+class Kerjasama extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
         $this->load->library('form_validation');
-        $this->load->model("kerjasama_model");
+        $this->load->model("Kerjasama_model");
     }
 
     public function index()
@@ -16,13 +16,13 @@ class kerjasama extends CI_Controller
         // $data["getrks"] = $this->kerjasama_model->riks();
         // $data["getar"] = $this->kerjasama_model->ar();
 
-        $data["get"] = $this->kerjasama_model->tree();
+        $data["get"] = $this->Kerjasama_model->tree();
         $this->load->view('kerjasama', $data);
     }
 
     public function tree()
     {
-        $data["get"] = $this->kerjasama_model->tree();
+        $data["get"] = $this->Kerjasama_model->tree();
 
         // echo '<pre>';
         // var_dump($data["get"]);
@@ -39,11 +39,11 @@ class kerjasama extends CI_Controller
     
     public function modal()
     {
-        $this->kerjasama_model->treeview();
+        $this->Kerjasama_model->treeview();
     }
     
     public function modal_ar()
     {
-        $this->kerjasama_model->modal_ar();
+        $this->Kerjasama_model->modal_ar();
     }
 }

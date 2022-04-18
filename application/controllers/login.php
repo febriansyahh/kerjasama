@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class login extends CI_Controller
+class Login extends CI_Controller
 {
     public function __construct()
     {
 		parent::__construct();
-		$this->load->model('login_model');
+		$this->load->model('Login_model');
  		$this->load->library('session');
 	}
 
@@ -24,11 +24,11 @@ class login extends CI_Controller
 		// var_dump($password);
 		// die();
 
-		$cek_user = $this->login_model->userdaftar($username);
+		$cek_user = $this->Login_model->userdaftar($username);
 
 		if($cek_user)
 		{
-			$ceklogin = $this->login_model->ceklogin($username, $password);
+			$ceklogin = $this->Login_model->ceklogin($username, $password);
 			if($ceklogin)
 			{
 				foreach($ceklogin as $value)

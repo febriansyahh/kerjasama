@@ -1,22 +1,22 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class mou extends CI_Controller
+class Mou extends CI_Controller
 {
     public function __construct(){
         parent::__construct();
         $this->load->library('form_validation');
-        $this->load->model("admin/mou_model");
+        $this->load->model("admin/Mou_model");
     }
 
     public function index(){
-        $data["getAll"] = $this->mou_model->getAll();
+        $data["getAll"] = $this->Mou_model->getAll();
         $this->load->view('panel/mou', $data);
     }
 
     public function add()
     {
-        $model = $this->mou_model;
+        $model = $this->Mou_model;
         $validation = $this->form_validation;
 
         if($validation){
@@ -31,7 +31,7 @@ class mou extends CI_Controller
 
     public function update()
     {
-        $model = $this->mou_model;
+        $model = $this->Mou_model;
         $validation = $this->form_validation;
 
         if($validation){
@@ -48,7 +48,7 @@ class mou extends CI_Controller
     {
         if (!isset($id)) show_404();
 
-		if ($this->mou_model->delete($id)) {
+		if ($this->Mou_model->delete($id)) {
 			redirect('admin/mou');
 		}
     }

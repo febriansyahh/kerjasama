@@ -1,51 +1,51 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class ajuan extends CI_Controller
+class Ajuan extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
         $this->load->library('form_validation');
-        $this->load->model("admin/ajuan_model");
-        $this->load->model("admin/panel_models");
+        $this->load->model("admin/Ajuan_model");
+        $this->load->model("admin/Panel_models");
     }
 
     public function index()
     {
-        $data["getAll"] = $this->ajuan_model->getAll();
-        $data["htg"] = $this->panel_models->notif();
-        $data["notif"] = $this->panel_models->isi_notif();
+        $data["getAll"] = $this->Ajuan_model->getAll();
+        $data["htg"] = $this->Panel_models->notif();
+        $data["notif"] = $this->Panel_models->isi_notif();
         $this->load->view('panel/ajuan/index', $data);
     }
     
     public function ajukan()
     {
-        $data["unit"] = $this->ajuan_model->getUnit();
-        $data["mou"] = $this->ajuan_model->getMou();
-        $data["id"] = $this->ajuan_model->getAI();
+        $data["unit"] = $this->Ajuan_model->getUnit();
+        $data["mou"] = $this->Ajuan_model->getMou();
+        $data["id"] = $this->Ajuan_model->getAI();
         
-        $data["htg"] = $this->panel_models->notif();
-        $data["notif"] = $this->panel_models->isi_notif();
+        $data["htg"] = $this->Panel_models->notif();
+        $data["notif"] = $this->Panel_models->isi_notif();
         
         $this->load->view('panel/ajuan/ajuan', $data);
     }
     
     public function editable($id)
     {
-        $data["getData"] = $this->ajuan_model->getID($id);
-        $data["unit"] = $this->ajuan_model->getUnit();
-        $data["mou"] = $this->ajuan_model->getMou();
+        $data["getData"] = $this->Ajuan_model->getID($id);
+        $data["unit"] = $this->Ajuan_model->getUnit();
+        $data["mou"] = $this->Ajuan_model->getMou();
        
-        $data["htg"] = $this->panel_models->notif();
-        $data["notif"] = $this->panel_models->isi_notif();
+        $data["htg"] = $this->Panel_models->notif();
+        $data["notif"] = $this->Panel_models->isi_notif();
         
         $this->load->view('panel/ajuan/edit', $data);
     }
 
     public function add()
     {
-        $model = $this->ajuan_model;
+        $model = $this->Ajuan_model;
         $validation = $this->form_validation;
 
         if($validation)
@@ -61,7 +61,7 @@ class ajuan extends CI_Controller
 
     public function edit()
     {
-        $model = $this->ajuan_model;
+        $model = $this->Ajuan_model;
         $validation = $this->form_validation;
 
         if($validation)
@@ -78,14 +78,14 @@ class ajuan extends CI_Controller
     {
         if(!isset($id)) show_404();
 
-        $this->ajuan_model->delete($id);
-        $this->ajuan_model->deleted($id);
+        $this->Ajuan_model->delete($id);
+        $this->Ajuan_model->deleted($id);
         redirect('admin/ajuan');
     }
 
     public function status_dua($id)
     {
-        $model = $this->ajuan_model;
+        $model = $this->Ajuan_model;
         $validation = $this->form_validation;;
         if($validation){
             $model->dua($id);
@@ -98,7 +98,7 @@ class ajuan extends CI_Controller
 
     public function status_tiga($id)
     {
-        $model = $this->ajuan_model;
+        $model = $this->Ajuan_model;
         $validation = $this->form_validation;
         if ($validation) {
             $model->tiga($id);
@@ -111,7 +111,7 @@ class ajuan extends CI_Controller
 
     public function status_empat($id)
     {
-        $model = $this->ajuan_model;
+        $model = $this->Ajuan_model;
         $validation = $this->form_validation;
         if ($validation) {
             $model->empat($id);
@@ -124,7 +124,7 @@ class ajuan extends CI_Controller
 
     public function status_lima($id)
     {
-        $model = $this->ajuan_model;
+        $model = $this->Ajuan_model;
         $validation = $this->form_validation;
         if ($validation) {
             $model->lima($id);
@@ -137,19 +137,19 @@ class ajuan extends CI_Controller
 
     public function moa()
     {
-        $data["getmoa"] = $this->ajuan_model->get_moa();
+        $data["getmoa"] = $this->Ajuan_model->get_moa();
         $this->load->view('panel/ajuan/moa',$data);
     }
 
     public function riks()
     {
-        $data["getriks"] = $this->ajuan_model->get_riks();
+        $data["getriks"] = $this->Ajuan_model->get_riks();
         $this->load->view('panel/ajuan/riks',$data);
     }
 
     public function ar()
     {
-        $data["getar"] = $this->ajuan_model->get_ar();
+        $data["getar"] = $this->Ajuan_model->get_ar();
         $this->load->view('panel/ajuan/ar',$data);
     }
 

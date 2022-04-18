@@ -1,26 +1,26 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class unit extends CI_Controller
+class Unit extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
 		$this->load->library('form_validation');
-        $this->load->model("admin/unit_model");
+        $this->load->model("admin/Unit_model");
     }
 
     public function index()
     {
-        $data['unit'] = $this->unit_model->getAll();
-        $data['parent'] = $this->unit_model->getUnit();
-        $data['tingkatan'] = $this->unit_model->getData();
+        $data['unit'] = $this->Unit_model->getAll();
+        $data['parent'] = $this->Unit_model->getUnit();
+        $data['tingkatan'] = $this->Unit_model->getData();
         $this->load->view('panel/unit', $data);
     }
 
     public function add()
     {
-        $model = $this->unit_model;
+        $model = $this->Unit_model;
         $validation = $this->form_validation;
 
         if($validation){
@@ -34,7 +34,7 @@ class unit extends CI_Controller
 
     public function edit()
     {
-        $model = $this->unit_model;
+        $model = $this->Unit_model;
         $validation = $this->form_validation;
 
         if($validation)
@@ -51,7 +51,7 @@ class unit extends CI_Controller
     {
         if (!isset($id)) show_404();
 
-		if ($this->unit_model->delete($id)) {
+		if ($this->Unit_model->delete($id)) {
 			redirect('admin/unit');
 		}
     }

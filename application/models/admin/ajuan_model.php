@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class ajuan_model extends CI_Model
+class Ajuan_model extends CI_Model
 {
     private $_table = "tr_ajuan";
 

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class mou_model extends CI_Model
+class Mou_model extends CI_Model
 {
     private $_table = 'jenis_mou';
 
