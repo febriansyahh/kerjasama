@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 14, 2022 at 09:41 AM
+-- Generation Time: Apr 18, 2022 at 03:59 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -223,7 +223,9 @@ INSERT INTO `tr_kerjasama` (`id_kerjasama`, `id_mou`, `id_ajuan`, `is_mou`, `nm_
 (2, 2, 2, 1, 'Kerjasama RIKS', 2, 'Kerjasama_Kerjasama_RIKS_UPT-PSI.pdf', '2022-01-01', '2022-12-31', 'seada adanya nyo', 1, 1, 1, '2022-04-11 07:48:44'),
 (3, 3, 3, 2, 'AR PT Jala Lintas Media', 2, 'Kerjasama_AR_PT_Jala_Lintas_Media_.pdf', '2022-01-01', '2022-12-30', 'yayayaya', 1, 2, 1, '2022-04-11 08:35:32'),
 (11, 2, 5, 1, 'RIKS JLM Kedua', 3, 'Kerjasama_RIKS_JLM_Kedua_Progdi_Sistem_Informasi.pdf', '2022-04-01', '2022-04-29', 'yayaayya', 1, 1, 1, '2022-04-14 08:39:06'),
-(12, 3, 6, 11, 'AR PT Jala Lintas Media Dua', 3, 'Kerjasama_AR_PT_Jala_Lintas_Media_Dua_Progdi_Sistem_Informasi.pdf', '2022-04-01', '2022-04-30', 'YAYAYYAA', 1, 2, 1, '2022-04-14 08:39:51');
+(12, 3, 6, 11, 'AR PT Jala Lintas Media Dua', 3, 'Kerjasama_AR_PT_Jala_Lintas_Media_Dua_Progdi_Sistem_Informasi.pdf', '2022-04-01', '2022-04-30', 'YAYAYYAA', 1, 2, 1, '2022-04-14 08:39:51'),
+(13, 1, 4, 0, 'Coba MoA Nomer Dua', 3, 'Kerjasama_Coba_MoA_Nomer_Dua_Progdi_Sistem_Informasi.pdf', '2022-04-01', '2022-04-30', 'Coba Kedua Kalinya', 1, 0, 2, '2022-04-16 03:30:08'),
+(14, 2, 2, 13, 'RIKS Ke Dua', 3, 'Kerjasama_RIKS_Ke_Dua_Progdi_Sistem_Informasi.pdf', '2022-04-01', '2022-04-30', 'Coba RIKS Ke Dua', 1, 1, 2, '2022-04-16 03:32:36');
 
 -- --------------------------------------------------------
 
@@ -257,12 +259,7 @@ INSERT INTO `tr_kerjasama_duo` (`id_kerjasama`, `id_mou`, `id_ajuan`, `is_mou`, 
 (2, 2, 2, 1, 'Kerjasama RIKS', 2, 'Kerjasama_Kerjasama_RIKS_UPT-PSI.pdf', '2022-01-01', '2022-12-31', 'seada adanya nyo', 1, 1, 1, '2022-04-11 07:48:44'),
 (3, 3, 3, 2, 'AR PT Jala Lintas Media', 2, 'Kerjasama_AR_PT_Jala_Lintas_Media_.pdf', '2022-01-01', '2022-12-30', 'yayayaya', 1, 2, 1, '2022-04-11 08:35:32'),
 (11, 2, 5, 1, 'RIKS JLM Kedua', 3, 'Kerjasama_RIKS_JLM_Kedua_Progdi_Sistem_Informasi.pdf', '2022-04-01', '2022-04-29', 'yayaayya', 1, 1, 1, '2022-04-14 08:39:06'),
-(12, 3, 6, 11, 'AR PT Jala Lintas Media Dua', 3, 'Kerjasama_AR_PT_Jala_Lintas_Media_Dua_Progdi_Sistem_Informasi.pdf', '2022-04-01', '2022-04-30', 'YAYAYYAA', 1, 2, 1, '2022-04-14 08:39:51'),
-(14, 1, 1, 0, 'Kerjasama', 2, 'Kerjasama_Kerjasama_UPT-PSI.pdf', '2022-01-01', '2022-12-31', 'ya begitulah kadang kadang', 1, 0, 1, '2022-04-11 04:26:06'),
-(15, 2, 2, 14, 'Kerjasama RIKS', 2, 'Kerjasama_Kerjasama_RIKS_UPT-PSI.pdf', '2022-01-01', '2022-12-31', 'seada adanya nyo', 1, 1, 0, '2022-04-11 07:48:44'),
-(16, 3, 3, 15, 'AR PT Jala Lintas Media', 2, 'Kerjasama_AR_PT_Jala_Lintas_Media_.pdf', '2022-01-01', '2022-12-30', 'yayayaya', 1, 2, 0, '2022-04-11 08:35:32'),
-(17, 2, 5, 14, 'RIKS JLM Kedua', 3, 'Kerjasama_RIKS_JLM_Kedua_Progdi_Sistem_Informasi.pdf', '2022-04-01', '2022-04-29', 'yayaayya', 1, 1, 0, '2022-04-14 08:39:06'),
-(18, 3, 6, 17, 'AR PT Jala Lintas Media Dua', 3, 'Kerjasama_AR_PT_Jala_Lintas_Media_Dua_Progdi_Sistem_Informasi.pdf', '2022-04-01', '2022-04-30', 'YAYAYYAA', 1, 2, 0, '2022-04-14 08:39:51');
+(12, 3, 6, 11, 'AR PT Jala Lintas Media Dua', 3, 'Kerjasama_AR_PT_Jala_Lintas_Media_Dua_Progdi_Sistem_Informasi.pdf', '2022-04-01', '2022-04-30', 'YAYAYYAA', 1, 2, 1, '2022-04-14 08:39:51');
 
 -- --------------------------------------------------------
 
@@ -394,13 +391,13 @@ ALTER TABLE `tr_history`
 -- AUTO_INCREMENT for table `tr_kerjasama`
 --
 ALTER TABLE `tr_kerjasama`
-  MODIFY `id_kerjasama` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_kerjasama` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `tr_kerjasama_duo`
 --
 ALTER TABLE `tr_kerjasama_duo`
-  MODIFY `id_kerjasama` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_kerjasama` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `user`
