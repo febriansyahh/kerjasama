@@ -40,7 +40,7 @@ class Kerjasama extends CI_Controller
             $this->session->set_flashdata('gglsimpan', 'Gagal');
         }
         
-        redirect('admin/kerjasama');
+        redirect('admin/Kerjasama');
     }
 
     public function edit($id)
@@ -68,16 +68,22 @@ class Kerjasama extends CI_Controller
             $this->session->set_flashdata('gglubah', 'Gagal');
         }
         
-        redirect('admin/kerjasama');
+        redirect('admin/Kerjasama');
     }
 
     public function delete($id)
     {
         if(!isset($id)) show_404();
 
-        if ($this->ajuan_model->delete($id)) {
-            redirect('admin/kerjasama');
+        if ($this->Kerjasama_model->delete($id)) {
+            redirect('admin/Kerjasama');
         }
+    }
+
+    public function delete_ar($id)
+    {
+        $this->Kerjasama_model->delete_ar($id);
+        redirect('admin/Kerjasama');
     }
 
     public function detail($id)
@@ -135,7 +141,7 @@ class Kerjasama extends CI_Controller
             $this->session->set_flashdata('gglsimpan', 'Gagal');
         }
         
-        redirect('admin/kerjasama/');
+        redirect('admin/Kerjasama/');
     }
     
     public function upload()
@@ -176,7 +182,7 @@ class Kerjasama extends CI_Controller
             $this->session->set_flashdata('gglsimpan', 'Gagal');
         }
 
-        redirect('admin/kerjasama/');
+        redirect('admin/Kerjasama/');
     }
 
     public function modal()

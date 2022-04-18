@@ -91,7 +91,6 @@ class User_model extends CI_Model
     {
         $post = $this->input->post();
 
-        
         $id = $post['id'];
         $level = $post['level'];
         $username = $post['username'];
@@ -99,14 +98,22 @@ class User_model extends CI_Model
         $passwordEncrypt = MD5($post['password']);
         $is_view     = $post['is_view'];
         $is_download     = $post['is_download'];
-
+        
         $cekpass = $this->db->query("SELECT `password` FROM `user` WHERE `idUser` = '$id' ")->row();
+        
+        
+        // if($password != $cekpass->password)
+        // {
+        //     $this->db->query("UPDATE user SET `username` = '$username', `password` = '$passwordEncrypt', `levelUser` = '$level', `is_view` = '$is_view', `is_download` = '$is_download' WHERE `idUser` ='$id' '");
+        // }else{
+        //     $this->db->query("UPDATE user SET `username` = '$username', `password` = '$password', `levelUser` = '$level', `is_view` = '$is_view', `is_download` = '$is_download' WHERE `idUser` ='$id' '");
+        // }
+        
+        if($password != ''){
+            $this->db->query("UPDATE user SET `username` = '$username', `password` = '$passwordEncrypt', `levelUser` = '$level', `is_view` = '$is_view', `is_download` = '$is_download' WHERE `idUser` ='$id' '");
 
-        if($password != $cekpass->password)
-        {
-            $this->db->query("UPDATE user SET `username` = '$username', `password` = '$passwordEncrypt', `level` = '$level', `is_view` = '$is_view', `is_download` = '$is_download' WHERE `idUser` ='$id' '");
-        }else{
-            $this->db->query("UPDATE user SET `username` = '$username', `password` = '$password', `level` = '$level', `is_view` = '$is_view', `is_download` = '$is_download' WHERE `idUser` ='$id' '");
+        } else{
+           $this->db->query("UPDATE user SET `username` = '$username',  `levelUser` = '$level', `is_view` = '$is_view', `is_download` = '$is_download' WHERE `idUser` ='$id' '");
         }
 
     }

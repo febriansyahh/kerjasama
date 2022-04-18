@@ -71,6 +71,7 @@
 
                                         <td>
                                             <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#groupar" onclick="groupar(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->is_group   ?>" class="btn btn-custom btn-sm"><i class="fas fa-file"></i> AR</a>
+                                            <a href="<?php echo site_url('admin/Kerjasama/delete_ar/' . $value->id_kerjasama) ?>" onclick="return confirm('Apakah yakin untuk menghapus data ini ?');" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Hapus</a>
                                         </td>
 
                                     </tr>

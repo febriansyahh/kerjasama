@@ -42,7 +42,7 @@ class User extends CI_Controller
             $this->session->set_flashdata('simpan', 'Berhasil Simpan');
         }
 
-        redirect('admin/user');
+        redirect('admin/User');
     }
 
     public function edit()
@@ -58,7 +58,7 @@ class User extends CI_Controller
             $this->session->set_flashdata('gglubah', 'Berhasil ubah');
         }
 
-        redirect('admin/user');
+        redirect('admin/User');
     }
 
     public function delete($id)
@@ -66,7 +66,7 @@ class User extends CI_Controller
         if (!isset($id)) show_404();
 
 		if ($this->User_model->delete($id)) {
-			redirect('admin/user');
+			redirect('admin/User');
 		}
     }
 }

@@ -91,7 +91,7 @@
 
 										<td>
 											<a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#editUser" onclick="editableUser(this)" data-id="<?php echo $value->idUser . "~" . $value->nmUser . "~" . $value->username .  "~" . $value->password . "~" . $value->nmUnit . "~" . $value->idUnit . "~" . $value->levelUser . "~" . $value->is_view . "~" . $value->is_download  ?>" class="btn btn-success btn-sm"><i class="fas fa-edit"></i> Edit</a>
-											<a onclick="deleteConfirm('<?php echo site_url('admin/user/delete/' . $value->idUser) ?>')" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Hapus</a>
+											<a href="<?php echo site_url('admin/user/delete/' . $value->idUser) ?>" onclick="return confirm('Apakah yakin untuk menghapus data ini ?');" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Hapus</a>
 										</td>
 
 									</tr>
@@ -119,14 +119,7 @@
 				<h5 class="">Ubah Data User</h5>
 			</div>
 			<div class="modal-body">
-				<form action="<?php echo site_url('admin/user/edit') ?>" method="post" enctype="multipart/form-data">
-					<!-- <div class="form-group">
-							<label for="kode">Nama User Pengguna</label>
-							<input class="form-control <?php echo form_error('nama_user') ? 'is-invalid' : '' ?>" type="text" name="nama_user" min="0" id="editnmUser" />
-							<div class="invalid-feedback">
-								<?php echo form_error('nama_user') ?>
-							</div>
-						</div> -->
+				<form action="<?php echo site_url('admin/User/edit') ?>" method="post" enctype="multipart/form-data">
 					<div class="row">
 						<div class="col-6">
 							<div class="form-group">
@@ -169,7 +162,8 @@
 						<div class="col-6">
 							<div class="form-group">
 								<label for="kode">Password</label>
-								<input class="form-control <?php echo form_error('password') ? 'is-invalid' : '' ?>" type="password" name="password" min="0" id="editPassword" />
+								<input class="form-control <?php echo form_error('password') ? 'is-invalid' : '' ?>" type="password" name="password" />
+								<small><code><em>* Kosongi jika tidak ingin merubah password</em></code></small>
 								<div class="invalid-feedback">
 									<?php echo form_error('password') ?>
 								</div>

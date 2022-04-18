@@ -54,7 +54,7 @@
 
 										<td>
 											<a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#editMOU" onclick="editableMastermou(this)" data-id="<?php echo $value->id_mou . "~" . $value->nama_mou ?>" class="btn btn-success btn-sm"><i class="fas fa-edit"></i> Edit</a>
-											<a onclick="deleteConfirm('<?php echo site_url('admin/mou/delete/' . $value->id_mou) ?>')" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Hapus</a>
+											<a href="<?php echo site_url('admin/Mou/delete/' . $value->id_mou) ?>" onclick="return confirm('Apakah yakin untuk menghapus data ini ?');" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Hapus</a>
 										</td>
 
 									</tr>

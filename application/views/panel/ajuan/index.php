@@ -115,7 +115,7 @@
 													?>
 													<a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detailajuan" onclick="detailajuan(this)" data-id="<?php echo $value->id_ajuan . "~" . $value->nm_ajuan  . "~" . $value->mitra . "~" . $value->file  . "~" . $value->tgl_mulai . "~" . $value->tgl_selesai  . "~" . $value->nama_mou . "~" . $value->nmUnit ?>" class="btn btn-secondary btn-sm"><i class="fas fa-eye"></i></a>
 													<a href="<?php echo site_url('admin/ajuan/editable/' . $value->id_ajuan) ?>" onclick="editableAjuan(this)" data-id="<?php echo $value->id_ajuan . "~" . $value->file ?>" class="btn btn-success btn-sm"><i class="fas fa-edit"></i></a>
-													<a onclick="deleteConfirm('<?php echo site_url('admin/ajuan/delete/' . $value->id_ajuan) ?>')" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+													<a href="<?php echo site_url('admin/ajuan/delete/' . $value->id_ajuan) ?>" onclick="return confirm('Apakah yakin untuk menghapus data ini ?');" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Hapus</a>
 												</td>
 
 											</tr>

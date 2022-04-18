@@ -147,7 +147,10 @@ class Kerjasama_model extends CI_Model
 
     public function delete($id)
     {
+        $cekid = $this->db->query("SELECT is_group FROM tr_kerjasama WHERE `id_kerjasama` = '$id'")->row();
+
         return $this->db->delete($this->_table, array("id_kerjasama", $id));
+        // $sql = $this->db->query("DELETE FROM tr_kerjasama WHERE is_group = '$cekid->is_group'");
     }
 
     public function getUsulan()
@@ -272,7 +275,7 @@ class Kerjasama_model extends CI_Model
         $post = $this->input->post();
         $ts     = $post['id_mou'];
         $unit = $this->session->userdata('idUnit');
-        $dataUnit = $this->db->query("SELECT * FROM mst_unit WHERE parentUnit = '$unit'")->result();
+        $dataUnit = $this->db->query("SELECT * FROM mst_unit WHERE parentUnit = '$unit'  OR idUnit= '$unit' ")->result();
 
         $data_moa = $this->db->query("SELECT a.*, b.nmUnit FROM tr_kerjasama a, mst_unit b WHERE a.id_unit=b.idUnit AND a.id_mou = '1' ORDER BY a.sysInput DESC ")->result();
         // $data_riks = $this->db->query("SELECT a.*, b.nmUnit FROM tr_kerjasama a, mst_unit b WHERE a.id_unit=b.idUnit AND a.id_mou = '2' ORDER BY a.sysInput DESC ")->result();
@@ -473,7 +476,7 @@ class Kerjasama_model extends CI_Model
 
 
         $unit = $this->session->userdata('idUnit');
-        $dataUnit = $this->db->query("SELECT * FROM mst_unit WHERE parentUnit = '$unit'")->result();
+        $dataUnit = $this->db->query("SELECT * FROM mst_unit WHERE parentUnit = '$unit' OR idUnit= '$unit'")->result();
 
         $cekar = $this->db->query("SELECT id_kerjasama FROM tr_kerjasama WHERE is_mou = '$ts' ")->row();
 
@@ -689,5 +692,10 @@ class Kerjasama_model extends CI_Model
             </center>
 <?php
         }
+    }
+
+    public function delete_ar($id)
+    {
+        return $this->db->query("DELETE FROM tr_kerjasama WHERE id_kerjasama = '$id' OR is_mou ='$id' ");
     }
 }
