@@ -15,10 +15,13 @@
                 Telp. +62291-438229 Fax. +62291-437198 <br>
                 email. <a href="mailto:muria@umk.ac.id">muria@umk.ac.id</a>
             </p>
-            <a href="https://www.facebook.com/UNIVERSITAS-MURIA-KUDUS-UMK-182450701824294/" target="_blank" class="facebook"><i class="fab fa-facebook-square fa-xl"></i></a>
-            <a href="https://twitter.com/@UMK_mu" target="_blank" class="twitter"><i class="fas fa-file-square fa-xl"></i></a>
-            <a href="https://www.instagram.com/muriakudusuniversity/" target="_blank" class="instagram"><i class="fab fa-instagram-square fa-xl"></i></a>
-            <a href="https://www.youtube.com/user/channelUMK" target="_blank" class="google-plus"><i class="fab fa-youtube-square fa-xl"></i></a>
+
+            <div class="icons">
+                <a class="mx-2" href="https://www.facebook.com/UNIVERSITAS-MURIA-KUDUS-UMK-182450701824294/"><i class="fab fa-facebook-f"></i></a>
+                <a class="mx-2" href="https://twitter.com/@UMK_mu"><i class="fab fa-twitter"></i></a>
+                <a class="mx-2" href="https://www.instagram.com/muriakudusuniversity/"><i class="fab fa-instagram"></i></a>
+                <a class="mx-2" href="https://www.youtube.com/user/channelUMK" class="google-plus"><i class="fab fa-youtube"></i></a>
+            </div>
         </div>
         <!-- <div class="col-lg-3 col-md-6 col-6 mb-4 mb-lg-0 order-2 order-md-2 order-lg-4">
             <p class="fs-2 mb-lg-4">Social Media</p>
