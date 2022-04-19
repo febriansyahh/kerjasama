@@ -33,7 +33,7 @@
                     <div class="card-body">
                         <h4 class="text-center"><b>Perubahan Kerjasama</b></h4>
                         <hr>
-                        <form class="form" action="<?php echo site_url('admin/ajuan/edit') ?>" method="post" enctype="multipart/form-data">
+                        <form class="form" action="<?php echo site_url('admin/kerjasama/update') ?>" method="post" enctype="multipart/form-data">
                             <input type="hidden" name="id" value="<?php echo $getData->id_ajuan ?>">
                             <input type="hidden" name="status" value="<?php echo $getData->id_status ?>">
                             <div class="form-group">

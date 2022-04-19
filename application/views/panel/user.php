@@ -119,109 +119,94 @@
 				<h5 class="">Ubah Data User</h5>
 			</div>
 			<div class="modal-body">
-				<form action="<?php echo site_url('admin/User/edit') ?>" method="post" enctype="multipart/form-data">
-					<div class="row">
-						<div class="col-6">
-							<div class="form-group">
-								<label for="kode">Username</label>
-								<input type="hidden" name="id" id="editID" required>
-								<input class="form-control <?php echo form_error('username') ? 'is-invalid' : '' ?>" type="text" name="username" min="0" id="editUsername" />
-								<div class="invalid-feedback">
-									<?php echo form_error('username') ?>
-								</div>
-							</div>
-						</div>
-						<div class="col-6">
-							<div class="form-group">
-								<label for="kode">Nama User Pengguna</label>
-								<input class="form-control <?php echo form_error('nama_user') ? 'is-invalid' : '' ?>" type="text" name="nama_user" min="0" id="editnmUser" />
-								<div class="invalid-feedback">
-									<?php echo form_error('nama_user') ?>
-								</div>
-							</div>
-						</div>
-					</div>
+					<form action="<?php echo site_url('admin/User/edit') ?>" method="post" enctype="multipart/form-data">
 
-					<div class="row">
-						<!-- <div class="col-6">
-						<div class="form-group">
-							<label for="kode">Unit Terkait</label>
-							<select name="idUnit" id="editidUnit" class="form-control">
-								<option value="">- Pilih -</option>
-								<?php
-								foreach ($unit as $row) {
-									echo "<option value='" . $row->idUnit . "~" . $row->nmUnit . "'>" . $row->nmUnit . "</option>";
-								}
-								?>
-							</select>
-							<div class="invalid-feedback">
-								<?php echo form_error('idTingkatan') ?>
+						<div class="row">
+							<div class="col-6">
+								<div class="form-group">
+									<label for="kode">Username</label>
+									<input type="hidden" name="id" id="editID" required>
+									<input class="form-control <?php echo form_error('username') ? 'is-invalid' : '' ?>" type="text" name="username" min="0" id="editUsername" />
+									<div class="invalid-feedback">
+										<?php echo form_error('username') ?>
+									</div>
+								</div>
 							</div>
-						</div>
-					</div> -->
-						<div class="col-6">
-							<div class="form-group">
-								<label for="kode">Password</label>
-								<input class="form-control <?php echo form_error('password') ? 'is-invalid' : '' ?>" type="password" name="password" />
-								<small><code><em>* Kosongi jika tidak ingin merubah password</em></code></small>
-								<div class="invalid-feedback">
-									<?php echo form_error('password') ?>
+							<div class="col-6">
+								<div class="form-group">
+									<label for="kode">Nama User Pengguna</label>
+									<input class="form-control <?php echo form_error('nama_user') ? 'is-invalid' : '' ?>" type="text" name="nama_user" min="0" id="editnmUser" />
+									<div class="invalid-feedback">
+										<?php echo form_error('nama_user') ?>
+									</div>
 								</div>
 							</div>
 						</div>
 
-						<div class="col-6">
-							<div class="form-group">
-								<label for="kode">Level Pengguna</label>
-								<select name="level" id="editlevelUser" class="form-control">
-									<option value="">- Pilih -</option>
-									<option value="1">Admin</option>
-									<option value="2">Operator / PIC</option>
-									<option value="3">Unit</option>
-								</select>
-								<div class="invalid-feedback">
-									<?php echo form_error('level') ?>
+						<div class="row">
+							<div class="col-6">
+								<div class="form-group">
+									<label for="kode">Password</label>
+									<input class="form-control <?php echo form_error('password') ? 'is-invalid' : '' ?>" type="password" name="password" />
+									<small><code><em>* Kosongi jika tidak ingin merubah password</em></code></small>
+									<div class="invalid-feedback">
+										<?php echo form_error('password') ?>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-6">
+								<div class="form-group">
+									<label for="kode">Level Pengguna</label>
+									<select name="level" id="editlevelUser" class="form-control">
+										<option value="">- Pilih -</option>
+										<option value="1">Admin</option>
+										<option value="2">Operator / PIC</option>
+										<option value="3">Unit</option>
+									</select>
+									<div class="invalid-feedback">
+										<?php echo form_error('level') ?>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<div class="row">
+							<div class="col-6">
+								<div class="form-group">
+									<label for="kode">Akses View</label>
+									<select name="is_view" id="editIsView" class="form-control">
+										<option value="">- Pilih -</option>
+										<option value="1">Ya</option>
+										<option value="0">Tidak</option>
+									</select>
+									<div class="invalid-feedback">
+										<?php echo form_error('is_view') ?>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-6">
+								<div class="form-group">
+									<label for="kode">Akses Unduh</label>
+									<select name="is_download" id="editIsDownload" class="form-control">
+										<option value="">- Pilih -</option>
+										<option value="1">Ya</option>
+										<option value="0">Tidak</option>
+									</select>
+									<div class="invalid-feedback">
+										<?php echo form_error('is_download') ?>
+									</div>
 								</div>
 							</div>
 						</div>
 
-					</div>
-					<div class="row">
-						<div class="col-6">
-							<div class="form-group">
-								<label for="kode">Akses View</label>
-								<select name="is_view" id="editIsView" class="form-control">
-									<option value="">- Pilih -</option>
-									<option value="1">Ya</option>
-									<option value="0">Tidak</option>
-								</select>
-								<div class="invalid-feedback">
-									<?php echo form_error('is_view') ?>
-								</div>
-							</div>
+						<br><br>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-bs-dismiss="modal">Batal</button>
+							<input class="btn btn-success" type="submit" name="btn" value="Ubah" />
 						</div>
-
-						<div class="col-6">
-							<div class="form-group">
-								<label for="kode">Akses Unduh</label>
-								<select name="is_download" id="editIsDownload" class="form-control">
-									<option value="">- Pilih -</option>
-									<option value="1">Ya</option>
-									<option value="0">Tidak</option>
-								</select>
-								<div class="invalid-feedback">
-									<?php echo form_error('is_view') ?>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<br><br>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-bs-dismiss="modal">Batal</button>
-						<input class="btn btn-success" type="submit" name="btn" value="Ubah" />
-					</div>
-				</form>
+					</form>
 			</div>
 		</div>
 	</div>

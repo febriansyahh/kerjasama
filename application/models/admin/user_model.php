@@ -93,6 +93,7 @@ class User_model extends CI_Model
 
         $id = $post['id'];
         $level = $post['level'];
+        $nmUser = $post['nama_user'];
         $username = $post['username'];
         $password = $post['password'];
         $passwordEncrypt = MD5($post['password']);
@@ -104,16 +105,15 @@ class User_model extends CI_Model
         
         // if($password != $cekpass->password)
         // {
-        //     $this->db->query("UPDATE user SET `username` = '$username', `password` = '$passwordEncrypt', `levelUser` = '$level', `is_view` = '$is_view', `is_download` = '$is_download' WHERE `idUser` ='$id' '");
+        //     $this->db->query("UPDATE user SET `username` = '$username', `password` = '$passwordEncrypt', `levelUser` = '$level', `is_view` = '$is_view', `is_download` = '$is_download' WHERE `idUser` ='$id' ");
         // }else{
-        //     $this->db->query("UPDATE user SET `username` = '$username', `password` = '$password', `levelUser` = '$level', `is_view` = '$is_view', `is_download` = '$is_download' WHERE `idUser` ='$id' '");
+        //     $this->db->query("UPDATE user SET `username` = '$username', `password` = '$password', `levelUser` = '$level', `is_view` = '$is_view', `is_download` = '$is_download' WHERE `idUser` ='$id' ");
         // }
         
-        if($password != ''){
-            $this->db->query("UPDATE user SET `username` = '$username', `password` = '$passwordEncrypt', `levelUser` = '$level', `is_view` = '$is_view', `is_download` = '$is_download' WHERE `idUser` ='$id' '");
-
+        if($password == ''){
+            $this->db->query("UPDATE user SET `nmUser` = '$nmUser', `username` = '$username',  `levelUser` = '$level', `is_view` = '$is_view', `is_download` = '$is_download' WHERE `idUser` ='$id' ");
         } else{
-           $this->db->query("UPDATE user SET `username` = '$username',  `levelUser` = '$level', `is_view` = '$is_view', `is_download` = '$is_download' WHERE `idUser` ='$id' '");
+            $this->db->query("UPDATE user SET `nmUser` = '$nmUser', `username` = '$username', `password` = '$passwordEncrypt', `levelUser` = '$level', `is_view` = '$is_view', `is_download` = '$is_download' WHERE `idUser` ='$id' ");
         }
 
     }

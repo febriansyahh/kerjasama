@@ -278,6 +278,7 @@
 														if ($this->session->userdata('is_view') == '1') {
 														?>
 															<a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detailajuan" onclick="detailajuan(this)" data-id="<?php echo $value->id_ajuan . "~" . $value->nm_ajuan  . "~" . $value->mitra . "~" . $value->file  . "~" . $value->tgl_mulai . "~" . $value->tgl_selesai  . "~" . $value->nama_mou . "~" . $value->nmUnit ?>" class="btn btn-secondary btn-sm"><i class="fas fa-eye"></i></a>
+															<!-- <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detailajuannon" onclick="detailajuannon(this)" data-id="<?php echo $value->id_ajuan . "~" . $value->nm_ajuan  . "~" . $value->mitra . "~" . $value->file  . "~" . $value->tgl_mulai . "~" . $value->tgl_selesai  . "~" . $value->nama_mou . "~" . $value->nmUnit ?>" class="btn btn-secondary btn-sm"><i class="fas fa-eye"></i></a> -->
 														<?php
 														} else {
 														?>

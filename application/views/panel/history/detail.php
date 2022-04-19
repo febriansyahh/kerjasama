@@ -24,7 +24,7 @@
                 <div class="card-body">
                     <h5>Riwayat Ajuan Kerjasama</h5>
                     <br>
-                    <table id="example" class="display" style="width:100%">
+                    <table id="history_det" class="display" style="width:100%">
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -42,44 +42,44 @@
                             <?php
                             $no = 1;
                             foreach ($detail as $value) : ?>
-                                    <tr>
-                                        <td>
-                                            <?php echo $no++ ?>
-                                        </td>
+                                <tr>
+                                    <td>
+                                        <?php echo $no++ ?>
+                                    </td>
 
-                                        <td>
-                                            <?php echo $value->nmUnit ?>
-                                        </td>
+                                    <td>
+                                        <?php echo $value->nmUnit ?>
+                                    </td>
 
-                                        <td>
-                                            <?php echo $value->nm_ajuan ?>
-                                        </td>
+                                    <td>
+                                        <?php echo $value->nm_ajuan ?>
+                                    </td>
 
-                                        <td>
-                                            <?php echo $value->mitra ?>
-                                        </td>
+                                    <td>
+                                        <?php echo $value->mitra ?>
+                                    </td>
 
-                                        <td>
-                                            <?php echo $value->nama_mou ?>
-                                        </td>
+                                    <td>
+                                        <?php echo $value->nama_mou ?>
+                                    </td>
 
-                                        <td>
-                                            <?php echo date('d-m-Y', strtotime($value->tgl_mulai)) ?>
-                                        </td>
+                                    <td>
+                                        <?php echo date('d-m-Y', strtotime($value->tgl_mulai)) ?>
+                                    </td>
 
-                                        <td>
-                                            <?php echo date('d-m-Y', strtotime($value->tgl_selesai)) ?>
-                                        </td>
+                                    <td>
+                                        <?php echo date('d-m-Y', strtotime($value->tgl_selesai)) ?>
+                                    </td>
 
-                                        <td>
-                                            <?php echo $value->nama_status ?>
-                                        </td>
+                                    <td>
+                                        <?php echo $value->nama_status ?>
+                                    </td>
 
-                                        <td>
-                                            <?php echo date('d-m-Y', strtotime($value->sysInput)) ?>
-                                        </td>
+                                    <td>
+                                        <?php echo date('d-m-Y', strtotime($value->sysInput)) ?>
+                                    </td>
 
-                                    </tr>
+                                </tr>
                             <?php endforeach; ?>
                         </tbody>
 

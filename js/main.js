@@ -9,6 +9,20 @@ $(document).ready(function () {
 //     order: [[1, "desc"]],
 // });
   
+$("#history_det").DataTable({
+    columns: [
+      { width: "5%" }, // No
+      { width: "15%" }, // Unit
+      { width: "15%" }, // Nama Kerjasama
+      { width: "17%" }, // Mitra
+      { width: "8%" }, // Bentuk
+      { width: "8%" }, // Tgl Mulai
+      { width: "8%" }, // Tgl Selesai
+      { width: "16%" }, // status
+      { width: "8%" }, // Tgl Selesai
+    ],
+  });
+  
 $("#kerjasama").DataTable({
     columns: [
       { width: "5%" }, // No
@@ -18,6 +32,18 @@ $("#kerjasama").DataTable({
       { width: "20%" }, // Mitra
       { width: "5%" }, // Bentuk MOA
       { width: "25%" }, // Pilihan
+    ],
+  });
+  
+$("#kerjasama_result").DataTable({
+    columns: [
+      { width: "5%" }, // No
+      { width: "20%" }, // Unit
+      { width: "25%" }, // Nama Kerjasama
+      { width: "15%" }, // Ajuan
+      { width: "20%" }, // Mitra
+      { width: "5%" }, // Bentuk MOA
+      { width: "15%" }, // Pilihan
     ],
   });
 

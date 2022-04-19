@@ -29,7 +29,7 @@
                     <div class="box-body">
                         <div class="card-body">
                             <div class="table-responsive py-4">
-                                <table id="kerjasama" class="display" style="width:100%">
+                                <table id="kerjasama_result" class="display" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -71,7 +71,7 @@
                                                 </td>
 
                                                 <td>
-                                                    <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detmoa" onclick="detmoa(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->is_group  ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i>Modal</a>
+                                                    <!-- <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detmoa" onclick="detmoa(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->is_group  ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i>Modal</a> -->
                                                     <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detailkerja" onclick="detailkerja(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->nm_ajuan  . "~" . $value->nm_kerjasama . "~" . $value->mitra  . "~" . $value->nmUnit . "~" . $value->file . "~" . $value->tgl_mulai . "~" . $value->tgl_selesai  . "~" . $value->keterangan . "~" . $value->nama_mou ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i> Detail</a>
                                                 </td>
 
@@ -146,25 +146,17 @@
 
                                                 <td>
                                                     <?php
-                                                    if ($this->session->userdata('is_down') == '1') {
+                                                    if (($this->session->userdata('is_down') != '0' || $this->session->userdata('is_view') != '0')) {
                                                     ?>
                                                         <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detailkerja" onclick="detailkerja(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->nm_ajuan  . "~" . $value->nm_kerjasama . "~" . $value->mitra  . "~" . $value->nmUnit . "~" . $value->file . "~" . $value->tgl_mulai . "~" . $value->tgl_selesai  . "~" . $value->keterangan . "~" . $value->nama_mou ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i> Detail</a>
                                                         <a href="<?php echo site_url('admin/kerjasama/edit/' . $value->id_kerjasama) ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Ubah</a>
                                                         <a href="<?php echo site_url('admin/kerjasama/delete/' . $value->id_kerjasama) ?>" onclick="return confirm('Apakah yakin untuk menghapus data ini ?');" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Hapus</a>
                                                         <?php
                                                     } else {
-                                                        if ($this->session->userdata('is_view') == '1') {
-                                                        ?>
-                                                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detkernon" onclick="detkernon(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->nm_ajuan  . "~" . $value->nm_kerjasama . "~" . $value->mitra  . "~" . $value->nmUnit . "~" . $value->file . "~" . $value->tgl_mulai . "~" . $value->tgl_selesai  . "~" . $value->keterangan . "~" . $value->nama_mou ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i> Detail</a>
-                                                            <a href="<?php echo site_url('admin/kerjasama/edit/' . $value->id_kerjasama) ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Ubah</a>
-                                                            <a href="<?php echo site_url('admin/kerjasama/delete/' . $value->id_kerjasama) ?>" onclick="return confirm('Apakah yakin untuk menghapus data ini ?');" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Hapus</a>
-                                                        <?php
-                                                        } else {
                                                         ?>
                                                             <button class="btn btn-warning btn-sm">Maaf Anda Tidak Memilliki Akses</button>
                                                     <?php
                                                         }
-                                                    }
                                                     ?>
                                                 </td>
 
@@ -234,27 +226,19 @@
 
                                                 <td>
                                                     <?php
-                                                    if ($this->session->userdata('is_down') == '1') {
+                                                    if (($this->session->userdata('is_down') != '0'  || $this->session->userdata('is_view') != '0')) {
                                                     ?>
                                                         <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detailkerja" onclick="detailkerja(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->nm_ajuan  . "~" . $value->nm_kerjasama . "~" . $value->mitra  . "~" . $value->nmUnit . "~" . $value->file . "~" . $value->tgl_mulai . "~" . $value->tgl_selesai  . "~" . $value->keterangan . "~" . $value->nama_mou ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i></a>
-                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detmoa" onclick="detmoa(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->is_group  ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i>Modal</a>
+                                                        <!-- <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detmoa" onclick="detmoa(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->is_group  ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i>Modal</a> -->
                                                         <a href="<?php echo site_url('admin/kerjasama/v_detail/' . $value->id_kerjasama) ?>" class="btn btn-secondary btn-sm"><i class="fas fa-history"></i> Rincian</a>
 
                                                         <?php
                                                     } else {
-                                                        if ($this->session->userdata('is_view') == '1') {
-                                                        ?>
-                                                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detkernon" onclick="detkernon(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->nm_ajuan  . "~" . $value->nm_kerjasama . "~" . $value->mitra  . "~" . $value->nmUnit . "~" . $value->file . "~" . $value->tgl_mulai . "~" . $value->tgl_selesai  . "~" . $value->keterangan . "~" . $value->nama_mou ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i></a>
-                                                            <!-- <a href="<?php echo site_url('admin/kerjasama/detail/' . $value->id_kerjasama) ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i> Detail</a> -->
-                                                            <a href="<?php echo site_url('admin/kerjasama/v_detail/' . $value->id_kerjasama) ?>" class="btn btn-secondary btn-sm"><i class="fas fa-history"></i> Rincian</a>
-
-                                                        <?php
-                                                        } else {
+                                                       
                                                         ?>
                                                             <button class="btn btn-warning btn-sm">Maaf Anda Tidak Memilliki Akses</button>
                                                     <?php
                                                         }
-                                                    }
                                                     ?>
                                                 </td>
 

@@ -47,12 +47,13 @@ class User extends CI_Controller
 
     public function edit()
     {
-        $model = $this->User_model;
         $validation = $this->form_validation;
+        $post = $this->input->post();
 
         if($validation)
         {
-            $model->update();
+            $this->User_model->update();
+            
             $this->session->set_flashdata('ubah', 'Berhasil ubah');
         }else{
             $this->session->set_flashdata('gglubah', 'Berhasil ubah');
