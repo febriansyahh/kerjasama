@@ -5,7 +5,7 @@
             <p class="fs-2 mb-lg-4">Quick Links</p>
             <ul class="list-unstyled mb-0">
                 <li class="mb-1"><a class="link-900 text-secondary text-decoration-none" href="https://umk.ac.id/" target="_blank">Web UMK</a></li>
-                <li class="mb-1"><a class="link-900 text-secondary text-decoration-none" href="#!">Blog</a></li>
+                <li class="mb-1"><a class="link-900 text-secondary text-decoration-none" href="https://pmb.umk.ac.id/daftar/">PMB Daftar</a></li>
             </ul>
         </div>
         <div class="col-lg-6 col-md-6 mb-4 mb-lg-0 order-4 order-md-4 order-lg-3">
@@ -16,7 +16,7 @@
                 email. <a href="mailto:muria@umk.ac.id">muria@umk.ac.id</a>
             </p>
             <a href="https://www.facebook.com/UNIVERSITAS-MURIA-KUDUS-UMK-182450701824294/" target="_blank" class="facebook"><i class="fab fa-facebook-square fa-xl"></i></a>
-            <a href="https://twitter.com/@UMK_mu" target="_blank" class="twitter"><i class="fab fa-twitter-square fa-xl"></i></a>
+            <a href="https://twitter.com/@UMK_mu" target="_blank" class="twitter"><i class="fas fa-file-square fa-xl"></i></a>
             <a href="https://www.instagram.com/muriakudusuniversity/" target="_blank" class="instagram"><i class="fab fa-instagram-square fa-xl"></i></a>
             <a href="https://www.youtube.com/user/channelUMK" target="_blank" class="google-plus"><i class="fab fa-youtube-square fa-xl"></i></a>
         </div>
