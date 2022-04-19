@@ -54,7 +54,7 @@
 
 										<td>
 											<a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#editStatus" onclick="editableStatus(this)" data-id="<?php echo $value->id_status . "~" . $value->nama_status ?>" class="btn btn-success btn-sm"><i class="fas fa-edit"></i> Edit</a>
-											<a onclick="deleteConfirm('<?php echo site_url('admin/status_ajuan/delete/' . $value->id_status) ?>')" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Hapus</a>
+											<a href="<?php echo site_url('admin/status_ajuan/delete/' . $value->id_status) ?>" onclick="return confirm('Apakah yakin untuk menghapus data ini ?');" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Hapus</a>
 										</td>
 
 									</tr>
@@ -64,8 +64,8 @@
 						</table>
 					</div>
 				</div>
-				</div>
 			</div>
+		</div>
 
 	</main>
 	<?php $this->load->view("_partials/admin/js.php") ?>

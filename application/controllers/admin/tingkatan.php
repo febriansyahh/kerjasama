@@ -42,7 +42,8 @@ class Tingkatan extends CI_Controller{
         }else{
             $this->session->set_flashdata('gglubah', 'gagal ubah');
         }
-        redirect('admin/unit');
+            redirect('admin/tingkatan');
+
     }
 
     public function delete($id)
@@ -50,7 +51,8 @@ class Tingkatan extends CI_Controller{
         if (!isset($id)) show_404();
 
 		if ($this->Tingkatan_model->delete($id)) {
-			redirect('admin/unit');
+            redirect('admin/tingkatan');
+
 		}
     }
 }
