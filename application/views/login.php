@@ -5,6 +5,11 @@
 
   <?php $this->load->view("_partials/landing/head.php") ?>
 
+  <style>
+    .navbar-light .navbar-nav .nav-link {
+      color: #fff;
+    }
+  </style>
 </head>
 
 
@@ -14,11 +19,11 @@
   <!--    Main Content-->
   <!-- ===============================================-->
   <main class="main" id="top">
-    
+
     <section id="login" class="content">
       <nav class="navbar navbar-expand-lg navbar-light sticky-top" data-navbar-on-scroll="data-navbar-on-scroll">
         <?php $this->load->view("_partials/landing/navbar.php") ?>
-        </nav>
+      </nav>
       <br><br><br>
       <?php
       if ($this->session->flashdata('akses')) echo '<script> swal("Gagal!", "Gagal Login, Anda Tidak Memiliki Akses !!", "error") </script>';
@@ -50,7 +55,7 @@
 
     <!-- ============================================-->
     <!-- <section> begin ============================-->
-   
+
 
   </main>
   <!-- ===============================================-->
