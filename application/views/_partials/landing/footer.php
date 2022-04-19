@@ -5,7 +5,7 @@
             <p class="fs-2 mb-lg-4">Quick Links</p>
             <ul class="list-unstyled mb-0">
                 <li class="mb-1"><a class="link-900 text-secondary text-decoration-none" href="https://umk.ac.id/" target="_blank">Web UMK</a></li>
-                <li class="mb-1"><a class="link-900 text-secondary text-decoration-none" href="https://pmb.umk.ac.id/daftar/">PMB Daftar</a></li>
+                <li class="mb-1"><a class="link-900 text-secondary text-decoration-none" href="https://pmb.umk.ac.id/daftar/" target="_blank">PMB Daftar</a></li>
             </ul>
         </div>
         <div class="col-lg-6 col-md-6 mb-4 mb-lg-0 order-4 order-md-4 order-lg-3">
@@ -17,10 +17,10 @@
             </p>
 
             <div class="icons">
-                <a class="mx-2" href="https://www.facebook.com/UNIVERSITAS-MURIA-KUDUS-UMK-182450701824294/"><i class="fab fa-facebook-f"></i></a>
-                <a class="mx-2" href="https://twitter.com/@UMK_mu"><i class="fab fa-twitter"></i></a>
-                <a class="mx-2" href="https://www.instagram.com/muriakudusuniversity/"><i class="fab fa-instagram"></i></a>
-                <a class="mx-2" href="https://www.youtube.com/user/channelUMK" class="google-plus"><i class="fab fa-youtube"></i></a>
+                <a class="mx-2" href="https://www.facebook.com/UNIVERSITAS-MURIA-KUDUS-UMK-182450701824294/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a class="mx-2" href="https://twitter.com/@UMK_mu" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a class="mx-2" href="https://www.instagram.com/muriakudusuniversity/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a class="mx-2" href="https://www.youtube.com/user/channelUMK" class="google-plus" target="_blank"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
         <!-- <div class="col-lg-3 col-md-6 col-6 mb-4 mb-lg-0 order-2 order-md-2 order-lg-4">
