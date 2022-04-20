@@ -164,7 +164,7 @@
 													<?php echo $no++ ?>
 												</td>
 												<td>
-													<?php echo $value->nama_mou ?>
+													<?php echo $value->nm_ajuan ?>
 												</td>
 												<td>
 													<?php echo $value->nama_mou ?>

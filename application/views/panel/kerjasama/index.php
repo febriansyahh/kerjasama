@@ -73,6 +73,7 @@
                                                 <td>
                                                     <!-- <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detmoa" onclick="detmoa(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->is_group  ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i>Modal</a> -->
                                                     <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detailkerja" onclick="detailkerja(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->nm_ajuan  . "~" . $value->nm_kerjasama . "~" . $value->mitra  . "~" . $value->nmUnit . "~" . $value->file . "~" . $value->tgl_mulai . "~" . $value->tgl_selesai  . "~" . $value->keterangan . "~" . $value->nama_mou ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i> Detail</a>
+                                                    <a href="<?php echo site_url('admin/Kerjasama/delete/' . $value->id_kerjasama) ?>" onclick="return confirm('Apakah yakin untuk menghapus data ini ?');" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Hapus</a>
                                                 </td>
 
                                             </tr>
@@ -151,12 +152,12 @@
                                                         <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detailkerja" onclick="detailkerja(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->nm_ajuan  . "~" . $value->nm_kerjasama . "~" . $value->mitra  . "~" . $value->nmUnit . "~" . $value->file . "~" . $value->tgl_mulai . "~" . $value->tgl_selesai  . "~" . $value->keterangan . "~" . $value->nama_mou ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i> Detail</a>
                                                         <a href="<?php echo site_url('admin/kerjasama/edit/' . $value->id_kerjasama) ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Ubah</a>
                                                         <a href="<?php echo site_url('admin/kerjasama/delete/' . $value->id_kerjasama) ?>" onclick="return confirm('Apakah yakin untuk menghapus data ini ?');" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Hapus</a>
-                                                        <?php
-                                                    } else {
-                                                        ?>
-                                                            <button class="btn btn-warning btn-sm">Maaf Anda Tidak Memilliki Akses</button>
                                                     <?php
-                                                        }
+                                                    } else {
+                                                    ?>
+                                                        <button class="btn btn-warning btn-sm">Maaf Anda Tidak Memilliki Akses</button>
+                                                    <?php
+                                                    }
                                                     ?>
                                                 </td>
 
@@ -232,13 +233,13 @@
                                                         <!-- <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detmoa" onclick="detmoa(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->is_group  ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i>Modal</a> -->
                                                         <a href="<?php echo site_url('admin/kerjasama/v_detail/' . $value->id_kerjasama) ?>" class="btn btn-secondary btn-sm"><i class="fas fa-history"></i> Rincian</a>
 
-                                                        <?php
-                                                    } else {
-                                                       
-                                                        ?>
-                                                            <button class="btn btn-warning btn-sm">Maaf Anda Tidak Memilliki Akses</button>
                                                     <?php
-                                                        }
+                                                    } else {
+
+                                                    ?>
+                                                        <button class="btn btn-warning btn-sm">Maaf Anda Tidak Memilliki Akses</button>
+                                                    <?php
+                                                    }
                                                     ?>
                                                 </td>
 

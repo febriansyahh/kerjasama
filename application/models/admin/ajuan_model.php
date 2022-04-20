@@ -240,6 +240,10 @@ class Ajuan_model extends CI_Model
 
     public function delete($id)
     {
+        $data = $this->db->query("SELECT `file` FROM `tr_ajuan` WHERE `id_ajuan` = '$id' ")->row();
+        $file = $data->file;
+        if(isset($file)) 
+        unlink('./upload/ajuan/' . $file);
         return $this->db->delete($this->_table, array("id_ajuan" => $id));
     }
 

@@ -84,6 +84,7 @@ class Kerjasama extends CI_Controller
     public function delete_ar($id)
     {
         $this->Kerjasama_model->delete_ar($id);
+        $this->session->set_flashdata('terhapus', 'success');
         redirect('admin/Kerjasama');
     }
 

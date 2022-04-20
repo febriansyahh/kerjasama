@@ -147,10 +147,16 @@ class Kerjasama_model extends CI_Model
 
     public function delete($id)
     {
-        $cekid = $this->db->query("SELECT is_group FROM tr_kerjasama WHERE `id_kerjasama` = '$id'")->row();
-
-        return $this->db->delete($this->_table, array("id_kerjasama", $id));
+        // $cekid = $this->db->query("SELECT is_group FROM tr_kerjasama WHERE `id_kerjasama` = '$id'")->row();
         // $sql = $this->db->query("DELETE FROM tr_kerjasama WHERE is_group = '$cekid->is_group'");
+
+        $data = $this->db->query("SELECT `file` FROM `tr_kerjasama` WHERE `id_kerjasama` = '$id' ")->row();
+        $file = $data->file;
+
+        if (isset($file))
+        unlink('./upload/kerjasama/' . $file);
+       
+        return $this->db->query("DELETE FROM tr_kerjasama WHERE `id_kerjasama` = '$id'");
     }
 
     public function getUsulan()
@@ -696,6 +702,13 @@ class Kerjasama_model extends CI_Model
 
     public function delete_ar($id)
     {
+        $data = $this->db->query("SELECT `file` FROM `tr_kerjasama` WHERE `id_kerjasama` = '$id' OR `is_mou` = '$id' ")->result();
+
+        foreach ($data as $value) {
+            if (isset($value->file))
+            unlink('./upload/kerjasama/' . $value->file);
+        }
+
         return $this->db->query("DELETE FROM tr_kerjasama WHERE id_kerjasama = '$id' OR is_mou ='$id' ");
     }
 }
