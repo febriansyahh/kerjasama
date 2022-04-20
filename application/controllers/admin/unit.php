@@ -52,7 +52,8 @@ class Unit extends CI_Controller
         if (!isset($id)) show_404();
 
 		if ($this->Unit_model->delete($id)) {
-			redirect('admin/unit');
+            $this->session->set_flashdata('terhapus', 'success');
+            redirect('admin/unit');
 		}
     }
 }

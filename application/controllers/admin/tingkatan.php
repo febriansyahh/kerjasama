@@ -51,6 +51,7 @@ class Tingkatan extends CI_Controller{
         if (!isset($id)) show_404();
 
 		if ($this->Tingkatan_model->delete($id)) {
+            $this->session->set_flashdata('terhapus', 'success');
             redirect('admin/tingkatan');
 
 		}

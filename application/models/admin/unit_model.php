@@ -49,5 +49,6 @@ class Unit_model extends CI_Model
     public function delete($id)
     {
         return $this->db->delete($this->_table, array("idUnit" => $id));
+        $this->session->set_flashdata('terhapus', 'Berhasil hapus');
     }
 }

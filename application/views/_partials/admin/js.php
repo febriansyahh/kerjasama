@@ -45,26 +45,6 @@
 
 <script src="<?php echo base_url('js/main.js') ?>"></script>
 
-<script>
-  function deleteConfirm(url) {
-    console.log(url);
-    swal({
-        title: "Are you sure?",
-        text: "Once deleted, you will not be able to recover this imaginary data!",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
-      })
-      .then((willDelete) => {
-        if (willDelete) {
-          swal("Data anda telah berhasil di hapus !", {
-            icon: "success",
-          });
-          window.location.href = url;
-        }
-      });
-  }
-</script>
 
 <script>
   var base_url = '<?php echo base_url(); ?>';

@@ -51,7 +51,8 @@ class Status_ajuan extends CI_Controller
         if (!isset($id)) show_404();
 
 		if ($this->Status_model->delete($id)) {
-			redirect('admin/status_ajuan');
+            $this->session->set_flashdata('terhapus', 'success');
+            redirect('admin/status_ajuan');
 		}
     }
 }

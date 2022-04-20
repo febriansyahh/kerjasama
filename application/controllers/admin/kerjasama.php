@@ -76,6 +76,7 @@ class Kerjasama extends CI_Controller
         if(!isset($id)) show_404();
 
         if ($this->Kerjasama_model->delete($id)) {
+            $this->session->set_flashdata('terhapus', 'success');
             redirect('admin/Kerjasama');
         }
     }

@@ -80,6 +80,7 @@ class Ajuan extends CI_Controller
 
         $this->Ajuan_model->delete($id);
         $this->Ajuan_model->deleted($id);
+        $this->session->set_flashdata('terhapus', 'success');
         redirect('admin/ajuan');
     }
 

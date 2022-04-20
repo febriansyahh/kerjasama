@@ -49,7 +49,8 @@ class Mou extends CI_Controller
         if (!isset($id)) show_404();
 
 		if ($this->Mou_model->delete($id)) {
-			redirect('admin/mou');
+            $this->session->set_flashdata('terhapus', 'success');
+            redirect('admin/mou');
 		}
     }
 

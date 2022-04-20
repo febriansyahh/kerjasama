@@ -67,7 +67,8 @@ class User extends CI_Controller
         if (!isset($id)) show_404();
 
 		if ($this->User_model->delete($id)) {
-			redirect('admin/User');
+            $this->session->set_flashdata('terhapus', 'success');
+            redirect('admin/User');
 		}
     }
 }
