@@ -154,8 +154,8 @@ class Kerjasama_model extends CI_Model
         $file = $data->file;
 
         if (isset($file))
-        unlink('./upload/kerjasama/' . $file);
-       
+            unlink('./upload/kerjasama/' . $file);
+
         return $this->db->query("DELETE FROM tr_kerjasama WHERE `id_kerjasama` = '$id'");
     }
 
@@ -689,6 +689,20 @@ class Kerjasama_model extends CI_Model
                     <?php echo $data_ar->mitra ?>
                 </div>
             </div>
+
+                <?php
+                $down = $this->session->userdata('is_down');
+                if ($down == '1') {
+                ?>
+                    <div class="form-group">
+                        <label class="col-sm-5 control-label pb-2"><b>File Kerjasama :</b></label>
+                        <div id="showFiles">
+                            <img id="images" src="#" alt="" />
+                        </div>
+                    </div>
+                <?php
+                }
+                ?>
         <?php
 
         } else {
@@ -706,7 +720,7 @@ class Kerjasama_model extends CI_Model
 
         foreach ($data as $value) {
             if (isset($value->file))
-            unlink('./upload/kerjasama/' . $value->file);
+                unlink('./upload/kerjasama/' . $value->file);
         }
 
         return $this->db->query("DELETE FROM tr_kerjasama WHERE id_kerjasama = '$id' OR is_mou ='$id' ");
