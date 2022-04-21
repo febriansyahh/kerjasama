@@ -55,11 +55,11 @@
                                                 </td>
 
                                                 <td>
-                                                    <?php echo $value->nm_ajuan ?>
-                                                </td>
-
-                                                <td>
                                                     <?php echo $value->nm_kerjasama ?>
+                                                </td>
+                                                
+                                                <td>
+                                                    <?php echo $value->nm_ajuan ?>
                                                 </td>
 
                                                 <td>
