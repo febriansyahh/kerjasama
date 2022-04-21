@@ -108,7 +108,7 @@ class Ajuan_model extends CI_Model
         $post = $this->input->post();
 
         $nm_ajuan = $post['nm_ajuan'];
-        $id_mou = $post['id_mou'];
+        // $id_mou = $post['id_mou'];
         $id_unit = $post['unit'];
         $mitra = $post['mitra'];
         // $id_status = $post['id_status'];
@@ -118,18 +118,22 @@ class Ajuan_model extends CI_Model
         $sys = date("Y-m-d H:i:s");
         $cu = $this->db->query("SELECT * FROM mst_unit WHERE idUnit = '$id_unit'")->row();
 
-        // var_dump($nm_ajuan);
-        // var_dump($id_mou);
-        // var_dump($id_unit);
-        // var_dump($mitra);
-        // var_dump($tgl_mulai);
-        // var_dump($tgl_selesai);
-        // var_dump($file);
-        // die();
-
+        // pakai id jenis mou
+        // $sql = "INSERT INTO `tr_ajuan`(`nm_ajuan`, `id_mou`, `id_unit`, `mitra`, `file`, `id_status`, `tgl_mulai`, `tgl_selesai`, `sysInput`) VALUES(
+        //          '". $nm_ajuan ."',
+        //          '". $id_mou ."',
+        //          '". $id_unit ."',
+        //          '". $mitra ."',
+        //          '" . $this->_uploadFile($nm_ajuan, $cu->nmUnit) . "',
+        //          '1',
+        //          '". $tgl_mulai ."',
+        //          '". $tgl_selesai ."',
+        //          '". $sys ."'
+        //          )";
+        
         $sql = "INSERT INTO `tr_ajuan`(`nm_ajuan`, `id_mou`, `id_unit`, `mitra`, `file`, `id_status`, `tgl_mulai`, `tgl_selesai`, `sysInput`) VALUES(
                  '". $nm_ajuan ."',
-                 '". $id_mou ."',
+                 '1',
                  '". $id_unit ."',
                  '". $mitra ."',
                  '" . $this->_uploadFile($nm_ajuan, $cu->nmUnit) . "',

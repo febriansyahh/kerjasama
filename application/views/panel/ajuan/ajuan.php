@@ -41,7 +41,7 @@
 								</div>
 							</div>
 
-							<div class="form-group">
+							<!-- <div class="form-group">
 								<label class="col-sm-5 control-label pb-2"><b>Jenis MoU :</b></label>
 								<div class="col-sm-12">
 									<select name="id_mou" id="" class="form-control" required>
@@ -53,7 +53,7 @@
                               ?>
 									</select>
 								</div>
-							</div>
+							</div> -->
 
 							<div class="form-group">
 								<label class="col-sm-5 control-label pb-2"><b>Pengajuan dari unit :</b></label>

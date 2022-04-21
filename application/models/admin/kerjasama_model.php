@@ -96,6 +96,11 @@ class Kerjasama_model extends CI_Model
         return $this->db->query("SELECT * FROM mst_unit ORDER BY nmUnit ASC")->result();
     }
 
+    public function getjenis()
+    {
+        return $this->db->query("SELECT * FROM jenis_mou WHERE id_mou != '1' ")->result();
+    }
+
     public function getAjuan()
     {
         return $this->db->query("SELECT * FROM tr_ajuan ORDER BY id_ajuan ASC")->result();
@@ -207,10 +212,12 @@ class Kerjasama_model extends CI_Model
     {
         $post = $this->input->post();
 
-        $exp = explode('~', $post["id_ajuan"]);
+        // $exp = explode('~', $post["id_ajuan"]);
         $exps = explode('~', $post["is_mou"]);
-        $id_ajuan = $exp[0];
-        $id_mou = $exp[1];
+        // $id_ajuan = $exp[0];
+        // $id_mou = $exp[1];
+        $id_ajuan = $post["id_ajuan"];
+        $id_mou = $post["jenis"];
         $is_mou = $exps[0];
         $is_group = $exps[1];
         $nama = $post["nama"];
@@ -222,18 +229,18 @@ class Kerjasama_model extends CI_Model
 
         $cu = $this->db->query("SELECT nmUnit FROM mst_unit WHERE idUnit = '$unit'")->row();
 
-        $a = $this->db->query("SELECT is_group FROM tr_kerjasama WHERE id_mou = '1' ORDER BY id_kerjasama DESC LIMIT 1 ")->row();
+        $a = $this->db->query("SELECT is_group FROM tr_kerjasama WHERE id_mou = '2' ORDER BY id_kerjasama DESC LIMIT 1 ")->row();
 
         $res_group = $a->is_group + 1;
 
         switch ($id_mou) {
-            case '1':
+            case '2':
                 $result = '0';
                 break;
-            case '2':
+            case '3':
                 $result = '1';
                 break;
-            case '3':
+            case '4':
                 $result = '2';
                 break;
         }
@@ -279,15 +286,20 @@ class Kerjasama_model extends CI_Model
     public function changeKerjasama()
     {
         $post = $this->input->post();
+        $ta     = $post['id_ajuan'];
         $ts     = $post['id_mou'];
+
+        // echo $ta;
+        // echo $ts;
+
         $unit = $this->session->userdata('idUnit');
         $dataUnit = $this->db->query("SELECT * FROM mst_unit WHERE parentUnit = '$unit'  OR idUnit= '$unit' ")->result();
 
-        $data_moa = $this->db->query("SELECT a.*, b.nmUnit FROM tr_kerjasama a, mst_unit b WHERE a.id_unit=b.idUnit AND a.id_mou = '1' ORDER BY a.sysInput DESC ")->result();
+        $data_moa = $this->db->query("SELECT a.*, b.nmUnit FROM tr_kerjasama a, mst_unit b WHERE a.id_unit=b.idUnit AND a.id_mou = '2' AND a.id_ajuan ='$ta' ORDER BY a.sysInput DESC ")->result();
         // $data_riks = $this->db->query("SELECT a.*, b.nmUnit FROM tr_kerjasama a, mst_unit b WHERE a.id_unit=b.idUnit AND a.id_mou = '2' ORDER BY a.sysInput DESC ")->result();
 
         switch ($ts) {
-            case '1':
+            case '2':
 ?>
                 <div class="form-group">
                     <input type="hidden" name="is_mou" value="0">
@@ -349,7 +361,7 @@ class Kerjasama_model extends CI_Model
             <?php
                 break;
 
-            case '2':
+            case '3':
             ?>
                 <div class="form-group">
                     <input type="hidden" name="id_mou" value="2">
@@ -424,7 +436,7 @@ class Kerjasama_model extends CI_Model
             <?php
                 break;
 
-            case '3':
+            case '4':
             ?>
                 <div class="form-group">
                     <input type="hidden" name="id_mou" value="3">
@@ -457,7 +469,7 @@ class Kerjasama_model extends CI_Model
     {
         $post = $this->input->post();
         $ts     = $post['moa'];
-        $data_riks = $this->db->query("SELECT a.*, b.nmUnit FROM tr_kerjasama a, mst_unit b WHERE a.id_unit=b.idUnit AND a.id_mou = '2' AND a.is_mou='$ts' ORDER BY a.sysInput DESC ")->result();
+        $data_riks = $this->db->query("SELECT a.*, b.nmUnit FROM tr_kerjasama a, mst_unit b WHERE a.id_unit=b.idUnit AND a.id_mou = '3' AND a.is_mou='$ts' ORDER BY a.sysInput DESC ")->result();
         ?>
         <div class="form-group">
             <label class="col-sm-5 control-label pb-2"><b>Berdasarkan RIKS :</b></label>

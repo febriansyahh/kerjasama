@@ -47,11 +47,12 @@
 										<tr>
 											<th>No</th>
 											<th>Nama Ajuan</th>
-											<th>Jenis MoU</th>
+											<!-- <th>Jenis MoU</th> -->
 											<th>Unit</th>
 											<th>Mitra</th>
 											<th>Tgl. Mulai</th>
 											<th>Tgl. Selesai</th>
+											<th>Status</th>
 											<th>Pilihan</th>
 										</tr>
 									</thead>
@@ -66,9 +67,9 @@
 												<td>
 													<?php echo $value->nm_ajuan ?>
 												</td>
-												<td>
+												<!-- <td>
 													<?php echo $value->nama_mou ?>
-												</td>
+												</td> -->
 												<td>
 													<?php echo $value->nmUnit ?>
 												</td>
@@ -80,6 +81,10 @@
 												</td>
 												<td>
 													<?php echo date('d-m-Y', strtotime($value->tgl_selesai)) ?>
+												</td>
+
+												<td>
+													<button class="btn btn-primary btn-sm"><?php echo $value->nama_status ?></button>
 												</td>
 
 												<td>
@@ -115,7 +120,7 @@
 													?>
 													<a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detailajuan" onclick="detailajuan(this)" data-id="<?php echo $value->id_ajuan . "~" . $value->nm_ajuan  . "~" . $value->mitra . "~" . $value->file  . "~" . $value->tgl_mulai . "~" . $value->tgl_selesai  . "~" . $value->nama_mou . "~" . $value->nmUnit ?>" class="btn btn-secondary btn-sm"><i class="fas fa-eye"></i></a>
 													<a href="<?php echo site_url('admin/ajuan/editable/' . $value->id_ajuan) ?>" onclick="editableAjuan(this)" data-id="<?php echo $value->id_ajuan . "~" . $value->file ?>" class="btn btn-success btn-sm"><i class="fas fa-edit"></i></a>
-													<a href="<?php echo site_url('admin/ajuan/delete/' . $value->id_ajuan) ?>" onclick="return confirm('Apakah yakin untuk menghapus data ini ?');" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Hapus</a>
+													<a href="<?php echo site_url('admin/ajuan/delete/' . $value->id_ajuan) ?>" onclick="return confirm('Apakah yakin untuk menghapus data ini ?');" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
 												</td>
 
 											</tr>
@@ -142,16 +147,16 @@
 					<div class="box-body">
 						<div class="card-body">
 							<div class="table-responsive py-4">
-								<table id="example" class="display" style="width:100%">
+								<table id="ajuan_non" class="display" style="width:100%">
 									<thead>
 										<tr>
 											<th>No</th>
 											<th>Nama Ajuan</th>
-											<th>Jenis MoU</th>
 											<th>Unit</th>
 											<th>Mitra</th>
 											<th>Tgl. Mulai</th>
 											<th>Tgl. Selesai</th>
+											<th>Status</th>
 											<th>Pilihan</th>
 										</tr>
 									</thead>
@@ -167,9 +172,6 @@
 													<?php echo $value->nm_ajuan ?>
 												</td>
 												<td>
-													<?php echo $value->nama_mou ?>
-												</td>
-												<td>
 													<?php echo $value->nmUnit ?>
 												</td>
 												<td>
@@ -180,6 +182,10 @@
 												</td>
 												<td>
 													<?php echo date('d-m-Y', strtotime($value->tgl_selesai)) ?>
+												</td>
+
+												<td>
+													<button class="btn btn-primary btn-sm"><?php echo $value->nama_status ?></button>
 												</td>
 
 												<td>
@@ -227,7 +233,7 @@
 					<div class="box-body">
 						<div class="card-body">
 							<div class="table-responsive py-4">
-								<table id="example" class="display" style="width:100%">
+								<table id="ajuan_non" class="display" style="width:100%">
 									<thead>
 										<tr>
 											<th>No</th>
@@ -237,6 +243,7 @@
 											<th>Mitra</th>
 											<th>Tgl. Mulai</th>
 											<th>Tgl. Selesai</th>
+											<th>Status</th>
 											<th>Pilihan</th>
 										</tr>
 									</thead>
@@ -265,6 +272,10 @@
 												</td>
 												<td>
 													<?php echo date('d-m-Y', strtotime($value->tgl_selesai)) ?>
+												</td>
+
+												<td>
+													<button class="btn btn-primary btn-sm"><?php echo $value->nama_status ?></button>
 												</td>
 
 												<td>

@@ -150,6 +150,7 @@ class Kerjasama extends CI_Controller
     {
         $data["ajuan"] = $this->Kerjasama_model->getAjuanPIC();
         $data["unit"] = $this->Kerjasama_model->getUnitId();
+        $data["jenis"] = $this->Kerjasama_model->getjenis();
 
         $data["htg"] = $this->Panel_models->notif();
         $data["notif"] = $this->Panel_models->isi_notif();

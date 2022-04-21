@@ -50,13 +50,27 @@ $("#kerjasama_result").DataTable({
 $("#ajuan").DataTable({
     columns: [
       { width: "5%" }, // No
-      { width: "20%" }, // Nama Ajuan
-      { width: "10%" }, // jenis
+      { width: "17%" }, // Nama Ajuan
+    //   { width: "5%" }, // jenis
       { width: "10%" }, // unit
-      { width: "10%" }, // Mitra
+      { width: "15%" }, // Mitra
       { width: "13%" }, // tgl Mulai
       { width: "12%" }, // tgl selesai
-      { width: "20%" }, // Pilihan
+      { width: "10%" }, // Status
+      { width: "18%" }, // Pilihan
+    ],
+});
+
+$("#ajuan_non").DataTable({
+    columns: [
+      { width: "5%" }, // No
+      { width: "17%" }, // Nama Ajuan
+      { width: "10%" }, // unit
+      { width: "15%" }, // Mitra
+      { width: "13%" }, // tgl Mulai
+      { width: "12%" }, // tgl selesai
+      { width: "18%" }, // Status
+      { width: "10%" }, // Pilihan
     ],
 });
   
@@ -72,17 +86,36 @@ $("#history").DataTable({
     ],
   });
 
+// function cekajuan() {
+// 	var selectBox = document.getElementById("chkerjasama");
+// 	var ajuan = selectBox.options[selectBox.selectedIndex].value;
+// 	console.log("AAA");
+// 	console.log(ajuan);
+
+// 	$.ajax({
+//       type: "POST",
+//       url: base_url + "admin/kerjasama/changeKerjasama",
+//       data: { ajuan },
+//       success: function (response) {
+//         $("#mouKerja").html(response);
+//       },
+//     });
+// }
+
 function kerjaFunc() {
-	var selectBox = document.getElementById("chkerjasama");
+	var is_ajuan = document.getElementById("chkerjasama");
+	var selectBox = document.getElementById("chekkerja");
+	var id_mou = selectBox.options[selectBox.selectedIndex].value;
+	var id_ajuan = is_ajuan.options[is_ajuan.selectedIndex].value;
 	console.log("AAA");
-	var selectedValue = selectBox.options[selectBox.selectedIndex].value;
-	let exp = selectedValue.split("~"); // untuk exp[0] -> id_ajuan || u/ exp[1] -> id_mou
-	var id_mou = exp[1];
+	console.log(is_ajuan);
+	console.log(id_ajuan);
+	console.log(id_mou);
 
 	$.ajax({
       type: "POST",
       url: base_url + "admin/kerjasama/changeKerjasama",
-      data: { id_mou },
+      data: { id_mou, id_ajuan },
       success: function (response) {
         $("#mouKerja").html(response);
       },

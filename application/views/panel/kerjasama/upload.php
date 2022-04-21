@@ -35,13 +35,27 @@
                         <form class="form" action="<?php echo site_url('admin/kerjasama/add_riks') ?>" method="post" enctype="multipart/form-data">
 
                             <div class="form-group">
-                                <label class="col-sm-5 control-label pb-2"><b>Ajuan :</b></label>
+                                <label class="col-sm-5 control-label pb-2"><b>Berdasarkan Ajuan :</b></label>
                                 <div class="col-sm-12">
                                     <select name="id_ajuan" id="chkerjasama" class="form-control" onchange="kerjaFunc();" required>
                                         <option value="">- Pilih -</option>
                                         <?php
                                         foreach ($ajuan as $value) {
-                                            echo "<option value='" . $value->id_ajuan . "~" . $value->id_mou . "'>" . $value->nama_mou . " - " . $value->nm_ajuan . "</option>";
+                                            echo "<option value='" . $value->id_ajuan . "'>" . $value->nama_mou . " - " . $value->nm_ajuan . "</option>";
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label pb-2"><b>Upload Kerjasama :</b></label>
+                                <div class="col-sm-12">
+                                    <select name="jenis" id="chekkerja" class="form-control" onchange="kerjaFunc();" required>
+                                        <option value="">- Pilih -</option>
+                                        <?php
+                                        foreach ($jenis as $value) {
+                                            echo "<option value='" . $value->id_mou . "'>" . $value->nama_mou . "</option>";
                                         }
                                         ?>
                                     </select>
