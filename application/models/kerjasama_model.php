@@ -52,57 +52,97 @@ class Kerjasama_model extends CI_Model
         return $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, c.nmUnit, d.nama_mou, a.is_group FROM tr_kerjasama a, tr_ajuan b, mst_unit c, jenis_mou d WHERE a.id_ajuan=b.id_ajuan AND a.id_unit=c.idUnit AND a.id_mou=d.id_mou AND a.id_mou='2'")->result();
     }
 
-    // public function treeview()
-    // {
-    //     $result = $this->db->query("SELECT * FROM tr_kerjasama")->result();
+    public function getParentAjuan()
+    {
+        return $this->db->query("SELECT * FROM tr_ajuan a, mst_unit b WHERE a.id_unit=b.idUnit")->result();
+    }
 
-    //     foreach ($result as $row) {
-    //             $sub_data["id"] = $row["id_kerjasama"];
+    public function getChild()
+    {
+        $a = $this->db->query("SELECT * FROM tr_ajuan")->result();
 
-    //             $sub_data["name"] = $row["nm_kerjasama"];
+        foreach ($a as $value) {
+            return $this->db->query("SELECT * FROM tr_kerjasama a, mst_unit b, jenis_mou c, tr_ajuan d WHERE a.id_unit=b.idUnit AND a.id_mou = c.id_mou AND a.id_mou='2' AND a.id_ajuan=d.id_ajuan AND a.id_ajuan = '$value->id_ajuan'")->result();
+        }
+    }
 
-    //             $sub_data["text"] = $row["nm_kerjasama"];
+    public function changemoa()
+    {
+        $post = $this->input->post();
+        $ts     = $post['is_mou'];
 
-    //             $sub_data["parent_id"] = $row["is_mou"];
+        $data = $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, c.nmUnit, d.nama_mou, a.is_group FROM tr_kerjasama a, tr_ajuan b, mst_unit c, jenis_mou d WHERE a.id_ajuan=b.id_ajuan AND a.id_unit=c.idUnit AND a.id_mou=d.id_mou AND a.id_mou='2' AND a.id_ajuan='$ts' ")->result();
 
-    //             $data[] = $sub_data;
-    //     }
+        $cek = $this->db->query("SELECT id_ajuan FROM tr_kerjasama WHERE id_mou='2' AND id_ajuan ='$ts'")->row();
 
+        if ($cek->id_ajuan != '') {
+?>
+            <h3 class="h3 mb-3 text-gray-800">Data MOA </h3>
+            <table class="table table-bordered mb-0" id="data_tables">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Jenis MoU</th>
+                        <th>Nama Kerjasama</th>
+                        <th>Unit</th>
+                        <th>Mitra</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-    //     foreach ($data as $key => &$value) {
+                    <?php
+                    $no = 1;
+                    foreach ($data as $value) {
+                    ?>
+                        <tr>
 
-    //         $output[$value["id"]] = &$value;
-    //     }
+                            <td class="td">
+                                <?php echo $no++ ?>
+                            </td>
 
-    //     foreach ($data as $key => &$value) {
+                            <td class="td">
+                                <?php echo $value->nama_mou ?>
+                            </td>
 
-    //         if ($value["parent_id"] && isset($output[$value["parent_id"]])) {
+                            <td class="td">
+                                <?php echo $value->nm_kerjasama ?>
+                            </td>
 
-    //             $output[$value["parent_id"]]["nodes"][] = &$value;
-    //         }
-    //     }
+                            <td class="td">
+                                <?php echo $value->nmUnit ?>
+                            </td>
 
-    //     foreach ($data as $key => &$value) {
+                            <td class="td">
+                                <?php echo $value->mitra ?>
+                            </td>
+                            <td class="td"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#groupmou" onclick="groupmou(this)" data-id="<?php echo $value->is_group ?>" class="btn btn-custom ">RIKS/IA</a></td>
+                        </tr>
+                    <?php
+                    }
+                    ?>
 
-    //         if ($value["parent_id"] && isset($output[$value["parent_id"]])) {
+                </tbody>
+            </table>
+        <?php
+        } else {
+        ?>
+             <center>
+             <h5><em>Maaf mengenai data untuk kerjasama terkait belum tersedia !</em></h5>
+            </center>
+        <?php
+        }
+    }
 
-    //             unset($data[$key]);
-    //         }
-    //     }
-
-    //     echo json_encode($data);
-
-    // }
 
     public function treeview()
     {
         $post = $this->input->post();
         $ts     = $post['is_group'];
 
-        // $data = $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, c.nmUnit, d.nama_mou, a.is_group FROM tr_kerjasama a, tr_ajuan b, mst_unit c, jenis_mou d WHERE a.id_ajuan=b.id_ajuan AND a.id_unit=c.idUnit AND a.id_mou=d.id_mou AND a.is_group='$ts'")->result();
         $data = $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, c.nmUnit, d.nama_mou, a.is_group FROM tr_kerjasama a, tr_ajuan b, mst_unit c, jenis_mou d WHERE a.id_ajuan=b.id_ajuan AND a.id_unit=c.idUnit AND a.id_mou=d.id_mou AND a.id_mou = '3' AND a.is_group='$ts'")->result();
 
-?>
+        ?>
 
 
         <section class="pt-4">
@@ -121,53 +161,53 @@ class Kerjasama_model extends CI_Model
                             </tr>
                         </thead>
                         <tbody>
-    
+
                             <?php
                             $no = 1;
                             foreach ($data as $value) {
                             ?>
                                 <tr>
-    
+
                                     <td class="td">
                                         <?php
                                         echo $no++;
                                         ?>
                                     </td>
-    
+
                                     <td class="td">
                                         <?php echo $value->nama_mou ?>
                                     </td>
-    
+
                                     <td class="td">
                                         <?php echo $value->nm_kerjasama ?>
                                     </td>
-    
+
                                     <td class="td">
                                         <?php echo $value->nmUnit ?>
                                     </td>
-    
+
                                     <td class="td" style="display:none;">
                                         <?php echo $value->id_mou ?>
                                     </td>
-    
+
                                     <td class="td">
                                         <?php echo $value->mitra ?>
                                     </td>
-    
+
                                     <!-- <td class="td"><a class="btn btn-custom ">Kerjasama</a></td> -->
                                     <td class="td"><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#groupar" onclick="groupar(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->is_group   ?>" class="btn btn-custom ">AR</a></td>
-    
+
                                 </tr>
                             <?php
                             }
                             ?>
-    
+
                         </tbody>
                     </table>
                 </div>
             </div>
         </section>
-    <?php
+        <?php
     }
 
     public function modal_ar()
@@ -176,75 +216,75 @@ class Kerjasama_model extends CI_Model
         $ts     = $post['is_mou'];
 
         $data_ar = $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, c.nmUnit, d.nama_mou, a.is_group FROM tr_kerjasama a, tr_ajuan b, mst_unit c, jenis_mou d WHERE a.id_ajuan=b.id_ajuan AND a.id_unit=c.idUnit AND a.id_mou=d.id_mou AND a.id_mou = '4' AND a.is_mou='$ts'")->row();
-        
-        if($data_ar != NULL){
-    ?>
-        <div class="row">
-            <div class="col-5">
-                Nama Kerjasama 
-            </div>
-            <div class="col-1">
-                :
-            </div>
-            <div class="col-6">
-                <?php echo $data_ar->nm_kerjasama ?>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-5">
-                Unit Terkait 
+        if ($data_ar != NULL) {
+        ?>
+            <div class="row">
+                <div class="col-5">
+                    Nama Kerjasama
+                </div>
+                <div class="col-1">
+                    :
+                </div>
+                <div class="col-6">
+                    <?php echo $data_ar->nm_kerjasama ?>
+                </div>
             </div>
-            <div class="col-1">
-                :
-            </div>
-            <div class="col-6">
-                <?php echo $data_ar->nmUnit ?>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-5">
-                Mitra 
-            </div> 
-            <div class="col-1">
-                :
+            <div class="row">
+                <div class="col-5">
+                    Unit Terkait
+                </div>
+                <div class="col-1">
+                    :
+                </div>
+                <div class="col-6">
+                    <?php echo $data_ar->nmUnit ?>
+                </div>
             </div>
-            <div class="col-6">
-                <?php echo $data_ar->mitra ?>
-            </div>
-        </div>
-       
-        <div class="row">
-            <div class="col-5">
-                Tgl. Mulai 
-            </div> 
-            <div class="col-1">
-                :
-            </div>
-            <div class="col-6">
-                <?php echo date('d-m-Y', strtotime($data_ar->tgl_mulai)) ?>
-            </div>
-        </div>
-       
-        <div class="row">
-            <div class="col-5">
-                Tgl. Selesai 
-            </div> 
-            <div class="col-1">
-                :
-            </div>
-            <div class="col-6">
-                <?php echo date('d-m-Y', strtotime($data_ar->tgl_selesai)) ?>
-            </div>
-        </div>
-<?php
 
-        }else{
-?>
-    <center>
-        <p><em>Maaf, Data AR dari RIKS Ini belum tersedia</em></p>
-    </center>
+            <div class="row">
+                <div class="col-5">
+                    Mitra
+                </div>
+                <div class="col-1">
+                    :
+                </div>
+                <div class="col-6">
+                    <?php echo $data_ar->mitra ?>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-5">
+                    Tgl. Mulai
+                </div>
+                <div class="col-1">
+                    :
+                </div>
+                <div class="col-6">
+                    <?php echo date('d-m-Y', strtotime($data_ar->tgl_mulai)) ?>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-5">
+                    Tgl. Selesai
+                </div>
+                <div class="col-1">
+                    :
+                </div>
+                <div class="col-6">
+                    <?php echo date('d-m-Y', strtotime($data_ar->tgl_selesai)) ?>
+                </div>
+            </div>
+        <?php
+
+        } else {
+        ?>
+            <center>
+                <p><em>Maaf, Data AR dari RIKS Ini belum tersedia</em></p>
+            </center>
 <?php
         }
     }

@@ -2,8 +2,10 @@ $(document).ready(function () {
 	$('#example').DataTable();
 	$('#example1').DataTable().ajax.reload();
 	$('#data_table').DataTable();
+	 $('#data_tables').DataTable();
 	// $('#report').DataTable();
 });
+
 
 // $("#report").DataTable({
 //     order: [[1, "desc"]],
@@ -102,6 +104,7 @@ $("#history").DataTable({
 //     });
 // }
 
+
 function kerjaFunc() {
 	var is_ajuan = document.getElementById("chkerjasama");
 	var selectBox = document.getElementById("chekkerja");
@@ -192,14 +195,59 @@ function detailkerja(param) {
 	}
 }
 
+function moakerjasama(param) {
+	var is_mou = param;
+
+	$.ajax({
+      type: "POST",
+      url: base_url + "Kerjasama/changemoa",
+      data: { is_mou },
+      success: function (response) {
+        $("#moa").html(response);
+      },
+    });
+}
+
 function groupmou(param) {
+	let data = $(param).data("id");
+
+	let is_group = data;
+	
+	
+
+	$.ajax({
+      type: "POST",
+      url: base_url + "Kerjasama/modal",
+      data: { is_group },
+      success: function (response) {
+        $("#treeview").html(response);
+      },
+    });
+}
+
+// function groupmou(params) {
+
+// 	let is_group = params;
+// 	console.log(is_group);
+
+// 	$.ajax({
+//       type: "POST",
+//       url: base_url + "Kerjasama/modal",
+//       data: { is_group },
+//       success: function (response) {
+//         $("#treeview").html(response);
+//       },
+//     });
+// }
+
+function is_mou(param) {
 	let data = $(param).data("id");
 	let exp = data.split("~");
 
 	console.log(data);
 
-	$("#detIDKer").val(exp[0]);
-	$("#detIsGroup").val(exp[1]);
+	$("#isIDKer").val(exp[0]);
+	$("#isIsGroup").val(exp[1]);
 	
 	let is_group = exp[1];
 

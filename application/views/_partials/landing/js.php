@@ -15,18 +15,12 @@
 <script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.print.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.colVis.min.js"></script>
+
 <script type="text/javascript">
     $('body').on('click', '.btn-close', function() {
         $(this).closest('.toast').toast('hide')
     })
 
-    // $('#data_table').DataTable({
-    //     order: [
-    //         [4, "asc"]
-    //     ],
-    // });
-
-    $('#data_table').DataTable();
 </script>
 
 <script src="<?php echo base_url('js/main.js') ?>"></script>

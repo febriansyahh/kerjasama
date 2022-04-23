@@ -12,30 +12,23 @@ class Kerjasama extends CI_Controller
 
     public function index()
     {
-        // $data["getmoa"] = $this->kerjasama_model->moa();
-        // $data["getrks"] = $this->kerjasama_model->riks();
-        // $data["getar"] = $this->kerjasama_model->ar();
+        $data["parent"] = $this->Kerjasama_model->getParentAjuan();
 
-        $data["get"] = $this->Kerjasama_model->tree();
         $this->load->view('kerjasama', $data);
     }
 
     public function tree()
     {
-        $data["get"] = $this->Kerjasama_model->tree();
+        $data["parent"] = $this->Kerjasama_model->getParentAjuan();
+        // $data["child"] = $this->Kerjasama_model->getChild();
 
-        // echo '<pre>';
-        // var_dump($data["get"]);
-        // echo '</pre>';
-        // die();
         $this->load->view('tree', $data);
     }
 
-    // public function treeview()
-    // {
-    //     $this->kerjasama_model->treeview();
-    //     // $this->kerjasama_model->yaa();
-    // }
+    public function changemoa()
+    {
+        $this->Kerjasama_model->changemoa();
+    }
     
     public function modal()
     {
