@@ -26,12 +26,11 @@
             <div class="box-body">
                 <div class="card-body">
                     <div class="table-responsive py-4">
-                        <table id="kerjasama" class="display" style="width:100%">
+                        <table id="example" class="display" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>No</th>
                                     <th>Unit</th>
-                                    <th>Nama Kerjasama</th>
                                     <th>Nama Ajuan</th>
                                     <th>Mitra</th>
                                     <th>Bentuk MoA</th>
@@ -56,10 +55,6 @@
                                         </td>
 
                                         <td>
-                                            <?php echo $value->nm_kerjasama ?>
-                                        </td>
-
-                                        <td>
                                             <?php echo $value->mitra ?>
                                         </td>
 
@@ -71,14 +66,15 @@
                                             <?php
                                             if ($this->session->userdata('is_down') != '0' || $this->session->userdata('is_view') != '0') {
                                             ?>
-                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detailkerja" onclick="detailkerja(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->nm_ajuan  . "~" . $value->nm_kerjasama . "~" . $value->mitra  . "~" . $value->nmUnit . "~" . $value->file . "~" . $value->tgl_mulai . "~" . $value->tgl_selesai  . "~" . $value->keterangan . "~" . $value->nama_mou ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i></a>
-                                                <a href="<?php echo site_url('admin/kerjasama/v_detail/' . $value->id_kerjasama) ?>" class="btn btn-secondary btn-sm"><i class="fas fa-history"></i> Rincian</a>
-                                                <?php
-                                            } else {
-                                                ?>
-                                                    <button class="btn btn-warning btn-sm">Maaf Anda Tidak Memilliki Akses</button>
+                                                <!-- <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detailkerja" onclick="detailkerja(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->nm_ajuan  . "~" . $value->nm_kerjasama . "~" . $value->mitra  . "~" . $value->nmUnit . "~" . $value->file . "~" . $value->tgl_mulai . "~" . $value->tgl_selesai  . "~" . $value->keterangan . "~" . $value->nama_mou ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i></a> -->
+                                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#detailkerja" onclick="detailkerja(this)" data-id="<?php echo $value->id_ajuan . "~" . $value->nm_ajuan  .  "~" . $value->mitra  . "~" . $value->nmUnit . "~" . $value->file . "~" . $value->tgl_mulai . "~" . $value->tgl_selesai  .  "~" . $value->nama_mou ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i></a>
+                                                <a href="<?php echo site_url('admin/kerjasama/v_detail/' . $value->id_ajuan) ?>" class="btn btn-secondary btn-sm"><i class="fas fa-history"></i> Rincian</a>
                                             <?php
-                                                }
+                                            } else {
+                                            ?>
+                                                <button class="btn btn-warning btn-sm">Maaf Anda Tidak Memilliki Akses</button>
+                                            <?php
+                                            }
                                             ?>
                                         </td>
 

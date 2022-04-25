@@ -25,7 +25,7 @@
               <p class="lead text-primary">Selamat Datang di</p>
               <h1 class="mb-4 fs-9 fw-bold">Sistem Kerjasama</h1>
               <!-- <p class="mb-6 lead text-secondary">di lingkungan Universitas Muria Kudus.</p> -->
-              <p class="mb-6 lead text-secondary">Layanan informasi dan pendataan data kerjasama Universitas Muria dengan mitra dalam negeri maupun luar negeri.</p>
+              <p class="mb-6 lead text-secondary">Layanan informasi dan pendataan data kerjasama Universitas Muria Kudus dengan mitra dalam negeri maupun luar negeri.</p>
             </div>
             <div class="col-md-6 text-end"><img class="pt-7 pt-md-0 img-fluid" src="assets/img/hero/bg-kerjasama.jpg" alt="" /></div>
           </div>

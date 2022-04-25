@@ -2,12 +2,7 @@ $(document).ready(function () {
 	$('#example').DataTable();
 	$('#example1').DataTable().ajax.reload();
 	$('#data_table').DataTable();
-	$('#data_tables').DataTable();
-	$(document).ready(function() {
-    $('#datamoa').DataTable( {
-        url : base_url + "Kerjasama/changemoa",
-    } );
-} );
+	 $('#data_tables').DataTable();
 	// $('#report').DataTable();
 });
 
@@ -46,9 +41,8 @@ $("#kerjasama_result").DataTable({
     columns: [
       { width: "5%" }, // No
       { width: "20%" }, // Unit
-      { width: "25%" }, // Nama Kerjasama
-      { width: "15%" }, // Ajuan
-      { width: "20%" }, // Mitra
+      { width: "25%" }, // Nama Ajuan
+      { width: "15%" }, // Mitra
       { width: "5%" }, // Bentuk MOA
       { width: "15%" }, // Pilihan
     ],
@@ -177,21 +171,27 @@ function editableTingkatan(param) {
 function detailkerja(param) {
 	let data = $(param).data("id");
 	let exp = data.split("~");
-	let type = exp[5].split(".");
-
-	console.log(data);
-	console.log(type[1]);
+	let type = exp[4].split(".");
+	
+	// $("#detID").val(exp[0]);
+	// $("#detNmAjuan").val(exp[1]);
+	// $("#detNmKerjasama").val(exp[2]);
+	// $("#detMitra").val(exp[3]);
+	// $("#detNmunit").val(exp[4]);
+	// $("#detFile").val(exp[5]);
+	// $("#detTglMulai").val(exp[6]);
+	// $("#detTglSelesai").val(exp[7]);
+	// $("#detKet").val(exp[8]);
+	// $("#detmou").val(exp[9]);
 
 	$("#detID").val(exp[0]);
 	$("#detNmAjuan").val(exp[1]);
-	$("#detNmKerjasama").val(exp[2]);
-	$("#detMitra").val(exp[3]);
-	$("#detNmunit").val(exp[4]);
-	$("#detFile").val(exp[5]);
-	$("#detTglMulai").val(exp[6]);
-	$("#detTglSelesai").val(exp[7]);
-	$("#detKet").val(exp[8]);
-	$("#detmou").val(exp[9]);
+	$("#detMitra").val(exp[2]);
+	$("#detNmunit").val(exp[3]);
+	$("#detFile").val(exp[4]);
+	$("#detTglMulai").val(exp[5]);
+	$("#detTglSelesai").val(exp[6]);
+	$("#detmou").val(exp[7]);
 
 	if (type[1] != 'pdf') {
 		$('#showFile').html(`<img id="blah" src="${base_url + '/upload/kerjasama/' + exp[5]}" width="520px" height="350px" />`);
@@ -268,6 +268,30 @@ function is_mou(param) {
     });
 }
 
+function groupriks(param) {
+	let data = $(param).data("id");
+	let exp = data.split("~");
+
+	console.log(data);
+
+	$("#riksIDKer").val(exp[0]);
+	$("#riksIsGroup").val(exp[1]);
+	
+	let is_mou = exp[0];
+	let is_group = exp[1];
+
+	console.log(is_group);
+
+	$.ajax({
+      type: "POST",
+      url: base_url + "admin/Kerjasama/ajxriks",
+      data: { is_mou, is_group },
+      success: function (response) {
+        $("#getriksmoa").html(response);
+      },
+    });
+}
+
 function groupar(param) {
 	let data = $(param).data("id");
 	let exp = data.split("~");
@@ -284,7 +308,7 @@ function groupar(param) {
 
 	$.ajax({
       type: "POST",
-      url: base_url + "kerjasama/modal_ar",
+      url: base_url + "Kerjasama/modal_ar",
       data: { is_mou, is_group },
       success: function (response) {
         $("#ar_view").html(response);

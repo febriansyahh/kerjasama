@@ -32,7 +32,13 @@ class Kerjasama_model extends CI_Model
 
     public function result()
     {
-        return $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, b.sysInput, c.nama_mou, d.idUnit, d.nmUnit FROM tr_kerjasama a, tr_ajuan b, jenis_mou c, mst_unit d WHERE a.id_ajuan=b.id_ajuan AND a.id_mou=c.id_mou AND a.id_unit=d.idUnit AND a.id_mou='1' ORDER BY a.sysInput DESC")->result();
+        $unit = $this->session->userdata('idUnit');
+        if ($this->session->userdata('levelUser') == '1') {
+            // return $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, b.sysInput, c.nama_mou, d.idUnit, d.nmUnit FROM tr_kerjasama a, tr_ajuan b, jenis_mou c, mst_unit d WHERE a.id_ajuan=b.id_ajuan AND a.id_mou=c.id_mou AND a.id_unit=d.idUnit AND a.id_mou='1' ORDER BY a.sysInput DESC")->result();
+            return $this->db->query("SELECT a.*, b.nmUnit, c.nama_mou FROM tr_ajuan a, mst_unit b, jenis_mou c WHERE a.id_unit=b.idUnit AND a.id_mou=c.id_mou")->result();
+        } else {
+            return $this->db->query("SELECT a.*, b.nmUnit, c.nama_mou FROM tr_ajuan a, mst_unit b, jenis_mou c WHERE a.id_unit=b.idUnit AND a.id_mou=c.id_mou AND (b.idUnit='$unit' OR b.parentUnit='$unit')")->result();
+        }
     }
 
     public function save()
@@ -568,7 +574,8 @@ class Kerjasama_model extends CI_Model
 
     public function getbyid($id)
     {
-        return $this->db->query("SELECT a.*, b.nm_ajuan FROM tr_kerjasama a, tr_ajuan b WHERE a.id_ajuan=b.id_ajuan AND a.id_kerjasama='$id' ")->row();
+        // return $this->db->query("SELECT a.*, b.nm_ajuan FROM tr_kerjasama a, tr_ajuan b WHERE a.id_ajuan=b.id_ajuan AND a.id_kerjasama='$id' ")->row();
+        return $this->db->query("SELECT * FROM tr_ajuan WHERE id_ajuan='$id' ")->row();
     }
 
     public function getDataMoa($id)
@@ -581,7 +588,8 @@ class Kerjasama_model extends CI_Model
     public function rks($id)
     {
 
-        return $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, c.nmUnit, d.nama_mou FROM tr_kerjasama a, tr_ajuan b, mst_unit c, jenis_mou d WHERE a.id_ajuan=b.id_ajuan AND a.id_unit=c.idUnit AND a.id_mou=d.id_mou AND a.id_mou ='2' AND a.parent='1' AND a.is_mou='$id'")->result();
+        // return $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, c.nmUnit, d.nama_mou FROM tr_kerjasama a, tr_ajuan b, mst_unit c, jenis_mou d WHERE a.id_ajuan=b.id_ajuan AND a.id_unit=c.idUnit AND a.id_mou=d.id_mou AND a.id_mou ='2' AND a.parent='1' AND a.is_mou='$id'")->result();
+        return $this->db->query("SELECT a.*, b.nm_ajuan, b.mitra, c.nmUnit, d.nama_mou FROM tr_kerjasama a, tr_ajuan b, mst_unit c, jenis_mou d WHERE a.id_ajuan=b.id_ajuan AND a.id_unit=c.idUnit AND a.id_mou=d.id_mou AND a.id_mou ='2' AND a.parent='0' AND a.id_ajuan='$id'")->result();
     }
 
     public function ar($id)
@@ -702,19 +710,19 @@ class Kerjasama_model extends CI_Model
                 </div>
             </div>
 
-                <?php
-                $down = $this->session->userdata('is_down');
-                if ($down == '1') {
-                ?>
-                    <div class="form-group">
-                        <label class="col-sm-5 control-label pb-2"><b>File Kerjasama :</b></label>
-                        <div id="showFiles">
-                            <img id="images" src="#" alt="" />
-                        </div>
+            <?php
+            $down = $this->session->userdata('is_down');
+            if ($down == '1') {
+            ?>
+                <div class="form-group">
+                    <label class="col-sm-5 control-label pb-2"><b>File Kerjasama :</b></label>
+                    <div id="showFiles">
+                        <img id="images" src="#" alt="" />
                     </div>
-                <?php
-                }
-                ?>
+                </div>
+            <?php
+            }
+            ?>
         <?php
 
         } else {
@@ -722,7 +730,7 @@ class Kerjasama_model extends CI_Model
             <center>
                 <p><em>Maaf, Data AR dari RIKS Ini belum tersedia</em></p>
             </center>
-<?php
+        <?php
         }
     }
 
@@ -736,5 +744,68 @@ class Kerjasama_model extends CI_Model
         }
 
         return $this->db->query("DELETE FROM tr_kerjasama WHERE id_kerjasama = '$id' OR is_mou ='$id' ");
+    }
+
+
+    public function ajxriks()
+    {
+        $post = $this->input->post();
+        $im = $post['is_mou'];
+        $ig = $post['is_group'];
+
+        $data = $this->db->query("SELECT a.*, b.nmUnit, c.nama_mou, d.mitra FROM tr_kerjasama a, mst_unit b, jenis_mou c, tr_ajuan d WHERE a.id_unit=b.idUnit AND a.id_mou=c.id_mou AND a.id_ajuan=d.id_ajuan AND a.id_mou = '3' AND a.is_mou = '$im' ")->result();
+
+        ?>
+        <div class="table-responsive py-4">
+            <table class="table table-bordered mb-0" id="data_tables" style="width:100%">
+
+                <!-- <table id="example" class="display" style="width:100%"> -->
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Unit</th>
+                            <th>Nama Kerjasama</th>
+                            <th>Mitra</th>
+                            <th>Bentuk MoA</th>
+                            <th>Pilihan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $no = 1;
+                        foreach ($data as $value) : ?>
+                            <tr>
+                                <td>
+                                    <?php echo $no++ ?>
+                                </td>
+
+                                <td>
+                                    <?php echo $value->nmUnit ?>
+                                </td>
+
+                                <td>
+                                    <?php echo $value->nm_kerjasama ?>
+                                </td>
+
+                                <td>
+                                    <?php echo $value->mitra ?>
+                                </td>
+
+                                <td>
+                                    <?php echo $value->nama_mou ?>
+                                </td>
+
+                                <td>
+                                    <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#groupar" onclick="groupar(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->is_group   ?>" class="btn btn-custom btn-sm"><i class="fas fa-file"></i> Cek RIKS</a>
+                                    <a href="<?php echo site_url('admin/Kerjasama/delete_ar/' . $value->id_kerjasama) ?>" onclick="return confirm('Apakah yakin untuk menghapus data ini ?');" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Hapus</a>
+                                </td>
+
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+
+                </table>
+        </div>
+<?php
     }
 }

@@ -193,6 +193,11 @@ class Kerjasama extends CI_Controller
         $this->Kerjasama_model->modal();
     }
 
+    public function ajxriks()
+    {
+        $this->Kerjasama_model->ajxriks();
+    }
+
     public function modal_ar()
     {
         $this->Kerjasama_model->modal_ar();

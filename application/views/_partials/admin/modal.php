@@ -256,11 +256,12 @@
 							</div>
 						</div>
 					</div>
+
 					<div class="col-6">
 						<div class="form-group">
-							<label class="col-sm-5 control-label pb-2"><b>Nama Kerjasama :</b></label>
+							<label class="col-sm-5 control-label pb-2"><b> Mitra Kerjasama :</b></label>
 							<div class="col-sm-12">
-								<input type="text" name="nm_ajuan" class="form-control" id="detNmKerjasama" readonly>
+								<input type="text" name="nm_ajuan" class="form-control" id="detMitra" readonly>
 							</div>
 						</div>
 					</div>
@@ -277,29 +278,9 @@
 					</div>
 					<div class="col-6">
 						<div class="form-group">
-							<label class="col-sm-5 control-label pb-2"><b> Mitra Kerjasama :</b></label>
-							<div class="col-sm-12">
-								<input type="text" name="nm_ajuan" class="form-control" id="detMitra" readonly>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-6">
-						<div class="form-group">
 							<label class="col-sm-5 control-label pb-2"><b>Atas Nama Unit :</b></label>
 							<div class="col-sm-12">
 								<input type="text" name="nm_ajuan" class="form-control" id="detNmunit" readonly>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-6">
-						<div class="form-group">
-							<label class="col-sm-5 control-label pb-2"><b>Keterangan :</b></label>
-							<div class="col-sm-12">
-								<input type="text" name="nm_ajuan" class="form-control" id="detKet" readonly>
 							</div>
 						</div>
 					</div>

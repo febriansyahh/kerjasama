@@ -24,7 +24,7 @@
                     <center>
                         <img src="<?php echo base_url('assets/img/umk.png'); ?>" style="width:70px; height:70px;">
                         <br><br><b>Memorandum of Understanding</b><br>
-                        <b>"<?php echo $getBy->nm_kerjasama ?>"</b>
+                        <b>"<?php echo $getBy->nm_ajuan ?>"</b>
                     </center>
 
                     <div class="table-responsive py-4">
@@ -70,7 +70,7 @@
                                         </td>
 
                                         <td>
-                                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#groupar" onclick="groupar(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->is_group   ?>" class="btn btn-custom btn-sm"><i class="fas fa-file"></i> AR</a>
+                                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#riksmoa" onclick="groupriks(this)" data-id="<?php echo $value->id_kerjasama . "~" . $value->is_group   ?>" class="btn btn-custom btn-sm"><i class="fas fa-file"></i> Cek RIKS</a>
                                             <a href="<?php echo site_url('admin/Kerjasama/delete_ar/' . $value->id_kerjasama) ?>" onclick="return confirm('Apakah yakin untuk menghapus data ini ?');" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Hapus</a>
                                         </td>
 
@@ -83,6 +83,8 @@
                 </div>
             </div>
         </div>
+        <br>
+
 
     </main>
     <?php $this->load->view("_partials/admin/js.php") ?>
@@ -91,6 +93,22 @@
 </body>
 
 </html>
+
+<div id="riksmoa" class="modal fade">
+    <div class="modal-dialog modal-lg" style="padding-top: 50px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Data RIKS</h5>
+                <a href="" class="close" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div class="modal-body">
+                <div id="getriksmoa">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div id="groupar" class="modal fade">
     <div class="modal-dialog" style="padding-top: 50px;">
