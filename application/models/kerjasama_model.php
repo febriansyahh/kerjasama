@@ -77,7 +77,7 @@ class Kerjasama_model extends CI_Model
         if ($cek->id_ajuan != '') {
 ?>
             <h3 class="h3 mb-3 text-gray-800">Data MOA </h3>
-            <table class="table table-bordered mb-0" id="data_tables">
+            <table class="table table-bordered mb-0" id="datamoa">
                 <thead>
                     <tr>
                         <th>No</th>

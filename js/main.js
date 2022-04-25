@@ -2,7 +2,12 @@ $(document).ready(function () {
 	$('#example').DataTable();
 	$('#example1').DataTable().ajax.reload();
 	$('#data_table').DataTable();
-	 $('#data_tables').DataTable();
+	$('#data_tables').DataTable();
+	$(document).ready(function() {
+    $('#datamoa').DataTable( {
+        url : base_url + "Kerjasama/changemoa",
+    } );
+} );
 	// $('#report').DataTable();
 });
 

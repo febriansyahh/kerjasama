@@ -72,7 +72,7 @@
       </div>
     </section>
 
-    <section class="pt-4">
+    <section class="pt-2">
       <div class="container">
         <div id="moa">
 
