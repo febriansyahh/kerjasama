@@ -72,7 +72,7 @@
                                     </td>
 
                                     <td>
-                                        <?php echo $value->nama_status ?>
+                                        <button class="btn btn-secondary"><?php echo $value->nama_status ?></button>
                                     </td>
 
                                     <td>
