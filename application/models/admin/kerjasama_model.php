@@ -757,7 +757,7 @@ class Kerjasama_model extends CI_Model
 
         ?>
         <div class="table-responsive py-4">
-            <table class="table table-bordered mb-0" id="data_tables" style="width:100%">
+            <table class="table table-bordered" id="example" style="width:100%">
 
                 <!-- <table id="example" class="display" style="width:100%"> -->
                     <thead>
@@ -766,7 +766,6 @@ class Kerjasama_model extends CI_Model
                             <th>Unit</th>
                             <th>Nama Kerjasama</th>
                             <th>Mitra</th>
-                            <th>Bentuk MoA</th>
                             <th>Pilihan</th>
                         </tr>
                     </thead>
@@ -789,10 +788,6 @@ class Kerjasama_model extends CI_Model
 
                                 <td>
                                     <?php echo $value->mitra ?>
-                                </td>
-
-                                <td>
-                                    <?php echo $value->nama_mou ?>
                                 </td>
 
                                 <td>

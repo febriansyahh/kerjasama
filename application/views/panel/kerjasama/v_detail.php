@@ -93,12 +93,11 @@
 </body>
 
 </html>
-
 <div id="riksmoa" class="modal fade">
-    <div class="modal-dialog modal-lg" style="padding-top: 50px;">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Data RIKS</h5>
+                <h5 class="modal-title">Detail Rincian RIKS</h5>
                 <a href="" class="close" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times" aria-hidden="true"></i>
                 </a>
             </div>
